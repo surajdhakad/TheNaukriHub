@@ -1,0 +1,161 @@
+.dashboard-card-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.dashboard-card-header h3{
+margin:0;
+font-size:22px;
+font-weight:600;
+}
+
+.dashboard-card-header span{
+font-size:14px;
+color:#666;
+}
+
+.table-user{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.table-user img{
+width:38px;
+height:38px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.dashboard-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.dashboard-table th{
+background:#2563eb;
+color:#fff;
+padding:12px;
+text-align:left;
+}
+
+.dashboard-table td{
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+.dashboard-table tr:hover{
+background:#f8f9ff;
+transition:.3s;
+}
+.status-active{
+background:#dcfce7;
+color:#166534;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+display:inline-block;
+}
+
+.dashboard-card-large{
+background:#fff;
+padding:20px;
+border-radius:12px;
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+margin-top:25px;
+overflow-x:auto;
+}
+
+.dashboard-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.dashboard-table th{
+background:#2563eb;
+color:#fff;
+padding:14px;
+font-weight:600;
+}
+
+.dashboard-table td{
+padding:14px;
+border-bottom:1px solid #eee;
+}
+
+.dashboard-table tr:hover{
+background:#f9fbff;
+}
+.status-success{
+background:#22c55e;
+color:white;
+padding:6px 14px;
+border-radius:30px;
+font-size:13px;
+font-weight:600;
+}
+
+.dashboard-card-large{
+background:#fff;
+padding:25px;
+border-radius:12px;
+box-shadow:0 3px 12px rgba(0,0,0,.08);
+margin-top:25px;
+overflow-x:auto;
+}
+
+.dashboard-card-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.dashboard-card-header h3{
+font-size:22px;
+font-weight:600;
+margin:0;
+}
+
+.dashboard-card-header span{
+font-size:14px;
+color:#666;
+}
+
+.table-user{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.table-user img{
+width:40px;
+height:40px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.dashboard-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.dashboard-table th{
+background:#2563eb;
+color:#fff;
+padding:14px;
+text-align:left;
+}
+
+.dashboard-table td{
+padding:14px;
+border-bottom:1px solid #eee;
+}
+
+.dashboard-table tr:hover{
+background:#f5f8ff;
+transition:.3s;
+}

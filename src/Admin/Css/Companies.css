@@ -1,0 +1,16 @@
+.companies-page {
+    padding: 25px;
+}
+
+.companies-page h1 {
+    font-size: 28px;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.companies-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}

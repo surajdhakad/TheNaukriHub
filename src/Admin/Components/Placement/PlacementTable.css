@@ -1,0 +1,181 @@
+/* ===========================
+   Placement Table
+=========================== */
+
+.placement-table-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 25px;
+  margin-top: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.placement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.placement-header h2 {
+  font-size: 28px;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.add-placement-btn {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.add-placement-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(37,99,235,.35);
+}
+
+/* ===========================
+   Table
+=========================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1200px;
+}
+
+thead {
+  background: #2563eb;
+  color: white;
+}
+
+thead th {
+  padding: 16px;
+  text-align: left;
+  font-size: 15px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #edf2f7;
+  transition: .25s;
+}
+
+tbody tr:hover {
+  background: #f8fbff;
+}
+
+tbody td {
+  padding: 16px;
+  color: #334155;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+/* ===========================
+   Student Photo
+=========================== */
+
+.student-photo {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2563eb;
+}
+
+/* ===========================
+   Status
+=========================== */
+
+.active {
+  background: #dcfce7;
+  color: #15803d;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.inactive {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.edit-btn,
+.delete-btn {
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 8px;
+  transition: .3s;
+}
+
+.edit-btn {
+  background: #0ea5e9;
+}
+
+.edit-btn:hover {
+  background: #0284c7;
+}
+
+.delete-btn {
+  background: #ef4444;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+/* ===========================
+   Loading
+=========================== */
+
+.loading {
+  text-align: center;
+  padding: 60px;
+  color: #2563eb;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 992px) {
+
+  .placement-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .placement-header h2 {
+    font-size: 22px;
+  }
+
+  .add-placement-btn {
+    width: 100%;
+  }
+
+}

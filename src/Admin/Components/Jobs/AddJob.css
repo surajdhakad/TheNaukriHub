@@ -1,0 +1,74 @@
+.job-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.job-modal-content{
+    width:750px;
+    background:#fff;
+    border-radius:10px;
+    padding:25px;
+}
+
+.job-modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.close-btn{
+    border:none;
+    background:none;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.form-grid input,
+.form-grid select,
+textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:6px;
+    font-size:15px;
+}
+
+textarea{
+    margin-top:15px;
+    resize:none;
+}
+
+.job-btn-group{
+    margin-top:20px;
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+}
+
+.cancel-btn{
+    padding:10px 20px;
+    border:none;
+    background:#999;
+    color:#fff;
+    cursor:pointer;
+}
+
+.save-btn{
+    padding:10px 25px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}

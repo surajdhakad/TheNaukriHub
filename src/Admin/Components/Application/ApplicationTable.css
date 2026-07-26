@@ -1,0 +1,166 @@
+/* ===========================
+   Search Header
+=========================== */
+
+.table-header{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-box{
+    width: 350px;
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    background: #fff;
+    transition: .3s;
+}
+
+.search-box:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+/* ===========================
+   Table Card
+=========================== */
+
+.table-wrapper{
+    width:100%;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    overflow-x:auto;
+}
+
+/* ===========================
+   Table
+=========================== */
+
+.application-table{
+    width:100%;
+    min-width:1100px;
+    border-collapse:collapse;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.application-table thead tr{
+    background:#2563eb;
+}
+
+.application-table thead th{
+    background:#2563eb;
+    color:#fff;
+    padding:16px;
+    text-align:left;
+    font-size:15px;
+    font-weight:600;
+    white-space:nowrap;
+    border:none;
+}
+
+/* ===========================
+   Body
+=========================== */
+
+.application-table tbody tr{
+    background:#fff;
+    transition:.3s;
+}
+
+.application-table tbody tr:hover{
+    background:#f8fafc;
+}
+
+.application-table tbody td{
+    padding:16px;
+    font-size:14px;
+    color:#334155;
+    border-bottom:1px solid #e5e7eb;
+    white-space:nowrap;
+}
+
+/* ===========================
+   Button
+=========================== */
+
+.view-btn{
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    padding:9px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:500;
+    transition:.3s;
+}
+
+.view-btn:hover{
+    background:#1d4ed8;
+}
+
+/* ===========================
+   Empty State
+=========================== */
+
+.no-data{
+    padding:40px;
+    text-align:center;
+    color:#64748b;
+    font-size:16px;
+}
+
+.table-loading{
+    padding:50px;
+    text-align:center;
+    font-size:18px;
+    color:#64748b;
+}
+
+/* ===========================
+   Scrollbar
+=========================== */
+
+.table-wrapper::-webkit-scrollbar{
+    height:8px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:20px;
+}
+
+.table-wrapper::-webkit-scrollbar-track{
+    background:#e5e7eb;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:900px){
+
+.table-header{
+    justify-content:center;
+}
+
+.search-box{
+    width:100%;
+    max-width:350px;
+}
+
+.application-table{
+    min-width:1100px;
+}
+
+}

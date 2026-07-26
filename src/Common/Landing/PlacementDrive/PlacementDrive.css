@@ -1,0 +1,43 @@
+.placement-drive{
+    width:90%;
+    margin:80px auto;
+}
+
+.drive-card{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    text-align:center;
+    transition:.35s;
+}
+
+.drive-card:hover{
+    transform:translateY(-8px);
+}
+
+.drive-card h3{
+    color:#2563eb;
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.drive-card h4{
+    margin-bottom:20px;
+}
+
+.drive-card p{
+    margin:8px 0;
+    color:#64748b;
+}
+
+.drive-card button{
+    margin-top:20px;
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    padding:12px 24px;
+    border-radius:10px;
+    cursor:pointer;
+}

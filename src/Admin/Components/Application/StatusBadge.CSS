@@ -1,0 +1,27 @@
+/* ===========================
+   Status Badge
+=========================== */
+
+.status {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pending {
+  background: #fff7d6;
+  color: #d97706;
+}
+
+.approved {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.rejected {
+  background: #fee2e2;
+  color: #dc2626;
+}

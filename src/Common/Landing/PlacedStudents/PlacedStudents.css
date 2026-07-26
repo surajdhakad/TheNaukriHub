@@ -1,0 +1,59 @@
+.placed-students{
+    width:90%;
+    margin:90px auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:42px;
+    color:#0f172a;
+    font-weight:700;
+}
+
+.section-title p{
+    margin-top:12px;
+    color:#64748b;
+    font-size:18px;
+}
+
+.loading{
+    text-align:center;
+    color:#2563eb;
+    padding:60px 0;
+    font-size:24px;
+}
+
+.placed-students .swiper{
+    padding-bottom:60px;
+}
+
+.placed-students .swiper-pagination-bullet{
+    background:#94a3b8;
+    opacity:1;
+}
+
+.placed-students .swiper-pagination-bullet-active{
+    background:#2563eb;
+    width:25px;
+    border-radius:20px;
+}
+
+.placed-students .swiper-slide{
+    padding:12px;
+}
+
+@media(max-width:768px){
+
+.section-title h2{
+    font-size:32px;
+}
+
+.section-title p{
+    font-size:15px;
+}
+
+}

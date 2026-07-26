@@ -1,0 +1,62 @@
+.dashboard-charts{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(500px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.chart-card{
+
+    background:#fff;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.chart-header{
+
+    margin-bottom:20px;
+
+}
+
+.chart-header h3{
+
+    margin:0;
+    color:#111827;
+    font-size:22px;
+
+}
+
+.chart-header p{
+
+    margin-top:6px;
+    color:#6b7280;
+    font-size:14px;
+
+}
+
+@media(max-width:1200px){
+
+.dashboard-charts{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.chart-card{
+
+padding:18px;
+
+}
+
+.chart-header h3{
+
+font-size:20px;
+
+}
+
+}

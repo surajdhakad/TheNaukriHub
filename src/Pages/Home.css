@@ -1,0 +1,709 @@
+/* ==================================================
+                GOOGLE FONT
+================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+/* ==================================================
+                  ROOT VARIABLES
+================================================== */
+.hero{
+
+background:
+linear-gradient(
+rgba(15,23,42,.78),
+rgba(29,78,216,.6)
+),
+url("../../Images/placement-bg.jpg");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+}
+:root{
+
+--primary:#2563eb;
+--primary-dark:#1d4ed8;
+--primary-light:#eff6ff;
+
+--secondary:#0f172a;
+
+--white:#fff;
+
+/* Page background: soft blue-tinted neutral instead of flat gray */
+--bg:#e9edf6;
+
+/* Alternating section surface — used to separate sections without huge gaps */
+--surface:#ffffff;
+--surface-alt:#e2e7f4;
+
+--text:#111827;
+--text-light:#64748b;
+
+--border:#e5e7eb;
+
+--radius:18px;
+
+--shadow:0 8px 25px rgba(15,23,42,.06);
+--shadow-hover:0 15px 35px rgba(15,23,42,.12);
+
+--transition:.3s ease;
+
+/* Single source of truth for vertical rhythm between sections */
+--section-padding:44px;
+--section-gap:36px;
+
+}
+
+/* ==================================================
+                  RESET
+================================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:"Inter",sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+button{
+cursor:pointer;
+font-family:inherit;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+/* ==================================================
+                  MAIN
+================================================== */
+
+#root{
+width:100%;
+min-height:100vh;
+}
+
+.home{
+width:100%;
+}
+
+/* ==================================================
+                COMMON SECTION
+================================================== */
+
+section{
+
+width:100%;
+padding:var(--section-padding) 0;
+
+}
+
+/* Alternate white / soft-blue backgrounds so sections read as separate
+   blocks without needing large empty gaps between them */
+#stats,
+#students{
+background:var(--surface-alt);
+}
+
+#jobs,
+#placement,
+#companies,
+#testimonial{
+background:var(--surface);
+}
+
+#stats,
+#jobs,
+#placement,
+#students,
+#companies,
+#testimonial{
+
+width:90%;
+max-width:1400px;
+
+margin:0 auto;
+
+}
+
+/* ==================================================
+              COMMON CONTAINER
+================================================== */
+
+.container{
+
+width:90%;
+
+max-width:1400px;
+
+margin:auto;
+
+}
+
+/* ==================================================
+            COMMON SECTION TITLE
+================================================== */
+
+.section-title{
+
+text-align:center;
+
+margin-bottom:8px;
+
+}
+
+.section-title h2{
+
+font-size:34px;
+
+font-weight:700;
+
+color:var(--secondary);
+
+margin-bottom:8px;
+
+}
+
+.section-title p{
+
+font-size:16px;
+
+color:var(--text-light);
+
+}
+
+/* ==================================================
+               COMMON CARD
+================================================== */
+
+.card{
+
+background:#fff;
+
+padding:22px;
+
+border-radius:18px;
+
+border:1px solid var(--border);
+
+box-shadow:var(--shadow);
+
+transition:var(--transition);
+
+}
+
+.card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:var(--shadow-hover);
+
+}
+
+/* ==================================================
+                BUTTONS
+================================================== */
+
+.primary-btn{
+
+border:none;
+
+background:var(--primary);
+
+color:#fff;
+
+padding:12px 24px;
+
+border-radius:10px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.primary-btn:hover{
+
+background:var(--primary-dark);
+
+}
+
+.secondary-btn{
+
+background:#fff;
+
+color:var(--primary);
+
+border:2px solid var(--primary);
+
+padding:12px 24px;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+.secondary-btn:hover{
+
+background:var(--primary);
+
+color:#fff;
+
+}
+
+/* ==================================================
+               STATS
+================================================== */
+
+.stats-section{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:20px;
+
+}
+
+/* ==================================================
+               SCROLLBAR
+================================================== */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#94a3b8;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#edf2f7;
+
+}
+/* ==================================================
+                RECENT JOBS
+================================================== */
+
+.recent-jobs{
+    width:100%;
+}
+
+.jobs-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:20px;
+}
+
+/* ==================================================
+             PLACEMENT DRIVES
+================================================== */
+
+.placement-drive{
+    width:100%;
+}
+
+.drive-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:20px;
+}
+
+/* ==================================================
+             PLACED STUDENTS
+================================================== */
+
+.selected-students{
+    width:100%;
+}
+
+.student-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+/* ==================================================
+               TESTIMONIAL
+================================================== */
+
+.testimonial{
+    width:100%;
+}
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+/* ==================================================
+            COMMON GRID CARD
+================================================== */
+
+.jobs-grid>*,
+.drive-grid>*,
+.student-grid>*,
+.testimonial-grid>*{
+
+    height:100%;
+    transition:.3s ease;
+
+}
+
+.jobs-grid>*:hover,
+.drive-grid>*:hover,
+.student-grid>*:hover,
+.testimonial-grid>*:hover{
+
+    transform:translateY(-6px);
+
+}
+
+/* ==================================================
+              EMPTY BOX
+================================================== */
+
+.empty-box{
+
+    background:#fff;
+
+    border:2px dashed #d1d5db;
+
+    border-radius:18px;
+
+    padding:40px;
+
+    text-align:center;
+
+    color:#64748b;
+
+}
+
+.empty-box h3{
+
+    color:#111827;
+
+    margin-bottom:10px;
+
+}
+
+/* ==================================================
+                BADGES
+================================================== */
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+}
+
+.badge-success{
+
+    background:#dcfce7;
+
+    color:#16a34a;
+
+}
+
+.badge-warning{
+
+    background:#fef3c7;
+
+    color:#d97706;
+
+}
+
+/* ==================================================
+              COMMON SPACING
+   (single source of truth — replaces the old double
+   margin-top that was stacking with .placement-drive /
+   .selected-students / .testimonial and causing the
+   oversized gaps between sections)
+================================================== */
+
+#jobs,
+#placement,
+#students,
+#companies,
+#testimonial{
+
+    margin-top:var(--section-gap);
+
+}
+/* ==================================================
+                    FOOTER
+================================================== */
+
+.footer{
+    margin-top:var(--section-gap);
+    background:#0f172a;
+    color:#fff;
+    padding:60px 0 25px;
+}
+
+.footer-container{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer h2{
+    font-size:28px;
+    margin-bottom:15px;
+    color:#3b82f6;
+}
+
+.footer h3{
+    font-size:18px;
+    margin-bottom:18px;
+}
+
+.footer p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:15px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.footer-links a{
+    color:#cbd5e1;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#3b82f6;
+    padding-left:6px;
+}
+
+.footer-contact p{
+    margin-bottom:10px;
+}
+
+.footer-bottom{
+    margin-top:35px;
+    padding-top:20px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.1);
+    color:#94a3b8;
+    font-size:14px;
+}
+
+/* ==================================================
+                UTILITIES
+================================================== */
+
+.text-center{
+    text-align:center;
+}
+
+.mt-20{margin-top:20px;}
+.mt-30{margin-top:30px;}
+.mt-40{margin-top:40px;}
+.mt-50{margin-top:50px;}
+
+.mb-20{margin-bottom:20px;}
+.mb-30{margin-bottom:30px;}
+.mb-40{margin-bottom:40px;}
+
+.shadow{
+    box-shadow:var(--shadow);
+}
+
+.rounded{
+    border-radius:var(--radius);
+}
+
+.bg-white{
+    background:#fff;
+}
+
+/* ==================================================
+                ANIMATION
+================================================== */
+
+section{
+    animation:fade .5s ease;
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+}
+
+/* ==================================================
+                RESPONSIVE
+================================================== */
+
+@media(max-width:992px){
+
+section{
+padding:calc(var(--section-padding) - 10px) 0;
+}
+
+.footer-container{
+grid-template-columns:repeat(2,1fr);
+}
+
+.jobs-grid,
+.drive-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.student-grid,
+.testimonial-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+section{
+padding:calc(var(--section-padding) - 15px) 0;
+}
+
+#jobs,
+#placement,
+#students,
+#companies,
+#testimonial{
+margin-top:calc(var(--section-gap) - 10px);
+}
+
+.section-title h2{
+font-size:28px;
+}
+
+.section-title p{
+font-size:15px;
+}
+
+.stats-section,
+.jobs-grid,
+.drive-grid,
+.student-grid,
+.testimonial-grid{
+grid-template-columns:1fr;
+}
+
+.footer-container{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.footer-links{
+align-items:center;
+}
+
+}
+
+@media(max-width:480px){
+
+#stats,
+#jobs,
+#placement,
+#students,
+#companies,
+#testimonial{
+
+width:95%;
+
+}
+
+.footer{
+
+padding:45px 0 20px;
+
+}
+
+.footer h2{
+
+font-size:24px;
+
+}
+
+.footer p,
+.footer a{
+
+font-size:14px;
+
+}
+
+}
+
+/* ==================================================
+                SELECTION
+================================================== */
+
+::selection{
+background:#2563eb;
+color:#fff;
+}

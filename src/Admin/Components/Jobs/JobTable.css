@@ -1,0 +1,170 @@
+/* ===========================
+   JOB TABLE
+=========================== */
+
+.job-table-container{
+    width:100%;
+    background:#fff;
+    padding:25px;
+    margin-top:25px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    overflow-x:auto;
+}
+
+/* Header */
+
+.job-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+    gap:15px;
+}
+
+.job-header h2{
+    font-size:30px;
+    color:#1e293b;
+    font-weight:700;
+}
+
+/* Add Button */
+
+.add-job-btn{
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    padding:12px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.add-job-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+/* Table */
+
+.job-table-container table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:1000px;
+}
+
+.job-table-container thead{
+    background:#f8fafc;
+}
+
+.job-table-container th{
+    padding:16px;
+    text-align:left;
+    color:#334155;
+    font-size:15px;
+    font-weight:700;
+    border-bottom:2px solid #e2e8f0;
+}
+
+.job-table-container td{
+    padding:16px;
+    color:#475569;
+    font-size:15px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.job-table-container tbody tr{
+    transition:.3s;
+}
+
+.job-table-container tbody tr:hover{
+    background:#f8fafc;
+}
+
+/* Status */
+
+.status{
+    padding:7px 15px;
+    border-radius:25px;
+    font-size:13px;
+    font-weight:600;
+    display:inline-block;
+}
+
+.status.active{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.status.inactive{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+/* Buttons */
+
+.view-btn,
+.edit-btn,
+.delete-btn{
+    border:none;
+    color:#fff;
+    padding:8px 14px;
+    margin-right:6px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:13px;
+    transition:.3s;
+}
+
+.view-btn{
+    background:#3b82f6;
+}
+
+.view-btn:hover{
+    background:#2563eb;
+}
+
+.edit-btn{
+    background:#f59e0b;
+}
+
+.edit-btn:hover{
+    background:#d97706;
+}
+
+.delete-btn{
+    background:#ef4444;
+}
+
+.delete-btn:hover{
+    background:#dc2626;
+}
+
+/* Loading */
+
+.loading{
+    text-align:center;
+    padding:40px;
+    color:#64748b;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.job-header{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.add-job-btn{
+    width:100%;
+}
+
+.job-table-container{
+    padding:15px;
+}
+
+}

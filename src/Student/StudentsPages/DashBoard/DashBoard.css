@@ -1,0 +1,109 @@
+/* ==========================
+   GLOBAL
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    padding:0;
+    background:#f8fafc;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
+
+/* ==========================
+   LAYOUT
+========================== */
+
+:root{
+    --sidebar-width:280px;
+    --navbar-height:80px;
+}
+
+.student-dashboard{
+    margin-left:var(--sidebar-width);
+    margin-top:var(--navbar-height);
+    width:calc(100% - var(--sidebar-width));
+    min-height:100vh;
+    background:#f8fafc;
+}
+
+/* Remove unwanted gap */
+
+.student-dashboard > *{
+    margin:0;
+}
+
+/* Every section */
+
+.student-dashboard section{
+    width:100%;
+    padding:60px 30px;
+}
+
+/* Stats */
+
+.stats-section{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+/* Footer */
+
+footer{
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:992px){
+
+:root{
+    --sidebar-width:240px;
+}
+
+.student-dashboard{
+    margin-left:240px;
+    width:calc(100% - 240px);
+}
+
+}
+
+@media(max-width:768px){
+
+.student-dashboard{
+    margin-left:0;
+    width:100%;
+}
+
+.student-dashboard section{
+    padding:40px 20px;
+}
+
+}
+
+@media(max-width:480px){
+
+.student-dashboard section{
+    padding:30px 15px;
+}
+
+.stats-section{
+    grid-template-columns:1fr;
+}
+
+}

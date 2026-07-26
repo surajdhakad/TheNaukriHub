@@ -1,0 +1,22 @@
+.interview-page {
+    display: flex;
+    min-height: 100vh;
+    background: #f5f7fb;
+}
+
+.interview-content {
+    flex: 1;
+    margin-left: 250px;
+    margin-top: 70px;
+    padding: 25px;
+    transition: .3s;
+}
+
+@media (max-width:768px){
+
+.interview-content{
+    margin-left:0;
+    padding:15px;
+}
+
+}

@@ -1,0 +1,297 @@
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f5f7fb;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+/* ==========================================
+   LAYOUT
+========================================== */
+
+.admin-layout{
+    display:flex;
+    min-height:100vh;
+    background:#f5f7fb;
+}
+
+.main-content{
+    margin-left:260px;
+    width:calc(100% - 260px);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+.dashboard-content{
+    padding:30px;
+}
+
+.dashboard-header{
+    margin-bottom:30px;
+}
+
+.dashboard-title{
+    font-size:34px;
+    font-weight:700;
+    color:#111827;
+}
+
+.dashboard-subtitle{
+    margin-top:8px;
+    color:#6b7280;
+    font-size:15px;
+}
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.dashboard-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+    margin-bottom:35px;
+}
+
+.dashboard-card{
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.dashboard-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:6px;
+    height:100%;
+    background:#2563eb;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+}
+
+.dashboard-card h2{
+    font-size:36px;
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.dashboard-card p{
+    color:#64748b;
+    font-size:15px;
+}
+
+/* ==========================================
+   CHARTS
+========================================== */
+
+.charts-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.chart-box{
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    min-height:380px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.chart-box:hover{
+    transform:translateY(-4px);
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.table-box{
+    margin-top:35px;
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    overflow-x:auto;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.table-box table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.table-box th{
+    background:#2563eb;
+    color:#fff;
+    text-align:left;
+    padding:15px;
+    font-size:15px;
+}
+
+.table-box td{
+    padding:15px;
+    border-bottom:1px solid #e5e7eb;
+    color:#374151;
+}
+
+.table-box tr:hover{
+    background:#f8fafc;
+}
+
+/* ==========================================
+   COLORS
+========================================== */
+
+.card-blue::before{
+    background:#2563eb;
+}
+
+.card-green::before{
+    background:#10b981;
+}
+
+.card-orange::before{
+    background:#f59e0b;
+}
+
+.card-red::before{
+    background:#ef4444;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.primary-btn{
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.primary-btn:hover{
+    background:#1d4ed8;
+}
+
+.danger-btn{
+    background:#ef4444;
+    color:#fff;
+}
+
+.success-btn{
+    background:#10b981;
+    color:#fff;
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f1f5f9;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1200px){
+
+.dashboard-cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+.charts-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:992px){
+
+.main-content{
+margin-left:0;
+width:100%;
+}
+
+.dashboard-content{
+padding:20px;
+}
+
+}
+
+@media(max-width:768px){
+
+.dashboard-title{
+font-size:28px;
+}
+
+.dashboard-subtitle{
+font-size:14px;
+}
+
+.dashboard-cards{
+grid-template-columns:1fr;
+}
+
+.chart-box{
+min-height:300px;
+padding:20px;
+}
+
+}
+
+@media(max-width:480px){
+
+.dashboard-content{
+padding:15px;
+}
+
+.dashboard-title{
+font-size:24px;
+}
+
+.dashboard-card{
+padding:20px;
+}
+
+.dashboard-card h2{
+font-size:28px;
+}
+
+}

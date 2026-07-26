@@ -1,0 +1,15 @@
+.placements-page {
+    padding: 25px;
+}
+
+.placements-page h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.placements-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 500px;
+}

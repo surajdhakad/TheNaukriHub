@@ -1,0 +1,168 @@
+/* ===========================
+   STUDENT TABLE
+=========================== */
+
+.student-table-container{
+    width:100%;
+    background:#fff;
+    padding:25px;
+    margin-top:25px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    overflow-x:auto;
+}
+
+/* Header */
+
+.table-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+    gap:15px;
+}
+
+.table-header h2{
+    font-size:30px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+/* Add Button */
+
+.add-btn{
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.add-btn:hover{
+    background:#1d4ed8;
+}
+
+/* Table */
+
+.student-table-container table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:900px;
+}
+
+.student-table-container thead{
+    background:#f8fafc;
+}
+
+.student-table-container th{
+    padding:16px;
+    text-align:left;
+    color:#334155;
+    font-size:15px;
+    font-weight:700;
+    border-bottom:2px solid #e2e8f0;
+}
+
+.student-table-container td{
+    padding:16px;
+    color:#475569;
+    font-size:15px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.student-table-container tbody tr{
+    transition:.3s;
+}
+
+.student-table-container tbody tr:hover{
+    background:#f8fafc;
+}
+
+/* Status */
+
+.status{
+    display:inline-block;
+    padding:8px 16px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.placed{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.pending{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+/* Buttons */
+
+.view,
+.edit,
+.delete{
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    color:#fff;
+    margin-right:6px;
+    transition:.3s;
+}
+
+.view{
+    background:#3b82f6;
+}
+
+.view:hover{
+    background:#2563eb;
+}
+
+.edit{
+    background:#f59e0b;
+}
+
+.edit:hover{
+    background:#d97706;
+}
+
+.delete{
+    background:#ef4444;
+}
+
+.delete:hover{
+    background:#dc2626;
+}
+
+/* Loading */
+
+.loading{
+    text-align:center;
+    padding:40px;
+    color:#64748b;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.table-header{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.add-btn{
+    width:100%;
+}
+
+.student-table-container{
+    padding:15px;
+}
+
+}

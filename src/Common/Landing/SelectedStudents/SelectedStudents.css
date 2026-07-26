@@ -1,0 +1,117 @@
+.selected-students{
+    width:100%;
+}
+
+.student-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.student-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+    transition:.3s;
+
+    border:1px solid #e5e7eb;
+
+}
+
+.student-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+.student-top{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+margin-bottom:20px;
+
+}
+
+.student-image{
+
+width:70px;
+
+height:70px;
+
+border-radius:50%;
+
+background:#2563eb;
+
+color:#fff;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:28px;
+
+font-weight:700;
+
+}
+
+.student-top h3{
+
+font-size:22px;
+
+margin-bottom:5px;
+
+color:#111827;
+
+}
+
+.student-top p{
+
+color:#64748b;
+
+}
+
+.student-details{
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+margin-bottom:20px;
+
+color:#374151;
+
+}
+
+.placed-badge{
+
+display:inline-block;
+
+background:#dcfce7;
+
+color:#16a34a;
+
+padding:8px 18px;
+
+border-radius:30px;
+
+font-size:14px;
+
+font-weight:700;
+
+}

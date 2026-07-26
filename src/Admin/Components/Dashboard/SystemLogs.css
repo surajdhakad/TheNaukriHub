@@ -1,0 +1,73 @@
+.systemlogs-page{
+    padding:30px;
+}
+
+.systemlogs-header h2{
+    font-size:28px;
+    margin-bottom:8px;
+    color:#222;
+}
+
+.systemlogs-header p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.systemlogs-card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.systemlogs-card table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.systemlogs-card th{
+    background:#2563eb;
+    color:#fff;
+    padding:16px;
+    text-align:left;
+}
+
+.systemlogs-card td{
+    padding:16px;
+    border-bottom:1px solid #eee;
+}
+
+.systemlogs-card tr:hover{
+    background:#f8f9fc;
+}
+
+.status{
+    padding:6px 14px;
+    border-radius:20px;
+    color:#fff;
+    font-size:13px;
+}
+
+.success{
+    background:#16a34a;
+}
+
+.warning{
+    background:#f59e0b;
+}
+
+.completed{
+    background:#2563eb;
+}
+
+@media(max-width:900px){
+
+.systemlogs-card{
+    overflow:auto;
+}
+
+.systemlogs-card table{
+    min-width:700px;
+}
+
+}

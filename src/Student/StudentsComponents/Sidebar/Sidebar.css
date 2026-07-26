@@ -1,0 +1,112 @@
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: #111827;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+/* Logo */
+
+.sidebar-logo{
+    padding: 30px 20px;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    cursor: pointer;
+}
+
+.sidebar-logo h2{
+    color: white;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 45px;
+}
+
+/* Menu */
+
+.sidebar-menu{
+    list-style: none;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.sidebar-menu li{
+    width: 100%;
+}
+
+.sidebar-menu button{
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #d1d5db;
+    padding: 16px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s;
+    text-align: left;
+}
+
+.sidebar-menu button:hover{
+    background: #2563eb;
+    color: white;
+}
+
+.sidebar-menu button span{
+    font-weight: 500;
+}
+
+/* Scrollbar */
+
+.sidebar::-webkit-scrollbar{
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:20px;
+}
+
+/* ==========================
+   TABLET
+========================== */
+
+@media(max-width:992px){
+
+.sidebar{
+    width:230px;
+}
+
+.sidebar-logo h2{
+    font-size:28px;
+}
+
+.sidebar-menu button{
+    font-size:15px;
+    padding:15px 18px;
+}
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.sidebar{
+    display:none;
+}
+
+}

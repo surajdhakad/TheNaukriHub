@@ -1,0 +1,131 @@
+/* Overlay */
+.company-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Modal Box */
+.company-modal-content {
+  width: 900px;
+  max-width: 95%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+.company-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.company-modal-header h2 {
+  margin: 0;
+  color: #1f2937;
+}
+
+/* Close Button */
+.close-btn {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+/* Form Grid */
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* Inputs */
+.company-grid input,
+.company-grid select,
+.company-modal textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+.company-grid input:focus,
+.company-grid select:focus,
+.company-modal textarea:focus {
+  border-color: #2563eb;
+}
+
+/* Textarea */
+.company-modal textarea {
+  margin-top: 15px;
+  resize: none;
+}
+
+/* Buttons */
+.company-btn-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.cancel-btn {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background: #4b5563;
+}
+
+.save-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .company-modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .company-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .company-btn-group {
+    flex-direction: column;
+  }
+
+  .company-btn-group button {
+    width: 100%;
+  }
+}

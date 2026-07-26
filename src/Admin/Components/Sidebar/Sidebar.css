@@ -1,0 +1,121 @@
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:260px;
+    height:100vh;
+    background:#0f172a;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:25px 18px;
+    overflow-y:auto;
+    z-index:999;
+    box-shadow:4px 0 20px rgba(0,0,0,.15);
+}
+
+/* Logo */
+
+.logo{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.logo h2{
+    color:#3b82f6;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+/* Navigation */
+
+.sidebar nav{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.sidebar nav a{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 18px;
+    border-radius:12px;
+    color:#cbd5e1;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    transition:.25s;
+}
+
+.sidebar nav a svg{
+    font-size:18px;
+}
+
+/* Hover */
+
+.sidebar nav a:hover{
+    background:#2563eb;
+    color:#fff;
+    transform:translateX(5px);
+}
+
+/* Active */
+
+.sidebar nav a.active{
+    background:#2563eb;
+    color:#fff;
+    box-shadow:0 8px 18px rgba(37,99,235,.35);
+}
+
+/* Logout */
+
+.logout-btn{
+    width:100%;
+    border:none;
+    outline:none;
+    background:#ef4444;
+    color:#fff;
+    padding:15px;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.logout-btn:hover{
+    background:#dc2626;
+    transform:translateY(-2px);
+}
+
+/* Scrollbar */
+
+.sidebar::-webkit-scrollbar{
+    width:6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+    background:#334155;
+    border-radius:10px;
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+.sidebar{
+    left:-260px;
+}
+
+}
