@@ -12,7 +12,7 @@ function Hero() {
         <p>
           NoukariHub is a training and placement platform that
           helps students and graduates learn in-demand tech
-          skills and secure high-paying jobs with top companies.
+          skills and secure high-paying jobs with top companies. nwe user
         </p>
       </div>
 
