@@ -1,1 +1,33 @@
 @import "tailwindcss";
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body,
+#root{
+    width:100%;
+    min-height:100%;
+    margin:0;
+    padding:0;
+}
+
+body{
+    overflow-x:hidden;
+    background:#f5f7fb;
+    font-family:"Poppins",sans-serif;
+}
+
+a{
+    text-decoration:none;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}

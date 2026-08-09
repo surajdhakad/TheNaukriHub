@@ -9,14 +9,17 @@ import Footer from "../Common/Landing/Footer/Footer";
 import SelectedStudents from "../Common/Landing/SelectedStudents/SelectedStudents";
 import PlacementDrive from "../Common/Landing/PlacementDrive/PlacementDrive";
 import PlacedStudents from "../Common/Landing/PlacedStudents/PlacedStudents";
+import PlacedStudent from "../Common/Landing/PlacedStudent/PlacedStudent";
+// ⭐ Background Image
+import statsBg from "../assets/Images/background-image.png";
 
 function Home() {
 
   const stats = {
     totalJobs: 120,
-    totalCompanies: 35,
-    placedStudents: 240,
-    highestPackage: 18,
+    totalBanks: 55,
+    placedStudents: 115,
+    highestPackage: 6,
   };
 
   return (
@@ -30,8 +33,18 @@ function Home() {
 
       {/* Stats */}
       <section id="stats">
-        <div className="stats-section">
-
+        <div
+          className="stats-section"
+          style={{
+            backgroundImage: `
+              linear-gradient(
+                rgba(7,10,20,.75),
+                rgba(7,10,20,.90)
+              ),
+              url(${statsBg})
+            `,
+          }}
+        >
           <StatsCard
             title="Total Jobs"
             value={stats.totalJobs}
@@ -39,8 +52,8 @@ function Home() {
           />
 
           <StatsCard
-            title="Companies"
-            value={stats.totalCompanies}
+            title="Banks"
+            value={stats.totalBanks}
             icon="🏢"
           />
 
@@ -55,7 +68,6 @@ function Home() {
             value={`${stats.highestPackage} LPA`}
             icon="💰"
           />
-
         </div>
       </section>
 
@@ -74,11 +86,11 @@ function Home() {
         <PlacedStudents />
       </section>
 
-      {/* Selected Students */}
-      <section id="students">
-        <SelectedStudents />
-      </section>
+     
 
+<section id="placed-students">
+  <PlacedStudent />
+</section>
       {/* Companies */}
       <section id="companies">
         <CompanySlider />

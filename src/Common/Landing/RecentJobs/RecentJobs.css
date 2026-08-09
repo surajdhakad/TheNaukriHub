@@ -1,112 +1,665 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+/* ==========================================
+   RECENT JOBS SECTION
+========================================== */
+
 .recent-jobs{
+
     width:100%;
-    padding:90px 7%;
-    background:linear-gradient(180deg,#f8fbff 0%,#eef5ff 100%);
+
+    /* THE FIX — .recent-overlay (inset:0) and the two glow blobs below
+       are all position:absolute. Without position:relative here, they
+       anchor to the nearest positioned ANCESTOR up the page instead of
+       this section, which is exactly why the background/overlay wasn't
+       reaching the top edge of the section. */
+    position:relative;
+
+    overflow:hidden;
+
+    padding:100px 6%;
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    /* background-attachment:fixed removed — it's computed relative to
+       the viewport, and if ANY ancestor on the page has a transform,
+       filter, or perspective set (common in this project — hover
+       transforms, blur() on the glow pseudo-elements, etc.), fixed
+       backgrounds silently reposition relative to that ancestor
+       instead, which is a common source of gaps/misalignment like
+       the one in the screenshot. Regular scroll attachment always
+       fills this element's own box edge-to-edge, guaranteed. */
+
 }
 
+.recent-container{
+
+    position:relative;
+    z-index:10;
+
+    width:100%;
+    max-width:1500px;
+
+    margin:auto;
+
+}
+
+/* ==========================================
+   DARK OVERLAY
+========================================== */
+
+.recent-overlay{
+
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(4,8,20,.75),
+        rgba(5,8,20,.88)
+    );
+
+    z-index:1;
+
+}
+
+/* ==========================================
+   RED GLOW
+========================================== */
+
+.recent-jobs::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    left:-250px;
+    top:-250px;
+
+    border-radius:50%;
+
+    background:rgba(255,60,0,.14);
+
+    filter:blur(130px);
+
+    z-index:2;
+
+    pointer-events:none;
+
+}
+
+/* ==========================================
+   BLUE GLOW
+========================================== */
+
+.recent-jobs::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:550px;
+    height:550px;
+
+    right:-180px;
+    bottom:-180px;
+
+    border-radius:50%;
+
+    background:rgba(37,99,235,.16);
+
+    filter:blur(120px);
+
+    z-index:2;
+
+    pointer-events:none;
+
+}
+
+/* ==========================================
+   SECTION TITLE
+========================================== */
+
 .section-title{
+
     text-align:center;
-    margin-bottom:60px;
+
+    margin-bottom:70px;
+
+}
+
+.section-subtitle{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    color:#ffb347;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    margin-bottom:20px;
+
 }
 
 .section-title h2{
-    font-size:42px;
+
+    color:#fff;
+
+    font-size:52px;
+
     font-weight:800;
-    color:#0f172a;
-    margin-bottom:15px;
+
+    line-height:1.1;
+
+    margin-bottom:18px;
+
     position:relative;
+
     display:inline-block;
+
 }
 
 .section-title h2::after{
+
     content:"";
+
     position:absolute;
+
     left:50%;
+    bottom:-14px;
+
     transform:translateX(-50%);
-    bottom:-12px;
-    width:90px;
+
+    width:95px;
     height:5px;
-    border-radius:20px;
-    background:linear-gradient(90deg,#2563eb,#06b6d4);
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        90deg,
+        #ff5b00,
+        #ffb347
+    );
+
 }
 
 .section-title p{
-    margin-top:25px;
-    color:#64748b;
+
+    max-width:720px;
+
+    margin:30px auto 0;
+
+    color:#d7d7d7;
+
     font-size:18px;
-    max-width:650px;
-    margin-left:auto;
-    margin-right:auto;
-    line-height:28px;
+
+    line-height:1.8;
+
 }
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.loading-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:20px;
+
+    padding:80px 0;
+
+}
+
+.loader{
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    border:4px solid rgba(255,255,255,.2);
+
+    border-top:4px solid #ff5b00;
+
+    animation:spin .8s linear infinite;
+
+}
+
+.loading-box h3{
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:500;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+/* ==========================================
+   JOBS GRID
+========================================== */
 
 .jobs-grid{
+
+    width:100%;
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
-    gap:35px;
+
+    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    gap:32px;
+
+    align-items:stretch;
+
 }
 
-.jobs-grid .job-card{
-    animation:fadeUp .6s ease;
+.jobs-grid>*{
+
+    width:100%;
+
+    animation:fadeUp .8s ease both;
+
 }
+
+/* Animation Delay */
+
+.jobs-grid>*:nth-child(1){animation-delay:.05s;}
+.jobs-grid>*:nth-child(2){animation-delay:.12s;}
+.jobs-grid>*:nth-child(3){animation-delay:.19s;}
+.jobs-grid>*:nth-child(4){animation-delay:.26s;}
+.jobs-grid>*:nth-child(5){animation-delay:.33s;}
+.jobs-grid>*:nth-child(6){animation-delay:.40s;}
+.jobs-grid>*:nth-child(7){animation-delay:.47s;}
+.jobs-grid>*:nth-child(8){animation-delay:.54s;}
+.jobs-grid>*:nth-child(9){animation-delay:.61s;}
+
+
+/* ==========================================
+   PREMIUM CARD EFFECT
+========================================== */
+
+.jobs-grid .job-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+        0 20px 60px rgba(0,0,0,.45),
+
+        inset 0 1px 0 rgba(255,255,255,.08);
+
+    transition:.45s;
+
+}
+
+
+/* Top Glow */
+
+.jobs-grid .job-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background:linear-gradient(
+        90deg,
+        #ff5b00,
+        #ffb347,
+        #2563eb
+    );
+
+}
+
+
+/* Hover */
+
+.jobs-grid .job-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:
+
+        0 35px 80px rgba(0,0,0,.55),
+
+        0 0 35px rgba(255,91,0,.18);
+
+}
+
+
+/* Image */
+
+.jobs-grid .job-card img{
+
+    transition:.45s;
+
+}
+
+.jobs-grid .job-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+
+/* Logo */
+
+.jobs-grid .company-logo{
+
+    transition:.35s;
+
+}
+
+.jobs-grid .job-card:hover .company-logo{
+
+    transform:rotate(-4deg) scale(1.08);
+
+}
+
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.empty-state{
+
+    grid-column:1/-1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:250px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+}
+
+.empty-state h3{
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================
+   FADE UP
+========================================== */
 
 @keyframes fadeUp{
 
     from{
+
         opacity:0;
-        transform:translateY(30px);
+
+        transform:
+        translateY(45px)
+        scale(.96);
+
     }
 
     to{
+
         opacity:1;
-        transform:translateY(0);
+
+        transform:
+        translateY(0)
+        scale(1);
+
     }
 
 }
+/* ==========================================
+   RESPONSIVE
+========================================== */
 
-@media(max-width:992px){
+@media (max-width:1400px){
 
 .recent-jobs{
-    padding:70px 5%;
+
+    padding:90px 5%;
 }
 
 .section-title h2{
-    font-size:34px;
-}
 
-.section-title p{
-    font-size:16px;
+    font-size:46px;
 }
 
 .jobs-grid{
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:25px;
+
+    gap:28px;
 }
 
 }
 
-@media(max-width:576px){
+@media (max-width:1200px){
 
 .recent-jobs{
-    padding:60px 20px;
+
+    padding:85px 5%;
 }
 
 .section-title{
-    margin-bottom:40px;
+
+    margin-bottom:60px;
 }
 
 .section-title h2{
+
+    font-size:40px;
+}
+
+.section-title p{
+
+    font-size:17px;
+}
+
+.jobs-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:26px;
+}
+
+}
+
+@media (max-width:992px){
+
+.section-title h2{
+
+    font-size:36px;
+}
+
+.section-title p{
+
+    max-width:650px;
+}
+
+.jobs-grid{
+
+    gap:22px;
+}
+
+}
+
+@media (max-width:768px){
+
+.recent-jobs{
+
+    padding:75px 22px;
+}
+
+.section-title{
+
+    margin-bottom:45px;
+}
+
+.section-subtitle{
+
+    font-size:12px;
+
+    padding:7px 16px;
+}
+
+.section-title h2{
+
+    font-size:32px;
+}
+
+.section-title p{
+
+    font-size:15px;
+
+    line-height:1.7;
+}
+
+.jobs-grid{
+
+    grid-template-columns:1fr;
+
+    gap:20px;
+}
+
+}
+
+@media (max-width:576px){
+
+.recent-jobs{
+
+    padding:65px 16px;
+}
+
+.section-title h2{
+
     font-size:28px;
 }
 
 .section-title p{
-    font-size:15px;
-    line-height:24px;
+
+    font-size:14px;
 }
 
 .jobs-grid{
-    grid-template-columns:1fr;
-    gap:20px;
+
+    gap:18px;
+}
+
+}
+
+@media (max-width:420px){
+
+.section-title h2{
+
+    font-size:24px;
+}
+
+.section-title p{
+
+    font-size:13px;
+}
+
+.section-subtitle{
+
+    font-size:11px;
+}
+
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion:reduce){
+
+.jobs-grid>*,
+.loader{
+
+    animation:none !important;
+
+}
+
+.jobs-grid .job-card{
+
+    transition:none !important;
+
+}
+
+.jobs-grid .job-card:hover{
+
+    transform:none;
+
+}
+
+.jobs-grid .job-card img{
+
+    transition:none;
+
 }
 
 }

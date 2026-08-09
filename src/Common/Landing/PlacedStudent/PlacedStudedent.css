@@ -1,0 +1,438 @@
+/* ===========================
+   SWIPER
+=========================== */
+
+.placed-students .swiper{
+    padding:15px 10px 60px;
+}
+
+.placed-students .swiper-slide{
+    display:flex;
+    justify-content:center;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.placed-card{
+    width:100%;
+    max-width:320px;
+    min-height:420px;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(12px);
+    border-radius:22px;
+    padding:20px;
+    border:1px solid rgba(255,255,255,.25);
+    box-shadow:0 12px 35px rgba(0,0,0,.12);
+    transition:.35s ease;
+    overflow:hidden;
+    position:relative;
+}
+
+.placed-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,rgba(13,110,253,.06),transparent);
+    pointer-events:none;
+}
+
+.placed-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 45px rgba(13,110,253,.18);
+}
+
+/* ===========================
+   TOP
+=========================== */
+
+.student-top{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+}
+
+.student-image{
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #fff;
+    box-shadow:0 6px 18px rgba(0,0,0,.15);
+}
+
+.student-top h3{
+    font-size:20px;
+    margin:0;
+    color:#16233c;
+    font-weight:700;
+}
+
+.student-top p{
+    margin-top:4px;
+    color:#6b7d97;
+    font-size:14px;
+}
+
+/* ===========================
+   COMPANY
+=========================== */
+
+.company-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:#f5f8ff;
+    border-radius:16px;
+    padding:12px;
+    margin-bottom:18px;
+}
+
+.company-box img{
+    width:52px;
+    height:52px;
+    object-fit:contain;
+    background:#fff;
+    padding:8px;
+    border-radius:12px;
+}
+
+.company-box small{
+    font-size:12px;
+    color:#7b8799;
+}
+
+.company-box h4{
+    margin-top:3px;
+    font-size:18px;
+    color:#16233c;
+}
+
+/* ===========================
+   DETAILS
+=========================== */
+
+.student-details{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.student-details div{
+    background:#f8fbff;
+    border-radius:12px;
+    padding:10px;
+    font-size:13px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    color:#334155;
+}
+
+.student-details span{
+    font-size:13px;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.placed-btn{
+    width:100%;
+    height:44px;
+    border:none;
+    border-radius:40px;
+    background:linear-gradient(90deg,#1565ff,#0099ff);
+    color:#fff;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.placed-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(21,101,255,.30);
+}
+
+/* ===========================
+   PAGINATION
+=========================== */
+
+.swiper-pagination{
+    margin-top:25px;
+}
+
+.swiper-pagination-bullet{
+    width:10px;
+    height:10px;
+    background:#ffffff;
+    opacity:.5;
+}
+
+.swiper-pagination-bullet-active{
+    width:28px;
+    border-radius:20px;
+    background:#0d6efd;
+    opacity:1;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+    .placed-heading h2{
+        font-size:30px;
+    }
+
+    .placed-card{
+        max-width:300px;
+        min-height:400px;
+    }
+
+    .student-top{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .company-box{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .student-details{
+        grid-template-columns:1fr;
+    }
+
+}
+/* ===============================
+   SWIPER
+=============================== */
+
+.placed-students .swiper{
+    width:100%;
+    padding:15px 5px 60px;
+}
+
+.placed-students .swiper-slide{
+    display:flex;
+    justify-content:center;
+}
+
+/* ===============================
+   CARD
+=============================== */
+
+.placed-card{
+
+    width:100%;
+    max-width:340px;
+    min-height:420px;
+
+    margin:auto;
+
+    border-radius:24px;
+
+    background:linear-gradient(
+    145deg,
+    rgba(255,255,255,.18),
+    rgba(255,255,255,.08));
+
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+    0 12px 35px rgba(0,0,0,.15);
+
+    transition:.45s;
+
+}
+
+.placed-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+
+@media(max-width:1400px){
+
+.placed-card{
+
+max-width:330px;
+
+}
+
+}
+
+@media(max-width:1200px){
+
+.placed-card{
+
+max-width:320px;
+
+}
+
+}
+
+@media(max-width:992px){
+
+.placed-card{
+
+max-width:310px;
+
+min-height:410px;
+
+}
+
+.student-top h3{
+
+font-size:20px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.placed-students{
+
+padding:70px 20px;
+
+}
+
+.placed-heading h2{
+
+font-size:30px;
+
+}
+
+.placed-heading p{
+
+font-size:15px;
+
+}
+
+.placed-card{
+
+max-width:320px;
+
+min-height:auto;
+
+padding:20px;
+
+}
+
+.student-top{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.company-box{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.student-details{
+
+grid-template-columns:1fr;
+
+}
+
+.student-image{
+
+width:75px;
+
+height:75px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.placed-card{
+
+max-width:290px;
+
+padding:18px;
+
+}
+
+.student-image{
+
+width:68px;
+
+height:68px;
+
+}
+
+.student-top h3{
+
+font-size:18px;
+
+}
+
+.student-top p{
+
+font-size:13px;
+
+}
+
+.company-box img{
+
+width:48px;
+
+height:48px;
+
+}
+
+.company-box h4{
+
+font-size:17px;
+
+}
+
+.student-details div{
+
+font-size:13px;
+
+padding:10px;
+
+}
+
+.placed-btn{
+
+height:42px;
+
+font-size:14px;
+
+}
+
+}
+
+@media(max-width:400px){
+
+.placed-card{
+
+max-width:270px;
+
+}
+
+}

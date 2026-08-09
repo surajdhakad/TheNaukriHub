@@ -1,67 +1,80 @@
 import "./CompanySlider.css";
+import bgImage from "../../../assets/Images/background-image.png";
 
-/*
-==================================
-ROW 1
-==================================
-*/
+// Logos
+import hdfc from "../../../assets/Images/banks-logo/hdfc.webp";
+import icici from "../../../assets/Images/banks-logo/icic.webp";
+import axis from "../../../assets/Images/banks-logo/asix.webp";
+import abc from "../../../assets/Images/banks-logo/abc.webp";
+import mahindra from "../../../assets/Images/banks-logo/mahendra-finance.webp";
+import au from "../../../assets/Images/banks-logo/au.webp";
+import idfc from "../../../assets/Images/banks-logo/idfc.webp";
+import kotak from "../../../assets/Images/banks-logo/kotak.webp";
+import equitas from "../../../assets/Images/banks-logo/equtas.webp";
+import dcb from "../../../assets/Images/banks-logo/DCB.webp";
 
-const row1 = [
-  "HDFC Bank",
-  "Axis Bank",
-  "ICICI Bank",
-  "Aditya Birla Capital",
-  "Mahindra Finance",
-  "DBS Bank",
-  "Yes Bank",
-  "Kotak Mahindra Bank",
+const firstRow = [
+  { logo: hdfc, name: "HDFC" },
+  { logo: icici, name: "ICICI" },
+  { logo: axis, name: "Axis" },
+  { logo: abc, name: "ABC" },
+  { logo: mahindra, name: "Mahindra" },
 ];
 
-/*
-==================================
-ROW 2
-==================================
-*/
-
-const row2 = [
-  "State Bank of India",
-  "Punjab National Bank",
-  "Bank of Baroda",
-  "IndusInd Bank",
-  "AU Small Finance Bank",
-  "Federal Bank",
-  "IDFC FIRST Bank",
-  "Canara Bank",
+const secondRow = [
+  { logo: kotak, name: "Kotak" },
+  { logo: idfc, name: "IDFC" },
+  { logo: au, name: "AU" },
+  { logo: equitas, name: "Equitas" },
+  { logo: dcb, name: "DCB" },
 ];
 
-function CompanySlider() {
+export default function CompanySlider() {
   return (
-    <section className="company-section">
+    <section
+      className="company-section"
+      style={{
+        background: `linear-gradient(rgba(8,15,35,.90),rgba(8,15,35,.92)), url(${bgImage}) center/cover no-repeat`,
+      }}
+    >
+      <div className="company-container">
 
-      <h2>Companies that hire through JobsHub</h2>
+        <div className="company-heading">
+          <span>OUR HIRING PARTNERS</span>
 
-      <div className="slider">
-        <div className="slide-track left">
-          {[...row1, ...row1].map((item, index) => (
-            <div className="company-card" key={index}>
-              {item}
-            </div>
-          ))}
+          <h2>Companies Hiring Through TheNaukriHub</h2>
+
+          <p>
+            Trusted Banking & Financial Companies recruiting through
+            TheNaukriHub.
+          </p>
         </div>
-      </div>
 
-      <div className="slider">
-        <div className="slide-track right">
-          {[...row2, ...row2].map((item, index) => (
-            <div className="company-card" key={index}>
-              {item}
-            </div>
-          ))}
+        <div className="slider">
+          <div className="slide-track left">
+            {[...firstRow, ...firstRow, ...firstRow, ...firstRow].map(
+              (item, index) => (
+                <div className="company-card" key={index}>
+                  <img src={item.logo} alt={item.name} />
+                </div>
+              )
+            )}
+          </div>
         </div>
-      </div>
 
+        <div className="slider">
+          <div className="slide-track right">
+            {[...secondRow, ...secondRow, ...secondRow, ...secondRow].map(
+              (item, index) => (
+                <div className="company-card" key={index}>
+                  <img src={item.logo} alt={item.name} />
+                </div>
+              )
+            )}
+          </div>
+        </div>
+
+      </div>
     </section>
   );
 }
-
-export default CompanySlider;

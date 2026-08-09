@@ -1,114 +1,378 @@
-.placement-card {
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0,0,0,.08);
-  transition: .35s;
-  border: 1px solid #edf2f7;
+/* =====================================================
+   PREMIUM PLACEMENT CARD
+===================================================== */
+
+.placement-card{
+    width:100%;
+    max-width:290px;
+    background:#fff;
+
+    border-radius:18px;
+    overflow:hidden;
+
+    border:1px solid #e2e8f0;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.08);
+
+    display:flex;
+    flex-direction:column;
+
+    transition:.35s ease;
+
+    position:relative;
+
+    margin:0 auto;
 }
 
 .placement-card:hover{
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px rgba(37,99,235,.18);
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(37,99,235,.18);
 }
 
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
 .placement-image{
-  width:100%;
-  height:250px;
-  overflow:hidden;
-  background:#f8fafc;
+
+    position:relative;
+
+    width:100%;
+
+    height:160px;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        #eef4ff,
+        #dbeafe
+    );
+
 }
 
 .placement-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.4s;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:center top;
+
+    transition:.45s ease;
+
 }
 
-.placement-card:hover img{
-  transform:scale(1.08);
+.placement-card:hover .placement-image img{
+
+    transform:scale(1.08);
+
 }
+
+.placement-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:70px;
+
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,.45)
+    );
+
+}
+
+
+/* =====================================================
+   COMPANY BADGE
+===================================================== */
+
+.company-badge{
+
+    position:absolute;
+
+    left:12px;
+
+    bottom:12px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:6px 14px;
+
+    border-radius:40px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    z-index:5;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    max-width:82%;
+
+    transition:.35s;
+
+    box-shadow:0 8px 20px rgba(37,99,235,.25);
+
+}
+
+.placement-card:hover .company-badge{
+
+    background:#ff7a00;
+
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
 
 .placement-body{
-  padding:22px;
+
+    padding:14px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    flex:1;
+
 }
 
 .placement-body h3{
-  font-size:24px;
-  color:#0f172a;
-  margin-bottom:6px;
+
+    margin:0;
+
+    font-size:19px;
+
+    font-weight:800;
+
+    color:#0f172a;
+
+    line-height:1.3;
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+    text-overflow:ellipsis;
+
 }
 
-.placement-body h4{
-  color:#2563eb;
-  font-size:18px;
-  margin-bottom:15px;
-}
+
+/* =====================================================
+   DESIGNATION
+===================================================== */
 
 .designation{
-  background:#eff6ff;
-  color:#2563eb;
-  padding:10px 14px;
-  border-radius:10px;
-  display:inline-block;
-  font-weight:600;
-  margin-bottom:18px;
+
+    width:max-content;
+
+    background:#eef4ff;
+
+    color:#2563eb;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    transition:.3s;
+
 }
 
-.placement-info{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:15px;
-  gap:10px;
+.placement-card:hover .designation{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+/* =====================================================
+   DETAILS
+===================================================== */
+
+.placement-details{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:8px;
+
 }
 
-.placement-info span{
-  flex:1;
-  text-align:center;
-  background:#f8fafc;
-  padding:12px;
-  border-radius:10px;
-  font-weight:600;
-  color:#334155;
+.placement-details div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px;
+
+    border-radius:12px;
+
+    background:#f8fafc;
+
+    border:1px solid #e2e8f0;
+
+    transition:.3s;
+
+    min-height:46px;
+
 }
 
-.placement-extra{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:18px;
+.placement-details div:hover{
+
+    background:#eef4ff;
+
+    border-color:#2563eb;
+
+    transform:translateY(-2px);
+
 }
 
-.placement-extra span{
-  flex:1;
-  background:#ecfeff;
-  color:#0891b2;
-  padding:10px;
-  text-align:center;
-  border-radius:10px;
-  font-weight:600;
+.placement-details span{
+
+    width:28px;
+
+    height:28px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#fff;
+
+    box-shadow:0 3px 8px rgba(0,0,0,.08);
+
+    font-size:13px;
+
+    flex-shrink:0;
+
 }
 
-.placement-year{
-  background:linear-gradient(90deg,#2563eb,#3b82f6);
-  color:#fff;
-  text-align:center;
-  padding:14px;
-  border-radius:12px;
-  font-size:15px;
-  font-weight:600;
+.placement-details p{
+
+    margin:0;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    color:#334155;
+
+    line-height:1.25;
+
+    overflow:hidden;
+
+    display:-webkit-box;
+
+    -webkit-line-clamp:2;
+
+    -webkit-box-orient:vertical;
+
+    word-break:break-word;
+
 }
 
-@media(max-width:768px){
 
-.placement-info,
-.placement-extra{
-    flex-direction:column;
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.placement-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:auto;
+
+    padding-top:12px;
+
+    border-top:1px solid #edf2f7;
+
 }
 
-.placement-image{
-    height:220px;
+.placement-footer span{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:700;
+
 }
+
+.placement-footer button{
+
+    border:none;
+
+    outline:none;
+
+    background:linear-gradient(
+        135deg,
+        #ff8a00,
+        #ff6b00
+    );
+
+    color:#fff;
+
+    padding:8px 18px;
+
+    border-radius:10px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.placement-footer button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(255,122,0,.30);
 
 }

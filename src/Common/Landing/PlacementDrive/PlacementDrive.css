@@ -1,43 +1,207 @@
-.placement-drive{
-    width:90%;
-    margin:80px auto;
-}
+/* ==========================================
+   CARD
+========================================== */
 
 .drive-card{
-    background:#fff;
-    border-radius:18px;
-    padding:30px;
-    border:1px solid #e5e7eb;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    text-align:center;
-    transition:.35s;
+    position: relative;
+    width: 100%;
+    min-height: 430px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background: #111827;
+
+    transition: .35s;
+
+    box-shadow: 0 20px 45px rgba(0,0,0,.30);
 }
 
 .drive-card:hover{
-    transform:translateY(-8px);
+    transform: translateY(-12px);
+    box-shadow: 0 35px 70px rgba(0,0,0,.45);
+}
+/* ==========================================
+   IMAGE AREA
+========================================== */
+
+.drive-image{
+    position: relative;
+
+    width: 100%;
+    height: 190px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #eef3ff;
+
+    flex-shrink: 0;
 }
 
-.drive-card h3{
-    color:#2563eb;
-    font-size:24px;
-    margin-bottom:10px;
+.drive-image::before{
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,.05),
+        rgba(0,0,0,.20)
+    );
 }
 
-.drive-card h4{
-    margin-bottom:20px;
+.drive-image::after{
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 70px;
+
+    background: linear-gradient(
+        transparent,
+        #111827
+    );
+}
+/* ==========================================
+   CARD CONTENT
+========================================== */
+
+.drive-content{
+    position: relative;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 24px;
+
+    background: linear-gradient(
+        180deg,
+        rgba(17,24,39,.96),
+        rgba(10,14,22,1)
+    );
+
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+/* ==========================================
+   DETAILS
+========================================== */
+
+.details{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px 12px;
+
+    margin:20px 0 25px;
 }
 
-.drive-card p{
-    margin:8px 0;
-    color:#64748b;
+.details div{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    color:#d6dce8;
+
+    font-size:15px;
+    font-weight:500;
+
+    transition:.3s;
 }
 
-.drive-card button{
-    margin-top:20px;
-    background:#2563eb;
+.details div:hover{
     color:#fff;
+    transform:translateX(4px);
+}
+/* ==========================================
+   APPLY BUTTON
+========================================== */
+
+.apply-btn{
+    margin-top:auto;
+
+    width:100%;
+    height:56px;
+
     border:none;
-    padding:12px 24px;
-    border-radius:10px;
+    outline:none;
+
+    border-radius:16px;
+
     cursor:pointer;
+
+    font-size:18px;
+    font-weight:700;
+    color:#fff;
+
+    background:linear-gradient(
+        90deg,
+        #ff8a00,
+        #ff6a00
+    );
+
+    transition:.35s;
+}
+
+.apply-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(255,136,0,.45);
+}
+/* ==========================================
+   SWIPER
+========================================== */
+
+.placement-drive .swiper{
+    width:100%;
+    padding:15px 10px 70px;
+    overflow:visible;
+}
+
+.placement-drive .swiper-wrapper{
+    align-items:stretch;
+}
+
+.placement-drive .swiper-slide{
+    display:flex;
+    height:auto;
+}
+
+.placement-drive .swiper-slide .drive-card{
+    width:100%;
+}
+.drive-content{
+    height:240px;
+}
+
+.drive-content{
+    height:230px;
+}
+
+.drive-card{
+    height:410px;
+}
+
+.drive-card{
+    height:400px;
+}
+
+.drive-card{
+    height:390px;
+}
+
+.drive-card{
+    height:380px;
 }

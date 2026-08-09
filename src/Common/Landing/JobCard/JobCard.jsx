@@ -1,6 +1,9 @@
 import "./JobCard.css";
 import { useNavigate } from "react-router-dom";
 
+// Background Image
+import jobBg from "../../../assets/Images/hero-image.png";
+
 function JobCard({ job }) {
   const navigate = useNavigate();
 
@@ -8,91 +11,86 @@ function JobCard({ job }) {
     const token = localStorage.getItem("token");
     const user = JSON.parse(localStorage.getItem("user"));
 
-    // User not logged in
     if (!token || !user) {
       navigate("/login", {
-        state: {
-          from: "/student/jobs",
-        },
+        state: { from: "/student/jobs" },
       });
       return;
     }
 
-    // Student Login
-    if (user.role === "student") {
-      navigate("/student/jobs");
-      return;
-    }
-
-    // Admin Login
     if (user.role === "admin") {
       alert("Admin cannot apply for jobs.");
       return;
     }
 
-    navigate("/login");
+    navigate("/student/jobs");
   };
 
   return (
-    <div className="job-card">
+    <div
+      className="bank-card"
+      style={{
+        backgroundImage: `linear-gradient(rgba(8,20,45,.82),rgba(8,20,45,.92)), url(${jobBg})`,
+      }}
+    >
+      {/* Top Section */}
+      <div className="bank-card-top">
+        <img
+          src={job.companyLogo || "/images/default-company.png"}
+          alt={job.company}
+          className="bank-logo"
+        />
+      </div>
 
-      <div className="job-top">
+      {/* Body */}
+      <div className="bank-card-body">
 
-        <div className="company-logo">
-          {(job.company || "N").charAt(0).toUpperCase()}
+        <div className="job-tag">
+          🚀 Hiring Now
         </div>
 
-        <div className="company-info">
-          <h3>{job.company || "N/A"}</h3>
-          <p>{job.title}</p>
+        <h2>{job.title}</h2>
+
+        <ul className="bank-details">
+
+          <li>
+            <span>📍</span>
+            {job.location || "Pan India"}
+          </li>
+
+          <li>
+            <span>💰</span>
+            {job.package || "Best Package"}
+          </li>
+
+          <li>
+            <span>💼</span>
+            {job.jobType || job.type || "Full Time"}
+          </li>
+
+        </ul>
+
+        <div className="bank-footer">
+
+          <div className="deadline">
+
+            <small>Last Date</small>
+
+            <strong>
+              {job.deadline
+                ? job.deadline
+                : new Date(job.lastDate).toLocaleDateString()}
+            </strong>
+
+          </div>
+
+          <button onClick={handleApply}>
+            Apply Now →
+          </button>
+
         </div>
 
       </div>
-
-      <div className="job-details">
-
-        <span>📍 {job.location}</span>
-
-        <span>💰 {job.package}</span>
-
-        <span>🧑‍💻 {job.jobType || job.type}</span>
-
-      </div>
-
-      <div className="job-skills">
-
-        {job.skills && job.skills.length > 0 ? (
-
-          job.skills.map((skill, index) => (
-            <span key={index}>{skill}</span>
-          ))
-
-        ) : (
-
-          <span>No Skills</span>
-
-        )}
-
-      </div>
-
-      <div className="job-footer">
-
-        <p>
-          Last Date :
-          <strong>
-            {" "}
-            {job.deadline
-              ? job.deadline
-              : new Date(job.lastDate).toLocaleDateString()}
-          </strong>
-        </p>
-
-        <button onClick={handleApply}>
-          Apply Now
-        </button>
-
-      </div>
-
     </div>
   );
 }

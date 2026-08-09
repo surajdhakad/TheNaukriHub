@@ -1,12 +1,44 @@
 import "./Navbar.css";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import {
+  FaSearch,
+  FaBars,
+  FaTimes
+} from "react-icons/fa";
 
 function Navbar() {
 
   const navigate = useNavigate();
 
+  const [logo, setLogo] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const user = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    fetchWebsiteSettings();
+  }, []);
+
+  const fetchWebsiteSettings = async () => {
+
+    try {
+
+      const res = await axios.get(
+        "http://localhost:8087/api/settings/public"
+      );
+
+      if (res.data.success) {
+        setLogo(res.data.logo);
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
 
   const handleLogout = () => {
 
@@ -19,73 +51,95 @@ function Navbar() {
 
   return (
 
-    <header className="navbar">
+    <header className="landing-navbar">
 
-      {/* Left */}
+      {/* Logo */}
 
-      <div className="navbar-left">
+      <div className="navbar-logo">
 
-        <h2>NoukariHub</h2>
+        <Link to="/">
 
-        <p>
-          Welcome back,
-          <strong> {user ? user.name : "Guest"} 👋</strong>
-        </p>
+          {logo ? (
+
+            <img
+              src={logo}
+              alt="TheNaukriHub"
+            />
+
+          ) : (
+
+            <h2>
+              <span>THE</span>NaukriHub
+            </h2>
+
+          )}
+
+        </Link>
 
       </div>
+            {/* ================= MENU ================= */}
 
-      {/* Right */}
+      <nav className={`navbar-menu ${menuOpen ? "active" : ""}`}>
+
+        <Link
+          to="/"
+          onClick={() => setMenuOpen(false)}
+        >
+          Home
+        </Link>
+
+        <Link
+          to="/jobs"
+          onClick={() => setMenuOpen(false)}
+        >
+          Jobs
+        </Link>
+
+        <Link
+          to="/companies"
+          onClick={() => setMenuOpen(false)}
+        >
+          Banks
+        </Link>
+
+        <Link
+          to="/about"
+          onClick={() => setMenuOpen(false)}
+        >
+          About Us
+        </Link>
+
+        <Link
+          to="/contact"
+          onClick={() => setMenuOpen(false)}
+        >
+          Contact
+        </Link>
+
+      </nav>
+
+      {/* ================= RIGHT ================= */}
 
       <div className="navbar-right">
 
-        <div className="search-box">
-
-          <input
-            type="text"
-            placeholder="Search jobs..."
-          />
-
-        </div>
-
-        <div className="notification">
-
-          🔔
-
-          <span className="badge">3</span>
-
-        </div>
-
-        <button className="about-btn">
-
-          Jobs Hub
-
+        <button className="search-icon">
+          <FaSearch />
         </button>
 
-        {/* If Logged In */}
-
         {token ? (
-
           <>
-
             <div className="profile">
-
               {user?.name?.charAt(0).toUpperCase()}
-
             </div>
 
             <button
               className="logout-btn"
               onClick={handleLogout}
             >
-
               Logout
-
             </button>
-
           </>
-
         ) : (
-
           <>
             <Link to="/login">
               <button className="login-btn">
@@ -99,8 +153,15 @@ function Navbar() {
               </button>
             </Link>
           </>
-
         )}
+                {/* ================= MOBILE MENU ================= */}
+
+        <button
+          className="menu-icon"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
 
       </div>
 
