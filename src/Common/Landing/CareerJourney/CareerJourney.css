@@ -1,0 +1,658 @@
+/* =========================================================
+   CAREER JOURNEY SECTION
+========================================================= */
+
+.career-journey-section {
+  width: 100%;
+  min-height: 650px;
+
+  position: relative;
+
+  padding: 0 0 0;
+
+  background:
+    linear-gradient(
+      110deg,
+      #3d5bea 0%,
+      #3d52e8 45%,
+      #4437c8 100%
+    );
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND CIRCLES
+========================================================= */
+
+.journey-bg-circle {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+
+.journey-circle-one {
+  width: 420px;
+  height: 420px;
+
+  right: -160px;
+  top: -100px;
+
+  background: rgba(255, 255, 255, 0.055);
+}
+
+
+.journey-circle-two {
+  width: 330px;
+  height: 330px;
+
+  left: -180px;
+  bottom: -180px;
+
+  background: rgba(255, 255, 255, 0.035);
+}
+
+
+/* =========================================================
+   TOP STATS CARD
+========================================================= */
+
+.career-stats {
+  width: calc(100% - 19%);
+
+  max-width: 1600px;
+
+  margin: 0 auto;
+
+  min-height: 200px;
+
+  background: #ffffff;
+
+  border-radius: 0 0 28px 28px;
+
+  box-shadow:
+    0 15px 40px rgba(20, 35, 90, 0.15);
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  align-items: center;
+
+  padding: 25px 45px;
+
+  position: relative;
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   STAT ITEM
+========================================================= */
+
+.career-stat {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  min-height: 85px;
+
+  position: relative;
+}
+
+
+.career-stat:not(:last-child)::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+
+  top: 8px;
+
+  width: 1px;
+
+  height: 78px;
+
+  background: #d8dce7;
+}
+
+
+/* =========================================================
+   STAT ICON
+========================================================= */
+
+.career-stat-icon {
+  width: 100px;
+  height: 100px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 43px;
+
+  font-weight: 700;
+
+  color: #111111;
+
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+
+.career-stat-icon.blue {
+  background: #e0e9ff;
+}
+
+
+.career-stat-icon.green {
+  background: #d8f8df;
+}
+
+
+.career-stat-icon.yellow {
+  background: #fff3c8;
+}
+
+
+/* =========================================================
+   STAT CONTENT
+========================================================= */
+
+.career-stat-content h3 {
+  margin: 0;
+
+  color: #101728;
+
+  font-size: 32px;
+
+  line-height: 1.05;
+
+  font-weight: 800;
+
+  letter-spacing: -0.7px;
+}
+
+
+.career-stat-content p {
+  margin: 6px 0 0;
+
+  color: #73809a;
+
+  font-size: 19px;
+
+  line-height: 1.2;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   JOURNEY HEADING
+========================================================= */
+
+.journey-heading {
+  position: relative;
+
+  z-index: 2;
+
+  padding-top: 62px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+}
+
+
+.journey-heading h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 30px;
+
+  line-height: 1.25;
+
+  font-weight: 750;
+
+  text-align: center;
+}
+
+
+.journey-line {
+  width: 115px;
+
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.45);
+}
+
+
+/* =========================================================
+   JOURNEY STEPS
+========================================================= */
+
+.journey-steps {
+  position: relative;
+
+  z-index: 2;
+
+  width: 92%;
+
+  max-width: 1500px;
+
+  margin: 65px auto 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 20px;
+}
+
+
+.journey-step {
+  text-align: center;
+
+  position: relative;
+
+  padding: 0 10px;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.journey-icon {
+  width: 90px;
+  height: 90px;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+
+  font-size: 48px;
+
+  font-weight: 400;
+
+  border: 3px solid rgba(255, 255, 255, 0.95);
+
+  border-radius: 20px;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   STEP TITLE
+========================================================= */
+
+.journey-step h3 {
+  margin: 0 0 7px;
+
+  color: #ffffff;
+
+  font-size: 21px;
+
+  line-height: 1.25;
+
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   STEP DESCRIPTION
+========================================================= */
+
+.journey-step p {
+  max-width: 220px;
+
+  margin: 0 auto;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 17px;
+
+  line-height: 1.35;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   BOTTOM TRUST BAR
+========================================================= */
+
+.journey-trust-bar {
+  width: 100%;
+
+  min-height: 80px;
+
+  margin-top: 38px;
+
+  padding: 0 8%;
+
+  background: rgba(255, 255, 255, 0.09);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 38px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+.trust-item {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 11px;
+
+  color: #ffffff;
+
+  font-size: 21px;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+
+.trust-icon {
+  font-size: 25px;
+
+  color: #ffffff;
+}
+
+
+.trust-divider {
+  width: 1px;
+
+  height: 25px;
+
+  background: rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .career-stats {
+    width: 92%;
+
+    padding: 22px 25px;
+  }
+
+  .career-stat {
+    gap: 12px;
+  }
+
+  .career-stat-icon {
+    width: 75px;
+    height: 75px;
+
+    font-size: 34px;
+  }
+
+  .career-stat-content h3 {
+    font-size: 25px;
+  }
+
+  .career-stat-content p {
+    font-size: 16px;
+  }
+
+  .journey-steps {
+    width: 95%;
+
+    gap: 8px;
+  }
+
+  .journey-step h3 {
+    font-size: 18px;
+  }
+
+  .journey-step p {
+    font-size: 15px;
+  }
+
+  .journey-icon {
+    width: 75px;
+    height: 75px;
+
+    font-size: 38px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .career-stats {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    border-radius: 0 0 22px 22px;
+  }
+
+  .career-stat:nth-child(2)::after {
+    display: none;
+  }
+
+  .career-stat:nth-child(3)::after {
+    display: none;
+  }
+
+  .journey-steps {
+    grid-template-columns: repeat(3, 1fr);
+
+    row-gap: 45px;
+  }
+
+  .journey-trust-bar {
+    gap: 18px;
+  }
+
+  .trust-item {
+    font-size: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .career-journey-section {
+    min-height: auto;
+  }
+
+
+  /* Stats */
+
+  .career-stats {
+    width: 94%;
+
+    grid-template-columns: 1fr;
+
+    padding: 20px;
+
+    gap: 0;
+  }
+
+  .career-stat {
+    justify-content: flex-start;
+
+    padding: 15px 5px;
+
+    min-height: 80px;
+  }
+
+  .career-stat:not(:last-child)::after {
+    display: none;
+  }
+
+  .career-stat:not(:last-child) {
+    border-bottom: 1px solid #e2e5ec;
+  }
+
+  .career-stat-icon {
+    width: 65px;
+    height: 65px;
+
+    font-size: 30px;
+  }
+
+  .career-stat-content h3 {
+    font-size: 24px;
+  }
+
+  .career-stat-content p {
+    font-size: 15px;
+  }
+
+
+  /* Heading */
+
+  .journey-heading {
+    padding: 48px 20px 0;
+
+    gap: 12px;
+  }
+
+  .journey-heading h2 {
+    font-size: 24px;
+  }
+
+  .journey-line {
+    display: none;
+  }
+
+
+  /* Steps */
+
+  .journey-steps {
+    width: 90%;
+
+    grid-template-columns: 1fr;
+
+    margin-top: 45px;
+
+    gap: 42px;
+  }
+
+  .journey-step {
+    padding: 0;
+  }
+
+  .journey-icon {
+    width: 78px;
+    height: 78px;
+
+    margin-bottom: 18px;
+  }
+
+  .journey-step h3 {
+    font-size: 20px;
+  }
+
+  .journey-step p {
+    font-size: 16px;
+  }
+
+
+  /* Trust */
+
+  .journey-trust-bar {
+    margin-top: 45px;
+
+    padding: 25px 15px;
+
+    flex-direction: column;
+
+    gap: 16px;
+  }
+
+  .trust-divider {
+    width: 70px;
+
+    height: 1px;
+  }
+
+  .trust-item {
+    font-size: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .career-stat-content h3 {
+    font-size: 22px;
+  }
+
+  .career-stat-content p {
+    font-size: 14px;
+  }
+
+  .journey-heading h2 {
+    font-size: 21px;
+  }
+
+  .journey-step h3 {
+    font-size: 18px;
+  }
+
+}
