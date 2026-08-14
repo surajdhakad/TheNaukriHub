@@ -1,166 +1,351 @@
 import "./Navbar.css";
-import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "axios";
+
 import {
-  FaSearch,
+  Link,
+  useNavigate,
+} from "react-router-dom";
+
+import {
+  useState,
+} from "react";
+
+import {
   FaBars,
-  FaTimes
+  FaTimes,
+  FaUser,
+  FaBriefcase,
+  FaBuilding,
+  FaInfoCircle,
+  FaPhoneAlt,
 } from "react-icons/fa";
+
+// =====================================================
+// LOGO
+// =====================================================
+import logo from "../../../assets/Images/logo.png";
+
 
 function Navbar() {
 
   const navigate = useNavigate();
 
-  const [logo, setLogo] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const user = JSON.parse(localStorage.getItem("user"));
+
+  // =====================================================
+  // LOGIN USER
+  // =====================================================
+
   const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    fetchWebsiteSettings();
-  }, []);
+  let user = null;
 
-  const fetchWebsiteSettings = async () => {
+  try {
 
-    try {
+    user = JSON.parse(
+      localStorage.getItem("user")
+    );
 
-      const res = await axios.get(
-        "http://localhost:8087/api/settings/public"
-      );
+  } catch (error) {
 
-      if (res.data.success) {
-        setLogo(res.data.logo);
-      }
+    user = null;
 
-    } catch (error) {
-      console.log(error);
-    }
+  }
+
+
+  // =====================================================
+  // CLOSE MOBILE MENU
+  // =====================================================
+
+  const closeMenu = () => {
+
+    setMenuOpen(false);
 
   };
+
+
+  // =====================================================
+  // NAVIGATION
+  // =====================================================
+
+  const handleHome = () => {
+    closeMenu();
+    navigate("/");
+  };
+
+  const handleJobs = () => {
+    closeMenu();
+    navigate("/jobs");
+  };
+
+  const handleBanks = () => {
+    closeMenu();
+    navigate("/banks");
+  };
+
+  const handleAbout = () => {
+    closeMenu();
+    navigate("/about");
+  };
+
+  const handleContact = () => {
+    closeMenu();
+    navigate("/contact");
+  };
+
+
+  // =====================================================
+  // LOGOUT
+  // =====================================================
 
   const handleLogout = () => {
 
     localStorage.removeItem("token");
     localStorage.removeItem("user");
 
+    closeMenu();
+
     navigate("/login");
 
   };
+
+
+  // =====================================================
+  // PROFILE
+  // =====================================================
+
+  const handleProfile = () => {
+
+    closeMenu();
+
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
+    if (user.role === "admin") {
+      navigate("/admin/dashboard");
+      return;
+    }
+
+    navigate("/student/profile");
+
+  };
+
+
+  // =====================================================
+  // RENDER
+  // =====================================================
 
   return (
 
     <header className="landing-navbar">
 
-      {/* Logo */}
+
+      {/* =================================================
+          LOGO
+      ================================================= */}
 
       <div className="navbar-logo">
 
-        <Link to="/">
+        <Link
+          to="/"
+          onClick={closeMenu}
+        >
 
-          {logo ? (
-
-            <img
-              src={logo}
-              alt="TheNaukriHub"
-            />
-
-          ) : (
-
-            <h2>
-              <span>THE</span>NaukriHub
-            </h2>
-
-          )}
+          <img
+            src={logo}
+            alt="THE NaukriHub"
+            className="navbar-logo-img"
+          />
 
         </Link>
 
       </div>
-            {/* ================= MENU ================= */}
 
-      <nav className={`navbar-menu ${menuOpen ? "active" : ""}`}>
 
-        <Link
-          to="/"
-          onClick={() => setMenuOpen(false)}
+      {/* =================================================
+          NAVIGATION
+      ================================================= */}
+
+      <nav
+        className={`navbar-menu ${
+          menuOpen ? "active" : ""
+        }`}
+      >
+
+        <button
+          type="button"
+          className="nav-link-btn"
+          onClick={handleHome}
         >
-          Home
-        </Link>
+          <span className="nav-icon">
+            <FaInfoCircle />
+          </span>
 
-        <Link
-          to="/jobs"
-          onClick={() => setMenuOpen(false)}
-        >
-          Jobs
-        </Link>
+          <span>Home</span>
+        </button>
 
-        <Link
-          to="/companies"
-          onClick={() => setMenuOpen(false)}
-        >
-          Banks
-        </Link>
 
-        <Link
-          to="/about"
-          onClick={() => setMenuOpen(false)}
+        <button
+          type="button"
+          className="nav-link-btn"
+          onClick={handleJobs}
         >
-          About Us
-        </Link>
+          <span className="nav-icon">
+            <FaBriefcase />
+          </span>
 
-        <Link
-          to="/contact"
-          onClick={() => setMenuOpen(false)}
+          <span>Jobs</span>
+        </button>
+
+
+        <button
+          type="button"
+          className="nav-link-btn"
+          onClick={handleBanks}
         >
-          Contact
-        </Link>
+          <span className="nav-icon">
+            <FaBuilding />
+          </span>
+
+          <span>Banks</span>
+        </button>
+
+
+        <button
+          type="button"
+          className="nav-link-btn"
+          onClick={handleAbout}
+        >
+          <span className="nav-icon">
+            <FaInfoCircle />
+          </span>
+
+          <span>About Us</span>
+        </button>
+
+
+        <button
+          type="button"
+          className="nav-link-btn"
+          onClick={handleContact}
+        >
+          <span className="nav-icon">
+            <FaPhoneAlt />
+          </span>
+
+          <span>Contact</span>
+        </button>
 
       </nav>
 
-      {/* ================= RIGHT ================= */}
+
+      {/* =================================================
+          RIGHT SIDE
+      ================================================= */}
 
       <div className="navbar-right">
 
-        <button className="search-icon">
-          <FaSearch />
-        </button>
-
         {token ? (
+
           <>
-            <div className="profile">
-              {user?.name?.charAt(0).toUpperCase()}
-            </div>
+
+            {/* PROFILE */}
 
             <button
+              type="button"
+              className="profile"
+              onClick={handleProfile}
+              title="Profile"
+            >
+
+              {user?.name
+                ? user.name
+                    .charAt(0)
+                    .toUpperCase()
+                : <FaUser />
+              }
+
+            </button>
+
+
+            {/* USER NAME */}
+
+            <button
+              type="button"
+              className="user-name-btn"
+              onClick={handleProfile}
+            >
+
+              {user?.name || "Profile"}
+
+            </button>
+
+
+            {/* LOGOUT */}
+
+            <button
+              type="button"
               className="logout-btn"
               onClick={handleLogout}
             >
+
               Logout
+
             </button>
+
           </>
+
         ) : (
+
           <>
-            <Link to="/login">
-              <button className="login-btn">
-                Login
-              </button>
+
+            {/* LOGIN */}
+
+            <Link
+              to="/login"
+              className="login-btn"
+              onClick={closeMenu}
+            >
+              Login
             </Link>
 
-            <Link to="/signup">
-              <button className="signup-btn">
-                Signup
-              </button>
+
+            {/* SIGNUP */}
+
+            <Link
+              to="/signup"
+              className="signup-btn"
+              onClick={closeMenu}
+            >
+              Signup
             </Link>
+
           </>
+
         )}
-                {/* ================= MOBILE MENU ================= */}
+
+
+        {/* =================================================
+            MOBILE MENU
+        ================================================= */}
 
         <button
+          type="button"
           className="menu-icon"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => {
+            setMenuOpen((prev) => !prev);
+          }}
+          aria-label="Toggle navigation"
+          aria-expanded={menuOpen}
         >
-          {menuOpen ? <FaTimes /> : <FaBars />}
+
+          {menuOpen
+            ? <FaTimes />
+            : <FaBars />
+          }
+
         </button>
 
       </div>
@@ -168,6 +353,7 @@ function Navbar() {
     </header>
 
   );
+
 }
 
 export default Navbar;

@@ -1,0 +1,832 @@
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.how-it-works {
+  width: 100%;
+
+  background: #ffffff;
+
+  padding: 75px 6% 80px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.how-it-works-container {
+  width: 100%;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1.05fr 0.95fr;
+
+  gap: 70px;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.how-it-works-left {
+  width: 100%;
+}
+
+
+.how-it-works-title {
+  margin: 0 0 28px;
+
+  color: #424853;
+
+  font-size: 42px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   STEPS
+========================================================= */
+
+.how-it-works-steps {
+  width: 100%;
+}
+
+
+/* =========================================================
+   SINGLE STEP
+========================================================= */
+
+.how-step {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 58px 1fr;
+
+  gap: 25px;
+
+  min-height: 188px;
+}
+
+
+/* =========================================================
+   VERTICAL DOTTED LINE
+========================================================= */
+
+.how-step:not(.last-how-step)::after {
+  content: "";
+
+  position: absolute;
+
+  left: 28px;
+
+  top: 58px;
+
+  height: 130px;
+
+  border-left: 3px dotted #c0c9e8;
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.how-step-number {
+  position: relative;
+
+  z-index: 2;
+
+  width: 58px;
+
+  height: 58px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #eef0f4;
+
+  color: #64708a;
+
+  font-size: 19px;
+
+  font-weight: 500;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   ACTIVE NUMBER
+========================================================= */
+
+.active-number {
+  background: #4659ba;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 0 0 5px rgba(70, 89, 186, 0.08);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.how-step-content {
+  padding-top: 8px;
+
+  padding-right: 20px;
+}
+
+
+.how-step-content h3 {
+  margin: 0;
+
+  color: #2d333d;
+
+  font-size: 23px;
+
+  line-height: 1.35;
+
+  font-weight: 700;
+}
+
+
+.active-step .how-step-content h3 {
+  color: #4659ba;
+}
+
+
+.how-step-content p {
+  margin: 12px 0 0;
+
+  max-width: 650px;
+
+  color: #858da2;
+
+  font-size: 19px;
+
+  line-height: 1.5;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   RIGHT ILLUSTRATION
+========================================================= */
+
+.how-it-works-right {
+  width: 100%;
+
+  min-height: 560px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.how-illustration {
+  position: relative;
+
+  width: 650px;
+
+  max-width: 100%;
+
+  height: 500px;
+}
+
+
+/* =========================================================
+   BROWSER
+========================================================= */
+
+.browser-window {
+  position: absolute;
+
+  top: 65px;
+
+  left: 35px;
+
+  width: 430px;
+
+  height: 300px;
+
+  border: 2px solid #44465e;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 20px rgba(50, 60, 100, 0.05);
+}
+
+
+/* Browser top */
+
+.browser-top {
+  width: 100%;
+
+  height: 40px;
+
+  border-bottom: 2px solid #44465e;
+
+  display: flex;
+
+  align-items: center;
+
+  padding-left: 13px;
+
+  gap: 7px;
+}
+
+
+.browser-top span {
+  width: 11px;
+
+  height: 11px;
+
+  border-radius: 50%;
+
+  background: #45455f;
+}
+
+
+/* =========================================================
+   BROWSER BODY
+========================================================= */
+
+.browser-body {
+  padding: 30px 48px;
+}
+
+
+/* Search */
+
+.search-box {
+  position: relative;
+
+  width: 100%;
+
+  height: 38px;
+
+  border: 2px solid #4a4d66;
+
+  border-radius: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 12px;
+}
+
+
+.search-line {
+  width: 82px;
+
+  height: 12px;
+
+  border-radius: 10px;
+
+  background: #485abb;
+}
+
+
+.search-icon {
+  position: absolute;
+
+  right: 13px;
+
+  top: 1px;
+
+  font-size: 28px;
+
+  color: #45465e;
+}
+
+
+/* =========================================================
+   JOB ROW
+========================================================= */
+
+.job-row {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 32px;
+}
+
+
+.job-small {
+  width: 80px;
+
+  height: 27px;
+
+  border: 2px solid #555871;
+
+  border-radius: 15px;
+}
+
+
+.job-button {
+  width: 48px;
+
+  height: 16px;
+
+  border-radius: 10px;
+
+  background: #4a5cbc;
+}
+
+
+/* =========================================================
+   PERSON
+========================================================= */
+
+.illustration-person {
+  position: absolute;
+
+  right: 35px;
+
+  bottom: 55px;
+
+  width: 160px;
+
+  height: 370px;
+}
+
+
+/* Head */
+
+.person-head {
+  position: absolute;
+
+  top: 0;
+
+  left: 53px;
+
+  width: 50px;
+
+  height: 57px;
+
+  background: #f4b0ae;
+
+  border-radius: 48% 48% 45% 45%;
+
+  z-index: 2;
+}
+
+
+/* Hair */
+
+.person-head::before {
+  content: "";
+
+  position: absolute;
+
+  top: -5px;
+
+  left: 1px;
+
+  width: 52px;
+
+  height: 42px;
+
+  background: #292b3c;
+
+  border-radius: 50% 55% 25% 25%;
+}
+
+
+/* Body */
+
+.person-body {
+  position: absolute;
+
+  top: 57px;
+
+  left: 34px;
+
+  width: 88px;
+
+  height: 150px;
+
+  background: #4759b6;
+
+  border-radius: 16px 16px 30px 30px;
+}
+
+
+/* Left arm */
+
+.person-left-arm {
+  position: absolute;
+
+  top: 69px;
+
+  left: 21px;
+
+  width: 25px;
+
+  height: 130px;
+
+  background: #f3aaaa;
+
+  border-radius: 20px;
+
+  transform: rotate(5deg);
+}
+
+
+/* Right arm */
+
+.person-right-arm {
+  position: absolute;
+
+  top: 69px;
+
+  right: 19px;
+
+  width: 25px;
+
+  height: 130px;
+
+  background: #f3aaaa;
+
+  border-radius: 20px;
+
+  transform: rotate(-5deg);
+}
+
+
+/* =========================================================
+   LEGS
+========================================================= */
+
+.person-left-leg {
+  position: absolute;
+
+  top: 200px;
+
+  left: 43px;
+
+  width: 31px;
+
+  height: 125px;
+
+  background: #292c3e;
+
+  border-radius: 0 0 8px 8px;
+}
+
+
+.person-right-leg {
+  position: absolute;
+
+  top: 200px;
+
+  right: 43px;
+
+  width: 31px;
+
+  height: 125px;
+
+  background: #292c3e;
+
+  border-radius: 0 0 8px 8px;
+}
+
+
+/* =========================================================
+   SHOES
+========================================================= */
+
+.person-left-shoe {
+  position: absolute;
+
+  left: 27px;
+
+  bottom: 35px;
+
+  width: 54px;
+
+  height: 20px;
+
+  background: #292c3e;
+
+  border-radius: 20px 5px 5px 5px;
+}
+
+
+.person-right-shoe {
+  position: absolute;
+
+  right: 27px;
+
+  bottom: 35px;
+
+  width: 54px;
+
+  height: 20px;
+
+  background: #292c3e;
+
+  border-radius: 5px 20px 5px 5px;
+}
+
+
+/* =========================================================
+   GROUND
+========================================================= */
+
+.illustration-ground {
+  position: absolute;
+
+  right: 0;
+
+  bottom: 35px;
+
+  width: 230px;
+
+  height: 3px;
+
+  background: #4b4d63;
+}
+
+
+/* =========================================================
+   HEART
+========================================================= */
+
+.illustration-heart {
+  position: absolute;
+
+  right: 5px;
+
+  bottom: 36px;
+
+  color: #edf0f3;
+
+  font-size: 62px;
+
+  transform: rotate(-10deg);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .how-it-works {
+    padding-left: 4%;
+
+    padding-right: 4%;
+  }
+
+
+  .how-it-works-container {
+    grid-template-columns: 1fr 0.85fr;
+
+    gap: 35px;
+  }
+
+
+  .how-it-works-title {
+    font-size: 38px;
+  }
+
+
+  .how-step-content h3 {
+    font-size: 21px;
+  }
+
+
+  .how-step-content p {
+    font-size: 17px;
+  }
+
+
+  .how-illustration {
+    transform: scale(0.85);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .how-it-works {
+    padding-top: 60px;
+
+    padding-bottom: 70px;
+  }
+
+
+  .how-it-works-container {
+    grid-template-columns: 1fr;
+
+    max-width: 700px;
+  }
+
+
+  .how-it-works-right {
+    min-height: 450px;
+
+    order: -1;
+  }
+
+
+  .how-illustration {
+    transform: scale(0.8);
+
+    transform-origin: center;
+  }
+
+
+  .how-it-works-title {
+    font-size: 36px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .how-it-works {
+    padding: 50px 18px 60px;
+  }
+
+
+  .how-it-works-title {
+    font-size: 32px;
+
+    margin-bottom: 35px;
+  }
+
+
+  .how-step {
+    grid-template-columns: 48px 1fr;
+
+    gap: 17px;
+
+    min-height: 190px;
+  }
+
+
+  .how-step-number {
+    width: 48px;
+
+    height: 48px;
+
+    font-size: 17px;
+  }
+
+
+  .how-step:not(.last-how-step)::after {
+    left: 23px;
+
+    top: 48px;
+
+    height: 140px;
+
+    border-left-width: 2px;
+  }
+
+
+  .how-step-content {
+    padding-top: 3px;
+
+    padding-right: 0;
+  }
+
+
+  .how-step-content h3 {
+    font-size: 18px;
+  }
+
+
+  .how-step-content p {
+    font-size: 15px;
+
+    line-height: 1.55;
+
+    margin-top: 8px;
+  }
+
+
+  .how-it-works-right {
+    min-height: 330px;
+
+    overflow: hidden;
+  }
+
+
+  .how-illustration {
+    width: 600px;
+
+    height: 430px;
+
+    transform: scale(0.58);
+
+    transform-origin: center;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .how-it-works-title {
+    font-size: 28px;
+  }
+
+
+  .how-step {
+    grid-template-columns: 43px 1fr;
+
+    gap: 13px;
+  }
+
+
+  .how-step-number {
+    width: 43px;
+
+    height: 43px;
+  }
+
+
+  .how-step:not(.last-how-step)::after {
+    left: 20px;
+
+    top: 43px;
+  }
+
+
+  .how-step-content h3 {
+    font-size: 16px;
+  }
+
+
+  .how-step-content p {
+    font-size: 14px;
+  }
+
+
+  .how-it-works-right {
+    min-height: 290px;
+  }
+
+
+  .how-illustration {
+    transform: scale(0.48);
+
+    transform-origin: center;
+  }
+
+}

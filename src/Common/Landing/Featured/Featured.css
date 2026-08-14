@@ -1,0 +1,468 @@
+/* =====================================================
+   FEATURED SECTION
+===================================================== */
+
+.featured-section {
+  width: 100%;
+  background: #ffffff;
+}
+
+
+/* =====================================================
+   FEATURED IN
+===================================================== */
+
+.featured-media {
+  width: 100%;
+  min-height: 385px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 65px 6% 70px;
+
+  background: #ffffff;
+}
+
+
+/* TITLE */
+
+.featured-media h2 {
+  margin: 0 0 65px;
+
+  font-size: 38px;
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  color: #45505f;
+
+  letter-spacing: -0.5px;
+}
+
+.featured-media h2 span {
+  color: #4859bd;
+}
+
+
+/* =====================================================
+   LOGOS
+===================================================== */
+
+.featured-logos {
+  width: 100%;
+  max-width: 1450px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 55px;
+}
+
+
+/* COMMON LOGO */
+
+.featured-logo {
+  min-width: 170px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #111827;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   MEDIUM
+===================================================== */
+
+.medium-logo {
+  font-family: Georgia, serif;
+
+  font-size: 39px;
+  font-weight: 700;
+
+  gap: 8px;
+}
+
+.medium-icon {
+  font-size: 37px;
+  letter-spacing: -8px;
+}
+
+
+/* =====================================================
+   DAILYHUNT
+===================================================== */
+
+.dailyhunt-logo {
+  font-size: 32px;
+  font-weight: 700;
+
+  gap: 8px;
+
+  color: #333333;
+}
+
+.dh-icon {
+  font-size: 36px;
+
+  background: linear-gradient(
+    135deg,
+    #ff7a00,
+    #65bd52
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* =====================================================
+   FLIPBOARD
+===================================================== */
+
+.flipboard-logo {
+  font-size: 31px;
+  font-weight: 700;
+
+  gap: 10px;
+}
+
+.flip-icon {
+  width: 37px;
+  height: 37px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #e53935;
+  color: #ffffff;
+
+  font-size: 27px;
+  font-weight: 800;
+}
+
+
+/* =====================================================
+   DECCAN BUSINESS
+===================================================== */
+
+.deccan-logo {
+  display: flex;
+  flex-direction: column;
+
+  font-family: Georgia, serif;
+
+  line-height: 0.9;
+
+  color: #111111;
+}
+
+.deccan-logo div {
+  font-size: 19px;
+
+  color: #326db5;
+
+  letter-spacing: 1px;
+}
+
+.deccan-logo strong {
+  font-size: 28px;
+
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   REPUBLIC
+===================================================== */
+
+.republic-logo {
+  display: flex;
+
+  gap: 4px;
+
+  font-family: Georgia, serif;
+
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.republic-r {
+  color: #df3d2e;
+
+  font-size: 42px;
+}
+
+.republic-logo span:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.republic-logo small {
+  font-family: Arial, sans-serif;
+
+  font-size: 10px;
+
+  text-align: center;
+
+  margin-top: 2px;
+
+  color: #444444;
+}
+
+
+/* =====================================================
+   FREE JOB ASSISTANCE
+===================================================== */
+
+.job-assistance {
+  width: 100%;
+
+  min-height: 465px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 80px 20px;
+
+  background: #f7f8fc;
+}
+
+
+/* CONTENT */
+
+.assistance-content {
+  width: 100%;
+  max-width: 950px;
+
+  text-align: center;
+}
+
+
+/* TITLE */
+
+.assistance-content h2 {
+  margin: 0 0 30px;
+
+  font-size: 38px;
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  color: #4658bd;
+}
+
+
+/* DESCRIPTION */
+
+.assistance-content p {
+  max-width: 900px;
+
+  margin: 0 auto 40px;
+
+  font-size: 19px;
+  line-height: 1.55;
+
+  font-weight: 400;
+
+  color: #818ba5;
+
+  letter-spacing: 0.1px;
+}
+
+.assistance-content p strong {
+  color: #4d5361;
+
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.assistance-btn {
+  border: none;
+  outline: none;
+
+  min-width: 165px;
+
+  padding: 16px 27px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border-radius: 4px;
+
+  background: #4859bd;
+
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.assistance-btn:hover {
+  background: #394aa9;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(72, 89, 189, 0.25);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1100px) {
+
+  .featured-logos {
+    gap: 25px;
+  }
+
+  .featured-logo {
+    min-width: auto;
+  }
+
+  .medium-logo {
+    font-size: 30px;
+  }
+
+  .dailyhunt-logo {
+    font-size: 25px;
+  }
+
+  .flipboard-logo {
+    font-size: 24px;
+  }
+
+  .deccan-logo strong {
+    font-size: 22px;
+  }
+
+  .republic-logo {
+    font-size: 24px;
+  }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 850px) {
+
+  .featured-media {
+    padding: 55px 25px;
+  }
+
+  .featured-media h2 {
+    font-size: 34px;
+
+    margin-bottom: 45px;
+  }
+
+  .featured-logos {
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 35px 50px;
+  }
+
+  .featured-logo {
+    width: 180px;
+  }
+
+  .job-assistance {
+    padding: 70px 25px;
+  }
+
+  .assistance-content h2 {
+    font-size: 34px;
+  }
+
+  .assistance-content p {
+    font-size: 17px;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 550px) {
+
+  .featured-media {
+    min-height: auto;
+
+    padding: 50px 18px;
+  }
+
+  .featured-media h2 {
+    font-size: 30px;
+
+    margin-bottom: 35px;
+  }
+
+  .featured-logos {
+    flex-direction: column;
+
+    gap: 30px;
+  }
+
+  .featured-logo {
+    width: 100%;
+  }
+
+  .job-assistance {
+    min-height: 400px;
+
+    padding: 60px 20px;
+  }
+
+  .assistance-content h2 {
+    font-size: 29px;
+
+    margin-bottom: 22px;
+  }
+
+  .assistance-content p {
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+  }
+
+  .assistance-btn {
+    font-size: 16px;
+
+    padding: 14px 24px;
+  }
+
+}

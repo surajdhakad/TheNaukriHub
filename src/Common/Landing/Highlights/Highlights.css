@@ -1,0 +1,401 @@
+/* =========================================================
+   NAUKARIFY HIGHLIGHTS SECTION
+========================================================= */
+
+.highlights-section {
+  width: 100%;
+  padding: 70px 7% 85px;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.highlights-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.highlights-header h2 {
+  margin: 0;
+  font-size: 43px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #172342;
+}
+
+.highlights-header h2 span {
+  color: #4058c8;
+}
+
+.highlights-header p {
+  margin: 13px 0 0;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #5c6d8f;
+}
+
+
+/* =========================================================
+   CARDS GRID
+========================================================= */
+
+.highlights-grid {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 27px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.highlight-card {
+  position: relative;
+
+  min-height: 330px;
+
+  padding: 34px 30px 32px;
+
+  background: #ffffff;
+
+  border-radius: 19px;
+
+  border-left: 6px solid #e3eaf6;
+
+  box-shadow:
+    0 10px 30px rgba(40, 65, 110, 0.08),
+    0 2px 8px rgba(40, 65, 110, 0.03);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
+  overflow: hidden;
+}
+
+
+/* Top subtle glow */
+
+.highlight-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -120px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(64, 88, 200, 0.035);
+
+  pointer-events: none;
+}
+
+
+/* Hover */
+
+.highlight-card:hover {
+  transform: translateY(-6px);
+
+  border-left-color: #4058c8;
+
+  box-shadow:
+    0 20px 45px rgba(40, 65, 110, 0.13),
+    0 5px 12px rgba(40, 65, 110, 0.05);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.highlight-icon {
+  width: 60px;
+  height: 60px;
+
+  border-radius: 50%;
+
+  background: #edf3ff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #2347a5;
+
+  margin-bottom: 19px;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.highlight-card:hover .highlight-icon {
+  transform: scale(1.06);
+
+  background: #e5edff;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.highlight-content h3 {
+  margin: 0 0 11px;
+
+  color: #203866;
+
+  font-size: 21px;
+
+  line-height: 1.3;
+
+  font-weight: 750;
+
+  letter-spacing: -0.2px;
+}
+
+.highlight-content p {
+  margin: 0;
+
+  color: #7b8eaf;
+
+  font-size: 17px;
+
+  line-height: 1.58;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   FLOATING CONTACT BUTTONS
+========================================================= */
+
+.floating-contact {
+  position: fixed;
+
+  right: 28px;
+  bottom: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 17px;
+
+  z-index: 9999;
+}
+
+
+/* WhatsApp */
+
+.whatsapp-button {
+  width: 62px;
+  height: 62px;
+
+  border-radius: 50%;
+
+  background: #25d366;
+
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 6px 18px rgba(37, 211, 102, 0.30);
+
+  transition: all 0.25s ease;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 10px 25px rgba(37, 211, 102, 0.40);
+}
+
+
+/* Chat */
+
+.chat-button {
+  width: 62px;
+  height: 62px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #4058c8;
+
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 20px rgba(64, 88, 200, 0.30);
+
+  transition: all 0.25s ease;
+}
+
+.chat-button:hover {
+  transform: scale(1.08);
+
+  background: #3049b5;
+
+  box-shadow:
+    0 10px 25px rgba(64, 88, 200, 0.40);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .highlights-section {
+    padding: 65px 5% 75px;
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .highlight-card {
+    min-height: 310px;
+  }
+
+  .highlights-header h2 {
+    font-size: 38px;
+  }
+
+  .highlights-header p {
+    font-size: 18px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .highlights-section {
+    padding: 50px 18px 70px;
+  }
+
+  .highlights-header {
+    margin-bottom: 35px;
+  }
+
+  .highlights-header h2 {
+    font-size: 31px;
+    letter-spacing: -0.5px;
+  }
+
+  .highlights-header p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 10px;
+  }
+
+  .highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .highlight-card {
+    min-height: auto;
+
+    padding: 27px 23px 28px;
+
+    border-radius: 17px;
+  }
+
+  .highlight-icon {
+    width: 56px;
+    height: 56px;
+
+    margin-bottom: 17px;
+  }
+
+  .highlight-content h3 {
+    font-size: 19px;
+  }
+
+  .highlight-content p {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .floating-contact {
+    right: 15px;
+    bottom: 15px;
+    gap: 12px;
+  }
+
+  .whatsapp-button,
+  .chat-button {
+    width: 54px;
+    height: 54px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .highlights-section {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .highlights-header h2 {
+    font-size: 27px;
+  }
+
+  .highlights-header p {
+    font-size: 15px;
+  }
+
+  .highlight-card {
+    padding: 24px 20px;
+  }
+
+  .highlight-content h3 {
+    font-size: 18px;
+  }
+
+  .highlight-content p {
+    font-size: 15px;
+  }
+}

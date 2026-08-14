@@ -1,97 +1,294 @@
 import "./JobCard.css";
 import { useNavigate } from "react-router-dom";
 
-// Background Image
-import jobBg from "../../../assets/Images/hero-image.png";
-
 function JobCard({ job }) {
   const navigate = useNavigate();
 
-  const handleApply = () => {
-    const token = localStorage.getItem("token");
-    const user = JSON.parse(localStorage.getItem("user"));
+  // =====================================================
+  // VIEW DETAILS
+  // =====================================================
 
-    if (!token || !user) {
-      navigate("/login", {
-        state: { from: "/student/jobs" },
-      });
+  const handleViewDetails = () => {
+    if (!job?._id) {
+      console.log("Job ID not found");
       return;
     }
 
+    navigate(`/jobs/${job._id}`, {
+      state: {
+        job,
+      },
+    });
+  };
+
+  // =====================================================
+  // APPLY
+  // =====================================================
+
+  const handleApply = () => {
+    const token = localStorage.getItem("token");
+
+    let user = null;
+
+    try {
+      user = JSON.parse(
+        localStorage.getItem("user")
+      );
+    } catch (error) {
+      user = null;
+    }
+
+    // Not logged in
+    if (!token || !user) {
+      navigate("/login", {
+        state: {
+          from: `/jobs/${job?._id}`,
+        },
+      });
+
+      return;
+    }
+
+    // Admin
     if (user.role === "admin") {
       alert("Admin cannot apply for jobs.");
       return;
     }
 
+    // Student
     navigate("/student/jobs");
   };
 
+  // =====================================================
+  // LOGO
+  // =====================================================
+
+  const companyLogo =
+    job?.companyLogo ||
+    job?.company?.logo ||
+    "/images/default-company.png";
+
+  // =====================================================
+  // DEADLINE
+  // =====================================================
+
+  const deadline =
+    job?.deadline ||
+    (job?.lastDate
+      ? new Date(
+          job.lastDate
+        ).toLocaleDateString("en-IN", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+        })
+      : "Not Specified");
+
+  // =====================================================
+  // RENDER
+  // =====================================================
+
   return (
-    <div
-      className="bank-card"
-      style={{
-        backgroundImage: `linear-gradient(rgba(8,20,45,.82),rgba(8,20,45,.92)), url(${jobBg})`,
-      }}
-    >
-      {/* Top Section */}
+    <article className="bank-card">
+
+      {/* =================================================
+          TOP LOGO AREA
+      ================================================= */}
+
       <div className="bank-card-top">
-        <img
-          src={job.companyLogo || "/images/default-company.png"}
-          alt={job.company}
-          className="bank-logo"
-        />
-      </div>
 
-      {/* Body */}
-      <div className="bank-card-body">
+        {/* Decorative shapes */}
 
-        <div className="job-tag">
-          🚀 Hiring Now
+        <div className="logo-circle logo-circle-one"></div>
+
+        <div className="logo-circle logo-circle-two"></div>
+
+        {/* Logo */}
+
+        <div className="bank-logo-box">
+
+          <img
+            src={companyLogo}
+            alt={
+              job?.company ||
+              "Company"
+            }
+            className="bank-logo"
+            onError={(e) => {
+              e.currentTarget.src =
+                "/images/default-company.png";
+            }}
+          />
+
         </div>
 
-        <h2>{job.title}</h2>
+        {/* Curved bottom */}
 
-        <ul className="bank-details">
+        <div className="top-curve"></div>
 
-          <li>
-            <span>📍</span>
-            {job.location || "Pan India"}
-          </li>
+      </div>
 
-          <li>
-            <span>💰</span>
-            {job.package || "Best Package"}
-          </li>
 
-          <li>
-            <span>💼</span>
-            {job.jobType || job.type || "Full Time"}
-          </li>
+      {/* =================================================
+          CARD BODY
+      ================================================= */}
 
-        </ul>
+      <div className="bank-card-body">
+
+        {/* Company */}
+
+        <div className="company-name">
+
+          {job?.company ||
+            "Company"}
+
+        </div>
+
+
+        {/* Hiring Tag */}
+
+        <div className="job-tag">
+
+          <span className="job-tag-dot"></span>
+
+          Hiring Now
+
+        </div>
+
+
+        {/* TITLE */}
+
+        <h2 className="job-title">
+
+          {job?.title ||
+            "Job Position"}
+
+        </h2>
+
+
+        {/* =================================================
+            DETAILS
+        ================================================= */}
+
+        <div className="bank-details">
+
+          {/* Location */}
+
+          <div className="job-detail">
+
+            <span className="detail-icon">
+              📍
+            </span>
+
+            <div>
+              <small>
+                Location
+              </small>
+
+              <strong>
+                {job?.location ||
+                  "Pan India"}
+              </strong>
+            </div>
+
+          </div>
+
+
+          {/* Salary */}
+
+          <div className="job-detail">
+
+            <span className="detail-icon">
+              💰
+            </span>
+
+            <div>
+              <small>
+                Package
+              </small>
+
+              <strong>
+                {job?.package ||
+                  job?.salary ||
+                  "Best Package"}
+              </strong>
+            </div>
+
+          </div>
+
+
+          {/* Job Type */}
+
+          <div className="job-detail">
+
+            <span className="detail-icon">
+              💼
+            </span>
+
+            <div>
+              <small>
+                Job Type
+              </small>
+
+              <strong>
+                {job?.jobType ||
+                  job?.type ||
+                  "Full Time"}
+              </strong>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        {/* =================================================
+            FOOTER
+        ================================================= */}
 
         <div className="bank-footer">
 
           <div className="deadline">
 
-            <small>Last Date</small>
+            <span>
+              Last Date
+            </span>
 
             <strong>
-              {job.deadline
-                ? job.deadline
-                : new Date(job.lastDate).toLocaleDateString()}
+              {deadline}
             </strong>
 
           </div>
 
-          <button onClick={handleApply}>
-            Apply Now →
-          </button>
+
+          {/* Buttons */}
+
+          <div className="job-card-buttons">
+
+            <button
+              type="button"
+              className="view-job-btn"
+              onClick={handleViewDetails}
+            >
+              View Details
+            </button>
+
+            <button
+              type="button"
+              className="apply-job-btn"
+              onClick={handleApply}
+            >
+              Apply Now
+              <span>→</span>
+            </button>
+
+          </div>
 
         </div>
 
       </div>
-    </div>
+
+    </article>
   );
 }
 

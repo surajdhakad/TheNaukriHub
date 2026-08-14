@@ -2,25 +2,106 @@
    GOOGLE FONT
 ===================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import url(
+  "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+);
 
-*{
-    box-sizing:border-box;
-    font-family:"Poppins",sans-serif;
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root {
+  --blue: #2563eb;
+  --blue-light: #3b82f6;
+  --blue-dark: #1d4ed8;
+
+  --orange: #ff7a00;
+
+  --dark: #111827;
+  --dark-2: #0f172a;
+
+  --white: #ffffff;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+
+  --border: rgba(255, 255, 255, 0.08);
 }
 
-:root{
 
-    --primary:#2563eb;
-    --primary-dark:#1d4ed8;
+/* =====================================================
+   GLOBAL BOX SIZING
+===================================================== */
 
-    --gold:#f59e0b;
-    --gold-light:#fbbf24;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-    --white:#ffffff;
 
-    --text:#f8fafc;
+/* =====================================================
+   PAGE / SECTION
+===================================================== */
 
+.bank-section,
+.jobs-section,
+.jobs-wrapper,
+.jobs-list,
+.bank-list {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+
+/* =====================================================
+   JOB GRID
+   DESKTOP = 3
+===================================================== */
+
+.jobs-grid,
+.job-grid,
+.jobs-container,
+.job-cards-container,
+.bank-cards-grid,
+.bank-grid {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+
+  align-items: start;
+
+  box-sizing: border-box;
+
+  overflow: visible;
+}
+
+
+/* =====================================================
+   GRID CHILD
+===================================================== */
+
+.jobs-grid > *,
+.job-grid > *,
+.jobs-container > *,
+.job-cards-container > *,
+.bank-cards-grid > *,
+.bank-grid > * {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+
+  align-self: start;
 }
 
 
@@ -28,134 +109,213 @@
    CARD
 ===================================================== */
 
-.bank-card{
+.bank-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 
-    width:100%;
+  /*
+    IMPORTANT:
+    Fixed height hata diya gaya hai.
+    Isse content cut nahi hoga.
+  */
 
-    min-height:380px;
+  min-height: 365px;
+  height: auto;
 
-    border-radius:24px;
+  position: relative;
 
-    overflow:hidden;
+  display: flex;
+  flex-direction: column;
 
-    position:relative;
+  overflow: hidden;
 
-    display:flex;
+  border-radius: 16px;
 
-    flex-direction:column;
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-repeat:no-repeat;
-
-    border:1px solid rgba(255,255,255,.10);
-
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.25);
-
-    transition:.45s;
-
-    cursor:pointer;
-
-}
-
-.bank-card:hover{
-
-    transform:
-        translateY(-10px);
-
-    box-shadow:
-        0 25px 55px rgba(37,99,235,.35);
-
-}
-
-
-/* =====================================================
-   SHINE EFFECT
-===================================================== */
-
-.bank-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:linear-gradient(
-        120deg,
-        transparent 35%,
-        rgba(255,255,255,.12) 50%,
-        transparent 65%
+  background:
+    linear-gradient(
+      180deg,
+      #1b2435 0%,
+      #111827 48%,
+      #0f172a 100%
     );
 
-    transform:translateX(-120%);
+  border:
+    1px solid var(--border);
 
-    transition:1s;
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.22);
 
-    pointer-events:none;
-
-}
-
-.bank-card:hover::before{
-
-    transform:translateX(120%);
-
-}
-
-
-/* =====================================================
-   TOP SECTION
-===================================================== */
-
-.bank-card-top{
-
-    position:relative;
-
-    height:120px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.98),
-            rgba(243,247,255,.96)
-        );
-
-    overflow:hidden;
-
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 
 /* =====================================================
-   CURVE
+   TOP COLOR LINE
 ===================================================== */
 
-.bank-card-top::after{
+.bank-card::before {
+  content: "";
 
-    content:"";
+  position: absolute;
 
-    position:absolute;
+  top: 0;
+  left: 0;
 
-    left:-15%;
+  width: 100%;
+  height: 3px;
 
-    bottom:-60px;
+  background:
+    linear-gradient(
+      90deg,
+      var(--blue),
+      #60a5fa,
+      var(--orange)
+    );
 
-    width:130%;
+  z-index: 20;
 
-    height:120px;
+  pointer-events: none;
+}
 
-    border-radius:50%;
 
-    background:inherit;
+/* =====================================================
+   HOVER
+===================================================== */
 
+.bank-card:hover {
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(96, 165, 250, 0.32);
+
+  box-shadow:
+    0 15px 32px rgba(0, 0, 0, 0.32),
+    0 0 18px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =====================================================
+   TOP LOGO AREA
+===================================================== */
+
+.bank-card-top {
+  width: 100%;
+
+  height: 92px;
+  min-height: 92px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f8fafc 58%,
+      #eef2ff 100%
+    );
+}
+
+
+/* =====================================================
+   BLUE DECORATION
+===================================================== */
+
+.bank-card-top::before {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  left: -65px;
+  top: -90px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(37, 99, 235, 0.10);
+}
+
+
+/* =====================================================
+   ORANGE DECORATION
+===================================================== */
+
+.bank-card-top::after {
+  content: "";
+
+  position: absolute;
+
+  width: 125px;
+  height: 125px;
+
+  right: -68px;
+  top: -92px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 122, 0, 0.10);
+}
+
+
+/* =====================================================
+   LOGO BOX
+===================================================== */
+
+.bank-logo-box {
+  width: 120px;
+  height: 54px;
+
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 9px;
+
+  flex-shrink: 0;
+
+  background: #ffffff;
+
+  border-radius: 9px;
+
+  box-shadow:
+    0 5px 14px rgba(15, 23, 42, 0.10);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =====================================================
+   LOGO BOX HOVER
+===================================================== */
+
+.bank-card:hover .bank-logo-box {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 18px rgba(15, 23, 42, 0.14);
 }
 
 
@@ -163,78 +323,841 @@
    LOGO
 ===================================================== */
 
-.bank-logo{
+.bank-logo {
+  width: 100%;
+  height: 100%;
 
-    width:150px;
+  object-fit: contain;
 
-    height:70px;
+  display: block;
 
-    object-fit:contain;
-
-    z-index:5;
-
-    transition:.4s;
-
-    filter:
-        drop-shadow(0 8px 18px rgba(0,0,0,.18));
-
+  transition:
+    transform 0.25s ease;
 }
 
-.bank-card:hover .bank-logo{
 
-    transform:
-        scale(1.08)
-        rotate(-2deg);
-
+.bank-card:hover .bank-logo {
+  transform: scale(1.03);
 }
 
 
 /* =====================================================
-   BACKGROUND CIRCLES
+   CURVE
 ===================================================== */
 
-.bank-card-top::before{
+.top-curve {
+  position: absolute;
 
-    content:"";
+  z-index: 4;
 
-    position:absolute;
+  left: -12%;
 
-    width:220px;
+  bottom: -54px;
 
-    height:220px;
+  width: 124%;
+  height: 72px;
 
-    border-radius:50%;
+  border-radius: 50%;
 
-    background:
+  background: #111827;
 
-        radial-gradient(
-            rgba(37,99,235,.10),
-            transparent 70%
-        );
-
-    right:-90px;
-
-    top:-120px;
-
+  pointer-events: none;
 }
 
 
 /* =====================================================
-   BODY
+   CARD BODY
 ===================================================== */
 
-.bank-card-body{
+.bank-card-body {
+  width: 100%;
+  min-width: 0;
 
-    position:relative;
+  /*
+    VERY IMPORTANT
+  */
 
-    z-index:5;
+  flex: 1 1 auto;
+  min-height: 0;
 
-    display:flex;
+  position: relative;
 
-    flex-direction:column;
+  z-index: 6;
 
-    flex:1;
+  display: flex;
+  flex-direction: column;
 
-    padding:28px 22px;
+  padding: 12px 13px 13px;
 
+  background:
+    linear-gradient(
+      180deg,
+      #111827 0%,
+      #0f172a 100%
+    );
+}
+
+
+/* =====================================================
+   COMPANY NAME
+===================================================== */
+
+.company-name {
+  margin: 0 0 4px;
+
+  color: var(--muted);
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+
+  line-height: 1.2;
+}
+
+
+/* =====================================================
+   HIRING TAG
+===================================================== */
+
+.job-tag {
+  width: fit-content;
+  max-width: 100%;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  margin-bottom: 5px;
+
+  padding: 3px 7px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(34, 197, 94, 0.09);
+
+  border:
+    1px solid rgba(34, 197, 94, 0.14);
+
+  color: #86efac;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   JOB TITLE
+===================================================== */
+
+.job-title {
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0;
+
+  min-height: 36px;
+
+  color: var(--white);
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  letter-spacing: -0.1px;
+
+  display: -webkit-box;
+
+  -webkit-line-clamp: 2;
+
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+
+  word-break: break-word;
+
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   DETAILS
+===================================================== */
+
+.bank-details {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  margin: 9px 0 0;
+
+  padding: 0;
+
+  list-style: none;
+
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   DETAIL ROW
+===================================================== */
+
+.job-detail {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   DETAIL ICON
+===================================================== */
+
+.detail-icon {
+  width: 24px;
+  height: 24px;
+
+  min-width: 24px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  background:
+    rgba(255, 255, 255, 0.055);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  font-size: 10px;
+}
+
+
+/* =====================================================
+   DETAIL TEXT
+===================================================== */
+
+.job-detail div {
+  min-width: 0;
+  max-width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   DETAIL LABEL
+===================================================== */
+
+.job-detail small {
+  color: #64748b;
+
+  font-size: 7px;
+
+  font-weight: 500;
+
+  line-height: 1.1;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   DETAIL VALUE
+===================================================== */
+
+.job-detail strong {
+  margin-top: 1px;
+
+  color: #dbeafe;
+
+  font-size: 9.5px;
+
+  font-weight: 500;
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   FOOTER
+   IMPORTANT FIX
+===================================================== */
+
+.bank-footer {
+  width: 100%;
+
+  margin-top: auto;
+
+  padding-top: 8px;
+
+  /*
+    IMPORTANT:
+    Footer ko shrink hone nahi dena.
+  */
+
+  flex: 0 0 auto;
+
+  min-height: 0;
+}
+
+
+/* =====================================================
+   DEADLINE
+===================================================== */
+
+.deadline {
+  width: 100%;
+
+  min-height: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 8px;
+
+  padding: 6px 8px;
+
+  margin: 0 0 7px;
+
+  border-radius: 7px;
+
+  background:
+    rgba(255, 255, 255, 0.045);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   DEADLINE LABEL
+===================================================== */
+
+.deadline small {
+  color: #64748b;
+
+  font-size: 7px;
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   DEADLINE DATE
+===================================================== */
+
+.deadline strong {
+  color: #fbbf24;
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   BUTTON CONTAINER
+===================================================== */
+
+.job-card-buttons {
+  width: 100%;
+
+  display: flex;
+
+  gap: 0;
+
+  flex-shrink: 0;
+
+  min-height: 36px;
+}
+
+
+/* =====================================================
+   VIEW DETAILS
+   COMPLETELY HIDDEN
+===================================================== */
+
+.view-job-btn {
+  display: none !important;
+}
+
+
+/* =====================================================
+   APPLY BUTTON
+   FULL WIDTH
+===================================================== */
+
+.apply-job-btn {
+  width: 100% !important;
+
+  min-width: 0;
+
+  flex: 1 1 100% !important;
+
+  height: 36px;
+
+  min-height: 36px;
+
+  max-height: 36px;
+
+  display: flex !important;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  box-sizing: border-box;
+
+  padding: 0 12px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #3b82f6
+    );
+
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  overflow: visible;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 4px 10px rgba(37, 99, 235, 0.18);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* =====================================================
+   APPLY HOVER
+===================================================== */
+
+.apply-job-btn:hover {
+  transform: translateY(-2px);
+
+  background:
+    linear-gradient(
+      135deg,
+      #1d4ed8,
+      #2563eb
+    );
+
+  box-shadow:
+    0 7px 16px rgba(37, 99, 235, 0.28);
+}
+
+
+/* =====================================================
+   FOCUS
+===================================================== */
+
+.apply-job-btn:focus-visible {
+  outline: 2px solid #60a5fa;
+
+  outline-offset: 2px;
+}
+
+
+/* =====================================================
+   DESKTOP
+   EXACTLY 3 CARDS
+===================================================== */
+
+@media (min-width: 993px) {
+
+  .jobs-grid,
+  .job-grid,
+  .jobs-container,
+  .job-cards-container,
+  .bank-cards-grid,
+  .bank-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 20px !important;
+
+    align-items: start !important;
+
+    overflow: visible !important;
+  }
+
+
+  .bank-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    min-height: 365px;
+
+    height: auto;
+  }
+}
+
+
+/* =====================================================
+   LARGE DESKTOP
+===================================================== */
+
+@media (min-width: 1400px) {
+
+  .jobs-grid,
+  .job-grid,
+  .jobs-container,
+  .job-cards-container,
+  .bank-cards-grid,
+  .bank-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 22px !important;
+  }
+
+
+  .bank-card {
+    min-height: 365px;
+  }
+}
+
+
+/* =====================================================
+   TABLET
+   2 CARDS
+===================================================== */
+
+@media (max-width: 992px) and (min-width: 601px) {
+
+  .jobs-grid,
+  .job-grid,
+  .jobs-container,
+  .job-cards-container,
+  .bank-cards-grid,
+  .bank-grid {
+    width: 100% !important;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 17px !important;
+
+    align-items: start !important;
+  }
+
+
+  .bank-card {
+    min-height: 365px;
+
+    height: auto;
+  }
+
+
+  .bank-card-top {
+    height: 92px;
+
+    min-height: 92px;
+  }
+
+
+  .bank-logo-box {
+    width: 120px;
+
+    height: 54px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+   1 CARD
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .jobs-grid,
+  .job-grid,
+  .jobs-container,
+  .job-cards-container,
+  .bank-cards-grid,
+  .bank-grid {
+    width: 100% !important;
+
+    grid-template-columns:
+      1fr !important;
+
+    gap: 15px !important;
+
+    align-items: start !important;
+  }
+
+
+  .bank-card {
+    width: 100% !important;
+
+    min-height: 365px;
+
+    height: auto;
+
+    border-radius: 15px;
+  }
+
+
+  .bank-card-top {
+    height: 100px;
+
+    min-height: 100px;
+  }
+
+
+  .bank-logo-box {
+    width: 128px;
+
+    height: 58px;
+  }
+
+
+  .bank-card-body {
+    padding: 12px 13px 14px;
+  }
+
+
+  .job-title {
+    font-size: 14px;
+
+    min-height: 36px;
+  }
+
+
+  .bank-details {
+    gap: 5px;
+
+    margin-top: 9px;
+  }
+
+
+  .job-detail strong {
+    font-size: 9.5px;
+  }
+
+
+  .deadline {
+    min-height: 38px;
+
+    margin-bottom: 7px;
+  }
+
+
+  .apply-job-btn {
+    height: 36px;
+
+    min-height: 36px;
+
+    max-height: 36px;
+
+    font-size: 10px;
+  }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 420px) {
+
+  .jobs-grid,
+  .job-grid,
+  .jobs-container,
+  .job-cards-container,
+  .bank-cards-grid,
+  .bank-grid {
+    gap: 12px !important;
+  }
+
+
+  .bank-card {
+    min-height: 360px;
+
+    height: auto;
+  }
+
+
+  .bank-card-top {
+    height: 96px;
+
+    min-height: 96px;
+  }
+
+
+  .bank-logo-box {
+    width: 122px;
+
+    height: 56px;
+  }
+
+
+  .bank-card-body {
+    padding: 11px 12px 13px;
+  }
+
+
+  .job-title {
+    font-size: 14px;
+
+    min-height: 36px;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .bank-card {
+    min-height: 355px;
+
+    height: auto;
+  }
+
+
+  .bank-card-top {
+    height: 92px;
+
+    min-height: 92px;
+  }
+
+
+  .bank-logo-box {
+    width: 116px;
+
+    height: 53px;
+  }
+
+
+  .bank-card-body {
+    padding: 11px 11px 12px;
+  }
+
+
+  .job-title {
+    font-size: 13px;
+
+    min-height: 34px;
+  }
+
+
+  .job-detail strong {
+    font-size: 9px;
+  }
+
+
+  .apply-job-btn {
+    height: 34px;
+
+    min-height: 34px;
+
+    max-height: 34px;
+
+    font-size: 9.5px;
+  }
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .bank-card,
+  .bank-logo-box,
+  .bank-logo,
+  .apply-job-btn {
+    transition: none;
+  }
+
+
+  .bank-card:hover,
+  .apply-job-btn:hover {
+    transform: none;
+  }
 }

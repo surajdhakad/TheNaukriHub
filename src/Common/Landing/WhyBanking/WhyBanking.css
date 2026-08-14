@@ -1,0 +1,311 @@
+/* =====================================================
+   WHY BANKING SECTION
+===================================================== */
+
+.why-banking-section {
+  width: 100%;
+  padding: 80px 20px 90px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.why-banking-container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.why-banking-header {
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 58px;
+}
+
+.why-banking-header h2 {
+  margin: 0 0 14px;
+
+  font-size: 44px;
+  line-height: 1.2;
+  font-weight: 700;
+
+  color: #17213f;
+
+  letter-spacing: -1px;
+}
+
+.why-banking-header h2 span {
+  color: #465bc2;
+}
+
+.why-banking-header p {
+  max-width: 780px;
+  margin: 0 auto;
+
+  font-size: 18px;
+  line-height: 1.65;
+
+  font-weight: 400;
+
+  color: #8290b0;
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.why-banking-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 28px;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.why-banking-card {
+  min-height: 310px;
+
+  padding: 40px 35px 34px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #dce3f0;
+
+  border-top: 3px solid #ef7d28;
+
+  border-radius: 17px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
+  position: relative;
+}
+
+
+/* =====================================================
+   CARD HOVER
+===================================================== */
+
+.why-banking-card:hover {
+  transform: translateY(-7px);
+
+  border-color: #cbd5e7;
+
+  box-shadow:
+    0 18px 45px rgba(36, 55, 100, 0.12);
+}
+
+
+/* =====================================================
+   ICON CIRCLE
+===================================================== */
+
+.why-banking-icon {
+  width: 70px;
+  height: 70px;
+
+  margin-bottom: 23px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #edf2ff;
+
+  color: #254796;
+
+  font-size: 31px;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.why-banking-card:hover .why-banking-icon {
+  transform: scale(1.08);
+
+  background: #465bc2;
+
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   CARD TITLE
+===================================================== */
+
+.why-banking-card h3 {
+  margin: 0 0 15px;
+
+  max-width: 330px;
+
+  font-size: 20px;
+  line-height: 1.35;
+
+  font-weight: 700;
+
+  color: #20396f;
+}
+
+
+/* =====================================================
+   CARD DESCRIPTION
+===================================================== */
+
+.why-banking-card p {
+  margin: 0;
+
+  max-width: 350px;
+
+  font-size: 17px;
+  line-height: 1.65;
+
+  color: #8391b0;
+
+  font-weight: 400;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .why-banking-section {
+    padding: 70px 20px 80px;
+  }
+
+  .why-banking-header {
+    margin-bottom: 45px;
+  }
+
+  .why-banking-header h2 {
+    font-size: 38px;
+  }
+
+  .why-banking-header p {
+    font-size: 17px;
+  }
+
+  .why-banking-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .why-banking-card {
+    min-height: 300px;
+    padding: 35px 28px;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+  .why-banking-section {
+    padding: 55px 15px 65px;
+  }
+
+  .why-banking-header {
+    margin-bottom: 35px;
+  }
+
+  .why-banking-header h2 {
+    font-size: 30px;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+  }
+
+  .why-banking-header p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .why-banking-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .why-banking-card {
+    min-height: auto;
+
+    padding: 32px 24px;
+
+    border-radius: 15px;
+  }
+
+  .why-banking-icon {
+    width: 64px;
+    height: 64px;
+
+    font-size: 27px;
+
+    margin-bottom: 20px;
+  }
+
+  .why-banking-card h3 {
+    font-size: 19px;
+  }
+
+  .why-banking-card p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+  .why-banking-section {
+    padding: 45px 12px 55px;
+  }
+
+  .why-banking-header h2 {
+    font-size: 27px;
+  }
+
+  .why-banking-header p {
+    font-size: 14px;
+  }
+
+  .why-banking-card {
+    padding: 28px 20px;
+  }
+
+}

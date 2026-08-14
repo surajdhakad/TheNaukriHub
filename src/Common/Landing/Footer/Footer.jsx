@@ -31,9 +31,13 @@ function Footer() {
           <h3>Company</h3>
 
           <Link to="/">Home</Link>
+
           <Link to="/jobs">Jobs</Link>
+
           <Link to="/companies">Companies</Link>
+
           <Link to="/about">About Us</Link>
+
           <Link to="/contact">Contact Us</Link>
 
         </div>
@@ -44,11 +48,41 @@ function Footer() {
 
           <h3>Students</h3>
 
-          <Link to="/signup">Register</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/profile">My Profile</Link>
-          <Link to="/applications">My Applications</Link>
-          <Link to="/placements">Placements</Link>
+          <Link to="/signup">
+            Register
+          </Link>
+
+          <Link to="/login">
+            Login
+          </Link>
+
+          {/* My Profile → Login → Profile */}
+
+          <Link
+            to="/login"
+            state={{
+              from: "/student/profile",
+            }}
+          >
+            My Profile
+          </Link>
+
+          {/* My Applications → Login → Applications */}
+
+          <Link
+            to="/login"
+            state={{
+              from: "/student/application",
+            }}
+          >
+            My Applications
+          </Link>
+
+          {/* Placements → ProtectedRoute */}
+
+          <Link to="/student/placements">
+            Placements
+          </Link>
 
         </div>
 
@@ -58,11 +92,25 @@ function Footer() {
 
           <h3>Legal</h3>
 
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          <Link to="/terms-and-conditions">Terms & Conditions</Link>
-          <Link to="/refund-policy">Refund Policy</Link>
-          <Link to="/cookie-policy">Cookie Policy</Link>
-          <Link to="/disclaimer">Disclaimer</Link>
+          <Link to="/privacy-policy">
+            Privacy Policy
+          </Link>
+
+          <Link to="/terms-and-conditions">
+            Terms & Conditions
+          </Link>
+
+          <Link to="/refund-policy">
+            Refund Policy
+          </Link>
+
+          <Link to="/cookie-policy">
+            Cookie Policy
+          </Link>
+
+          <Link to="/disclaimer">
+            Disclaimer
+          </Link>
 
         </div>
 
@@ -72,11 +120,25 @@ function Footer() {
 
           <h3>Support</h3>
 
-          <Link to="/faq">FAQ</Link>
-          <Link to="/help-center">Help Center</Link>
-          <Link to="/support">Support</Link>
-          <Link to="/report-issue">Report Issue</Link>
-          <Link to="/career-guidance">Career Guidance</Link>
+          <Link to="/faq">
+            FAQ
+          </Link>
+
+          <Link to="/help-center">
+            Help Center
+          </Link>
+
+          <Link to="/support">
+            Support
+          </Link>
+
+          <Link to="/report-issue">
+            Report Issue
+          </Link>
+
+          <Link to="/career-guidance">
+            Career Guidance
+          </Link>
 
         </div>
 
@@ -93,20 +155,28 @@ function Footer() {
             Gwalior, Madhya Pradesh - 474002
           </p>
 
-         <p>
-  📧{" "}
-  <a href="mailto:hrthenaukrihub@gmail.com">
-    hrthenaukrihub@gmail.com
-  </a>
-</p>
+          <p>
+            📧{" "}
+            <a href="mailto:hrthenaukrihub@gmail.com">
+              hrthenaukrihub@gmail.com
+            </a>
+          </p>
 
-          <p>📞 +91 7354768278</p>
+          <p>
+            📞 +91 7354768278
+          </p>
 
-          <p>📞 +91 7354768277</p>
+          <p>
+            📞 +91 7354768277
+          </p>
 
-          <p>🕒 Monday - Saturday</p>
+          <p>
+            🕒 Monday - Saturday
+          </p>
 
-          <p>09:00 AM - 06:00 PM</p>
+          <p>
+            09:00 AM - 06:00 PM
+          </p>
 
         </div>
 
@@ -122,23 +192,33 @@ function Footer() {
 
         <div className="footer-bottom-links">
 
-          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/privacy-policy">
+            Privacy Policy
+          </Link>
 
           <span>|</span>
 
-          <Link to="/terms-and-conditions">Terms & Conditions</Link>
+          <Link to="/terms-and-conditions">
+            Terms & Conditions
+          </Link>
 
           <span>|</span>
 
-          <Link to="/refund-policy">Refund Policy</Link>
+          <Link to="/refund-policy">
+            Refund Policy
+          </Link>
 
           <span>|</span>
 
-          <Link to="/cookie-policy">Cookie Policy</Link>
+          <Link to="/cookie-policy">
+            Cookie Policy
+          </Link>
 
           <span>|</span>
 
-          <Link to="/disclaimer">Disclaimer</Link>
+          <Link to="/disclaimer">
+            Disclaimer
+          </Link>
 
         </div>
 
