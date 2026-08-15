@@ -1,4 +1,4 @@
-import "./Contactus.css";
+import "./ContactUs.css";
 
 import {
   FaPhoneAlt,
