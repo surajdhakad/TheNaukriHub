@@ -1,7 +1,7 @@
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-// import { loginUser } from "../Api/LoginApi";
+import Api from "../Api/Api";
 
 function Login() {
   const navigate = useNavigate();
@@ -15,32 +15,104 @@ function Login() {
   });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Prevent multiple clicks
+    if (loading) return;
+
+    // Basic validation
+    if (!formData.email || !formData.password) {
+      alert("Please enter email and password.");
+      return;
+    }
+
     try {
       setLoading(true);
 
-      // API connect karne ke baad:
-      // const response = await loginUser(formData);
-      // alert(response.message);
-      // navigate("/");
+      console.log("Sending Login Data:", formData);
 
-      console.log("Login Data:", formData);
+      // =========================
+      // LOGIN API
+      // =========================
+      const response = await Api.post("/auth/login", {
+        email: formData.email.trim(),
+        password: formData.password,
+      });
 
-      // Temporary
-      setTimeout(() => {
-        setLoading(false);
-      }, 800);
+      console.log("Login Response:", response.data);
+
+      // =========================
+      // GET TOKEN
+      // =========================
+      const token = response.data?.token;
+
+      if (!token) {
+        throw new Error("Token not received from server.");
+      }
+
+      // =========================
+      // SAVE LOGIN DATA
+      // =========================
+      localStorage.setItem("token", token);
+
+      if (response.data?.user) {
+        localStorage.setItem(
+          "user",
+          JSON.stringify(response.data.user)
+        );
+      }
+
+      // =========================
+      // SUCCESS
+      // =========================
+      alert(
+        response.data?.message || "Login Successful!"
+      );
+
+      navigate("/");
 
     } catch (error) {
-      alert(error.message || "Login Failed");
+      console.error("Login Error:", error);
+
+      // Backend error
+      if (error.response) {
+        console.error("Status:", error.response.status);
+        console.error("Data:", error.response.data);
+
+        alert(
+          error.response.data?.message ||
+          "Invalid email or password."
+        );
+      }
+
+      // Backend is not running / wrong URL
+      else if (error.request) {
+        console.error(
+          "No response received from backend:",
+          error.request
+        );
+
+        alert(
+          "Backend server is not responding. Please check whether the server is running on port 5000."
+        );
+      }
+
+      // Other error
+      else {
+        alert(
+          error.message || "Login Failed. Please try again."
+        );
+      }
+    } finally {
       setLoading(false);
     }
   };
@@ -58,17 +130,25 @@ function Login() {
 
         <div className="login-heading">
           <h1>Welcome back</h1>
-          <p>Sign in to continue your career journey</p>
+          <p>
+            Sign in to continue your career journey
+          </p>
         </div>
 
         {/* Login Card */}
         <div className="login-card">
 
-          <form onSubmit={handleSubmit} className="login-form">
+          <form
+            onSubmit={handleSubmit}
+            className="login-form"
+          >
 
             {/* Email */}
             <div className="login-input-group">
-              <label htmlFor="email">Email Address</label>
+
+              <label htmlFor="email">
+                Email Address
+              </label>
 
               <input
                 id="email"
@@ -77,58 +157,85 @@ function Login() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
+                autoComplete="email"
                 required
               />
+
             </div>
 
             {/* Password */}
             <div className="login-input-group">
 
               <div className="password-label">
-                <label htmlFor="password">Password</label>
+
+                <label htmlFor="password">
+                  Password
+                </label>
 
                 <Link to="/forgot-password">
                   Forgot password?
                 </Link>
+
               </div>
 
               <div className="password-wrapper">
 
                 <input
                   id="password"
-                  type={showPassword ? "text" : "password"}
+                  type={
+                    showPassword
+                      ? "text"
+                      : "password"
+                  }
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
                   placeholder="Enter your password"
+                  autoComplete="current-password"
                   required
                 />
 
                 <button
                   type="button"
                   className="show-password"
-                  onClick={() => setShowPassword(!showPassword)}
+                  onClick={() =>
+                    setShowPassword(
+                      !showPassword
+                    )
+                  }
                 >
-                  {showPassword ? "Hide" : "Show"}
+                  {showPassword
+                    ? "Hide"
+                    : "Show"}
                 </button>
 
               </div>
 
             </div>
 
-            {/* Remember */}
+            {/* Remember Me */}
             <label className="remember-me">
-              <input type="checkbox" />
-              <span>Remember me</span>
+
+              <input
+                type="checkbox"
+                name="rememberMe"
+              />
+
+              <span>
+                Remember me
+              </span>
+
             </label>
 
-            {/* Login */}
+            {/* Login Button */}
             <button
               type="submit"
               className="login-btn"
               disabled={loading}
             >
-              {loading ? "Signing In..." : "Sign In"}
+              {loading
+                ? "Signing In..."
+                : "Sign In"}
             </button>
 
           </form>
@@ -139,18 +246,29 @@ function Login() {
           </div>
 
           {/* Google */}
-          <button type="button" className="google-btn">
+          <button
+            type="button"
+            className="google-btn"
+          >
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"
               alt="Google"
             />
+
             Continue with Google
           </button>
 
           {/* Signup */}
           <div className="login-footer">
-            <span>Don't have an account?</span>
-            <Link to="/signup">Create account</Link>
+
+            <span>
+              Don't have an account?
+            </span>
+
+            <Link to="/signup">
+              Create account
+            </Link>
+
           </div>
 
         </div>
