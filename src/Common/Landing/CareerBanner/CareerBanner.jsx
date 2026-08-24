@@ -24,13 +24,13 @@ function CareerBanner() {
           <h3 className="career-banner-title">
             Give your career a boost with
             <br />
-            TheNaukriHub.com's guaranteed job training
+            TheNaukriHub.com guaranteed job training
             <br />
             program within 30 days
           </h3>
 
           <p className="career-banner-highlight">
-            5000+ candidates have already gotten their
+            500+ candidates have already gotten their
             <br />
             dream jobs.
           </p>
