@@ -1,10 +1,8 @@
-<<<<<<< HEAD
+
+
+
+
 import "./ContactUs.css";
-=======
-
-import "./Contactus.css";
->>>>>>> 10dd43b (Complete responsive frontend and lead management)
-
 import {
   FaPhoneAlt,
   FaEnvelope,
