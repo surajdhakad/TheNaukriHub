@@ -49,7 +49,7 @@ const Navbar = ({ search, setSearch }) => {
 
         <input
           type="search"
-          aria-label="Search students, jobs, and placements"
+          aria-label="Search students, jobs, and placements   "
           placeholder="Search students, jobs, placements..."
           value={searchValue}
           onChange={(event) => updateSearch(event.target.value)}
