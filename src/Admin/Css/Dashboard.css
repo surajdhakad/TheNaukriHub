@@ -295,3 +295,22 @@ font-size:28px;
 }
 
 }
+.admin-layout > .sidebar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 292px !important;
+  height: 100vh !important;
+  flex-direction: column !important;
+  background: #10182b !important;
+  transform: none !important;
+  z-index: 99999 !important;
+}
+
+.admin-layout > .main-content {
+  width: calc(100% - 292px);
+  margin-left: 292px;
+}

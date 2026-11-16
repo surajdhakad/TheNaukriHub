@@ -1,0 +1,1150 @@
+/* =====================================================
+   THE NAUKRIHUB - PREMIUM BANKING LEAD POPUP
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(37, 99, 235, 0.08),
+      transparent 45%
+    ),
+    rgba(4, 10, 24, 0.78);
+
+  backdrop-filter: blur(8px);
+
+  z-index: 99999;
+
+  animation: popupFade 0.35s ease;
+}
+
+/* =====================================================
+   MAIN POPUP
+===================================================== */
+
+.popup-container {
+  position: relative;
+
+  width: min(1100px, 100%);
+  height: min(650px, 92vh);
+
+  display: grid;
+  grid-template-columns: 52% 48%;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border-radius: 26px;
+
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.38),
+    0 10px 30px rgba(0, 0, 0, 0.18);
+
+  animation: popupScale 0.4s ease;
+}
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.popup-close {
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  width: 46px;
+  height: 46px;
+
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.9);
+  color: #1e293b;
+
+  font-size: 32px;
+  font-weight: 300;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 20;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+
+  transition: all 0.25s ease;
+}
+
+.popup-close:hover {
+  background: #2563eb;
+  color: #ffffff;
+  transform: rotate(90deg) scale(1.05);
+}
+
+/* =====================================================
+   LEFT PROMOTIONAL AREA
+===================================================== */
+
+.popup-left {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f8fbff 0%,
+      #eaf2ff 55%,
+      #dbeafe 100%
+    );
+}
+
+/* Decorative background */
+
+.popup-left::before {
+  content: "";
+
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  right: -170px;
+  top: -130px;
+
+  border-radius: 50%;
+
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.popup-left::after {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  left: -150px;
+  bottom: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(245, 158, 11, 0.08);
+}
+
+/* =====================================================
+   PROMO CONTENT
+===================================================== */
+
+.promo-content {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 28px 34px 20px;
+
+  z-index: 2;
+}
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.brand-area {
+  position: relative;
+
+  z-index: 5;
+
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+
+  line-height: 1;
+}
+
+.brand-the {
+  color: #183b76;
+
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.brand-name {
+  color: #1769e0;
+
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.brand-tagline {
+  display: inline-block;
+
+  width: fit-content;
+
+  margin-top: 7px;
+
+  padding: 5px 18px;
+
+  border-radius: 20px;
+
+  background: #f5a900;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.7px;
+}
+
+/* =====================================================
+   MAIN HEADING
+===================================================== */
+
+.promo-heading {
+  position: relative;
+
+  z-index: 5;
+
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-heading > span {
+  color: #172033;
+
+  font-size: 20px;
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+}
+
+.promo-heading > strong {
+  color: #17468e;
+
+  font-size: 46px;
+  font-weight: 950;
+
+  line-height: 0.95;
+
+  letter-spacing: -1.5px;
+}
+
+.promo-heading > strong:last-of-type {
+  color: #17468e;
+}
+
+.promo-heading small {
+  margin-top: 9px;
+
+  color: #1e293b;
+
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.promo-heading small b {
+  color: #1769e0;
+}
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.promo-image {
+  position: absolute;
+
+  top: 20px;
+  right: -15px;
+
+  width: 53%;
+  height: 430px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+.promo-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: bottom center;
+
+  filter: drop-shadow(
+    0 18px 20px rgba(15, 23, 42, 0.12)
+  );
+}
+
+/* =====================================================
+   TRAINING BADGE
+===================================================== */
+
+.training-badge {
+  position: absolute;
+
+  left: 34px;
+  right: 34px;
+  bottom: 185px;
+
+  z-index: 6;
+
+  padding: 10px 18px;
+
+  border-radius: 4px 16px 16px 4px;
+
+  background: linear-gradient(
+    90deg,
+    #123b80,
+    #155dcc
+  );
+
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  box-shadow: 0 7px 15px rgba(18, 59, 128, 0.25);
+}
+
+.training-badge span {
+  color: #ffd429;
+
+  font-size: 23px;
+}
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.promo-features {
+  position: absolute;
+
+  left: 34px;
+  bottom: 52px;
+
+  width: 48%;
+
+  z-index: 7;
+
+  padding: 10px 13px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  border-radius: 13px;
+
+  border: 1px solid rgba(30, 64, 175, 0.12);
+
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 7px 0;
+}
+
+.feature-item + .feature-item {
+  border-top: 1px dashed #cbd5e1;
+}
+
+.feature-icon {
+  flex: 0 0 30px;
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #174b99;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.feature-item div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-item b {
+  color: #172033;
+
+  font-size: 11px;
+  line-height: 1.15;
+}
+
+.feature-item span {
+  margin-top: 2px;
+
+  color: #64748b;
+
+  font-size: 9px;
+}
+
+/* =====================================================
+   BOTTOM STRIP
+===================================================== */
+
+.promo-bottom {
+  position: absolute;
+
+  left: 34px;
+  right: 34px;
+  bottom: 0;
+
+  min-height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  padding: 6px 12px;
+
+  border-radius: 12px 12px 0 0;
+
+  background: linear-gradient(
+    90deg,
+    #092e6e,
+    #124caa
+  );
+
+  color: #ffffff;
+
+  z-index: 8;
+}
+
+.promo-bottom > div:not(.bottom-divider) {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  flex: 1;
+}
+
+.bottom-icon {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #fbbf24;
+
+  color: #123b80;
+
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.promo-bottom strong {
+  display: block;
+
+  color: #ffd429;
+
+  font-size: 9px;
+}
+
+.promo-bottom small {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 7px;
+}
+
+.bottom-divider {
+  width: 1px;
+  height: 27px;
+
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* =====================================================
+   RIGHT FORM
+===================================================== */
+
+.popup-right {
+  position: relative;
+
+  padding: 50px 46px 30px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(37, 99, 235, 0.08),
+      transparent 35%
+    ),
+    #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.popup-right::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 0 0 0 100%;
+
+  background: rgba(37, 99, 235, 0.035);
+
+  pointer-events: none;
+}
+
+/* =====================================================
+   FORM HEADER
+===================================================== */
+
+.form-header {
+  position: relative;
+  z-index: 2;
+
+  margin-bottom: 22px;
+}
+
+.form-mini-title {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: #2563eb;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.form-mini-title::before {
+  content: "";
+
+  width: 4px;
+  height: 18px;
+
+  border-radius: 10px;
+
+  background: #2563eb;
+}
+
+.form-header h2 {
+  margin: 6px 0 6px;
+
+  color: #102f63;
+
+  font-size: 32px;
+  font-weight: 900;
+
+  letter-spacing: -0.8px;
+}
+
+.form-header p {
+  max-width: 400px;
+
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.popup-right form {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 6px;
+
+  color: #1e293b;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.form-group label span {
+  font-size: 14px;
+}
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.form-group input {
+  width: 100%;
+
+  height: 48px;
+
+  padding: 0 15px;
+
+  border: 1.5px solid #dbe2ed;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #172033;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  transition: all 0.25s ease;
+}
+
+.form-group input::placeholder {
+  color: #9aaac1;
+}
+
+.form-group input:hover {
+  border-color: #b8c6da;
+}
+
+.form-group input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.09);
+
+  transform: translateY(-1px);
+}
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.submit-btn {
+  width: 100%;
+
+  min-height: 52px;
+
+  margin-top: 5px;
+
+  border: none;
+  border-radius: 11px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  background: linear-gradient(
+    90deg,
+    #1769e0,
+    #4938e8
+  );
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 22px rgba(37, 99, 235, 0.25);
+
+  transition: all 0.25s ease;
+}
+
+.submit-btn span {
+  font-size: 22px;
+
+  transition: transform 0.25s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 28px rgba(37, 99, 235, 0.32);
+}
+
+.submit-btn:hover:not(:disabled) span {
+  transform: translateX(5px);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   LOADER
+===================================================== */
+
+.loader {
+  width: 17px;
+  height: 17px;
+
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+
+  border-radius: 50%;
+
+  animation: spin 0.7s linear infinite;
+}
+
+/* =====================================================
+   MESSAGES
+===================================================== */
+
+.success-message,
+.error-message {
+  margin: 8px 0 10px;
+
+  padding: 9px 12px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.success-message {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.error-message {
+  background: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+}
+
+/* =====================================================
+   SECURITY
+===================================================== */
+
+.secure-text {
+  margin-top: 12px;
+
+  text-align: center;
+
+  color: #7b8ba3;
+
+  font-size: 10px;
+}
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes popupFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popupScale {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =====================================================
+   LAPTOP
+===================================================== */
+
+@media (max-width: 1100px) {
+
+  .popup-container {
+    width: 96%;
+    height: 620px;
+  }
+
+  .promo-content {
+    padding: 25px;
+  }
+
+  .brand-name {
+    font-size: 34px;
+  }
+
+  .promo-heading > strong {
+    font-size: 40px;
+  }
+
+  .training-badge {
+    left: 25px;
+    right: 25px;
+    bottom: 175px;
+
+    font-size: 16px;
+  }
+
+  .promo-features {
+    left: 25px;
+    bottom: 48px;
+
+    width: 52%;
+  }
+
+  .promo-bottom {
+    left: 25px;
+    right: 25px;
+  }
+
+  .popup-right {
+    padding: 45px 35px 25px;
+  }
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 850px) {
+
+  .popup-container {
+    grid-template-columns: 45% 55%;
+
+    height: 600px;
+  }
+
+  .brand-name {
+    font-size: 29px;
+  }
+
+  .promo-heading {
+    margin-top: 18px;
+  }
+
+  .promo-heading > span {
+    font-size: 16px;
+  }
+
+  .promo-heading > strong {
+    font-size: 34px;
+  }
+
+  .promo-heading small {
+    font-size: 13px;
+  }
+
+  .promo-image {
+    width: 58%;
+    right: -30px;
+  }
+
+  .training-badge {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .training-badge span {
+    font-size: 17px;
+  }
+
+  .popup-right {
+    padding: 40px 25px 25px;
+  }
+
+  .form-header h2 {
+    font-size: 28px;
+  }
+}
+
+/
+/* =========================================
+   MOBILE POPUP - SIZE FIX
+========================================= */
+
+@media screen and (max-width: 700px) {
+
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    padding: 8px;
+    overflow-y: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .popup-container {
+    width: 100% !important;
+    max-width: 390px !important;
+
+    height: auto !important;
+    max-height: calc(100dvh - 16px) !important;
+
+    display: block !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+
+    border-radius: 16px !important;
+  }
+
+  .popup-left {
+    width: 100%;
+    height: 205px !important;
+    min-height: 205px;
+    overflow: hidden;
+  }
+
+  .promo-content {
+    padding: 14px 16px !important;
+  }
+
+  .brand-name {
+    font-size: 23px !important;
+    letter-spacing: -1px;
+  }
+
+  .brand-the {
+    font-size: 11px !important;
+  }
+
+  .brand-tagline {
+    font-size: 7px !important;
+    padding: 3px 9px !important;
+    margin-top: 4px;
+  }
+
+  .promo-heading {
+    margin-top: 10px !important;
+  }
+
+  .promo-heading > span {
+    font-size: 11px !important;
+  }
+
+  .promo-heading > strong {
+    font-size: 23px !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.8px;
+  }
+
+  .promo-heading small {
+    font-size: 10px !important;
+    margin-top: 5px;
+  }
+
+  .promo-image {
+    top: 35px !important;
+    right: -10px !important;
+    width: 43% !important;
+    height: 160px !important;
+  }
+
+  .training-badge {
+    left: 15px !important;
+    right: 15px !important;
+    bottom: 65px !important;
+    padding: 5px 8px !important;
+    font-size: 9px !important;
+  }
+
+  .training-badge span {
+    font-size: 12px !important;
+  }
+
+  .promo-features {
+    display: none !important;
+  }
+
+  .promo-bottom {
+    display: none !important;
+  }
+
+  .popup-right {
+    width: 100%;
+    padding: 18px 16px !important;
+  }
+
+  .form-header {
+    margin-bottom: 12px !important;
+  }
+
+  .form-header h2 {
+    font-size: 21px !important;
+    margin: 5px 0 !important;
+  }
+
+  .form-header p {
+    font-size: 11px !important;
+  }
+
+  .form-mini-title {
+    font-size: 10px !important;
+  }
+
+  .form-group {
+    margin-bottom: 10px !important;
+  }
+
+  .form-group label {
+    font-size: 11px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .form-group input {
+    width: 100% !important;
+    height: 40px !important;
+    padding: 0 11px !important;
+    font-size: 12px !important;
+  }
+
+  .submit-btn {
+    min-height: 43px !important;
+    font-size: 13px !important;
+    margin-top: 3px !important;
+  }
+
+  .secure-text {
+    font-size: 9px !important;
+    margin-top: 8px !important;
+  }
+
+  .popup-close {
+    width: 30px !important;
+    height: 30px !important;
+    top: 7px !important;
+    right: 7px !important;
+    font-size: 22px !important;
+  }
+}
+
+/* EXTRA SMALL MOBILE */
+
+@media screen and (max-width: 380px) {
+
+  .popup-container {
+    max-width: 350px !important;
+  }
+
+  .popup-left {
+    height: 185px !important;
+    min-height: 185px;
+  }
+
+  .promo-heading > strong {
+    font-size: 20px !important;
+  }
+
+  .promo-image {
+    width: 40% !important;
+    height: 140px !important;
+  }
+
+  .popup-right {
+    padding: 15px 13px !important;
+  }
+
+  .form-header h2 {
+    font-size: 19px !important;
+  }
+
+  .form-group input {
+    height: 38px !important;
+  }
+}

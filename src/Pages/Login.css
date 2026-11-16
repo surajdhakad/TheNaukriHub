@@ -1,6 +1,6 @@
 /* =========================================================
-   LOGIN.CSS
-   Clean / Compact / Responsive Sign In
+   LOGIN PAGE
+   Clean / Compact / Fully Responsive
 ========================================================= */
 
 :root {
@@ -20,19 +20,26 @@
   --radius: 7px;
 }
 
+
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html,
-body,
-#root {
+html {
+  width: 100%;
   min-height: 100%;
 }
 
 body {
+  width: 100%;
+  min-height: 100vh;
+
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -43,6 +50,13 @@ body {
 
   background: var(--bg);
   color: var(--gray-800);
+
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
 }
 
 
@@ -51,17 +65,21 @@ body {
 ========================================================= */
 
 .login-page {
-  min-height: 100vh;
-  width: 100%;
-
-  background: var(--bg);
-
   position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
 
   padding: 32px 20px 50px;
 
   display: flex;
   flex-direction: column;
+
+  background: var(--bg);
+
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 
@@ -75,6 +93,8 @@ body {
   top: 34px;
   left: 42px;
 
+  display: inline-block;
+
   text-decoration: none;
 
   font-size: 30px;
@@ -85,6 +105,8 @@ body {
   letter-spacing: -1.5px;
 
   color: #172b4d;
+
+  z-index: 10;
 }
 
 .login-logo span {
@@ -105,6 +127,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  flex-shrink: 0;
 }
 
 
@@ -118,23 +142,23 @@ body {
   text-align: center;
 
   margin-bottom: 25px;
+
+  flex-shrink: 0;
 }
 
 .login-heading h1 {
-  font-size: 32px;
+  margin-bottom: 9px;
 
+  font-size: 32px;
   line-height: 1.2;
 
   font-weight: 500;
 
   color: #222;
-
-  margin-bottom: 9px;
 }
 
 .login-heading p {
   font-size: 15px;
-
   line-height: 1.5;
 
   color: var(--gray-500);
@@ -142,22 +166,26 @@ body {
 
 
 /* =========================================================
-   CARD
+   LOGIN CARD
 ========================================================= */
 
 .login-card {
   width: 100%;
   max-width: 440px;
 
+  padding: 30px 34px 26px;
+
   background: var(--white);
 
   border-radius: 9px;
 
-  padding: 30px 34px 26px;
-
   box-shadow:
     0 4px 12px rgba(0, 0, 0, 0.08),
     0 1px 3px rgba(0, 0, 0, 0.04);
+
+  flex-shrink: 0;
+
+  overflow: visible;
 }
 
 
@@ -172,6 +200,34 @@ body {
   flex-direction: column;
 
   gap: 18px;
+
+  flex-shrink: 0;
+
+  overflow: visible;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.login-error {
+  width: 100%;
+
+  padding: 10px 12px;
+
+  border-radius: 6px;
+
+  background: #fff1f2;
+
+  border: 1px solid #fecdd3;
+
+  color: #be123c;
+
+  font-size: 13px;
+  line-height: 1.4;
+
+  font-weight: 600;
 }
 
 
@@ -180,13 +236,17 @@ body {
 ========================================================= */
 
 .login-input-group {
+  width: 100%;
+
   display: flex;
   flex-direction: column;
 
   gap: 7px;
+
+  flex-shrink: 0;
 }
 
-.login-input-group label {
+.login-input-group > label {
   font-size: 13px;
 
   font-weight: 700;
@@ -200,6 +260,8 @@ body {
 ========================================================= */
 
 .password-label {
+  width: 100%;
+
   display: flex;
 
   align-items: center;
@@ -213,6 +275,8 @@ body {
   font-size: 13px;
 
   font-weight: 700;
+
+  color: var(--gray-800);
 }
 
 .password-label a {
@@ -223,6 +287,8 @@ body {
   color: var(--blue);
 
   text-decoration: none;
+
+  white-space: nowrap;
 }
 
 .password-label a:hover {
@@ -235,9 +301,12 @@ body {
 ========================================================= */
 
 .login-input-group input {
+  display: block;
+
   width: 100%;
 
   height: 46px;
+  min-height: 46px;
 
   padding: 0 13px;
 
@@ -275,20 +344,33 @@ body {
     0 0 0 1px var(--blue);
 }
 
+.login-input-group input:disabled {
+  background: #f8fafc;
+
+  cursor: not-allowed;
+}
+
 
 /* =========================================================
-   PASSWORD
+   PASSWORD WRAPPER
 ========================================================= */
 
 .password-wrapper {
   position: relative;
 
   width: 100%;
+
+  flex-shrink: 0;
 }
 
 .password-wrapper input {
-  padding-right: 60px;
+  padding-right: 65px;
 }
+
+
+/* =========================================================
+   SHOW PASSWORD
+========================================================= */
 
 .show-password {
   position: absolute;
@@ -297,6 +379,8 @@ body {
   top: 50%;
 
   transform: translateY(-50%);
+
+  padding: 3px;
 
   border: none;
 
@@ -312,19 +396,27 @@ body {
 
   cursor: pointer;
 
-  padding: 3px;
+  z-index: 2;
 }
 
 .show-password:hover {
   text-decoration: underline;
 }
 
+.show-password:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
 
 /* =========================================================
-   REMEMBER
+   REMEMBER ME
 ========================================================= */
 
 .remember-me {
+  width: 100%;
+
   display: flex;
 
   align-items: center;
@@ -338,11 +430,15 @@ body {
   color: var(--gray-600);
 
   cursor: pointer;
+
+  flex-shrink: 0;
 }
 
 .remember-me input {
   width: 16px;
   height: 16px;
+
+  min-width: 16px;
 
   margin: 0;
 
@@ -354,12 +450,26 @@ body {
 
 /* =========================================================
    SIGN IN BUTTON
+   IMPORTANT: KEEP VISIBLE
 ========================================================= */
 
 .login-btn {
-  width: 100%;
+  display: flex !important;
 
-  height: 46px;
+  align-items: center;
+  justify-content: center;
+
+  visibility: visible !important;
+
+  width: 100% !important;
+  min-width: 100% !important;
+
+  height: 46px !important;
+  min-height: 46px !important;
+
+  flex-shrink: 0 !important;
+
+  padding: 0 16px;
 
   border: none;
 
@@ -375,11 +485,18 @@ body {
 
   font-weight: 700;
 
+  line-height: 1;
+
   cursor: pointer;
+
+  position: relative;
+
+  z-index: 5;
 
   transition:
     background 0.2s ease,
-    transform 0.1s ease;
+    transform 0.1s ease,
+    opacity 0.2s ease;
 }
 
 .login-btn:hover:not(:disabled) {
@@ -415,6 +532,8 @@ body {
   color: var(--gray-500);
 
   font-size: 12px;
+
+  flex-shrink: 0;
 }
 
 .login-divider::before,
@@ -438,17 +557,21 @@ body {
 ========================================================= */
 
 .google-btn {
-  width: 100%;
-
-  height: 46px;
-
   display: flex;
 
   align-items: center;
-
   justify-content: center;
 
   gap: 10px;
+
+  width: 100%;
+
+  height: 46px;
+  min-height: 46px;
+
+  flex-shrink: 0;
+
+  padding: 0 15px;
 
   background: #ffffff;
 
@@ -478,8 +601,12 @@ body {
 }
 
 .google-btn img {
+  display: block;
+
   width: 18px;
   height: 18px;
+
+  flex-shrink: 0;
 }
 
 
@@ -492,6 +619,7 @@ body {
 
   display: flex;
 
+  align-items: center;
   justify-content: center;
 
   gap: 5px;
@@ -505,6 +633,8 @@ body {
   font-size: 13px;
 
   color: var(--gray-600);
+
+  flex-shrink: 0;
 }
 
 .login-footer a {
@@ -527,11 +657,19 @@ body {
 @media (max-width: 768px) {
 
   .login-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+
     padding: 26px 20px 40px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .login-logo {
     position: static;
+
+    display: block;
 
     margin-left: 5px;
 
@@ -539,9 +677,11 @@ body {
   }
 
   .login-main {
+    width: 100%;
+
     max-width: 440px;
 
-    margin-top: 72px;
+    margin: 72px auto 0;
   }
 
   .login-heading h1 {
@@ -549,9 +689,24 @@ body {
   }
 
   .login-card {
+    width: 100%;
+
     max-width: 420px;
 
     padding: 28px 30px 25px;
+  }
+
+  .login-btn {
+    display: flex !important;
+
+    visibility: visible !important;
+
+    width: 100% !important;
+
+    height: 46px !important;
+    min-height: 46px !important;
+
+    flex-shrink: 0 !important;
   }
 }
 
@@ -563,27 +718,51 @@ body {
 @media (max-width: 480px) {
 
   .login-page {
+    width: 100%;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+
     padding: 22px 15px 35px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .login-logo {
+    position: static;
+
+    margin: 0;
+
     font-size: 25px;
 
-    margin-left: 0;
+    letter-spacing: -1.2px;
   }
 
   .login-main {
-    margin-top: 58px;
+    width: 100%;
 
     max-width: 100%;
+
+    margin: 58px auto 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
   }
 
   .login-heading {
+    width: 100%;
+
     margin-bottom: 20px;
   }
 
   .login-heading h1 {
     font-size: 27px;
+
+    line-height: 1.2;
   }
 
   .login-heading p {
@@ -593,35 +772,114 @@ body {
   .login-card {
     width: 100%;
 
+    max-width: 440px;
+
     padding: 23px 20px 22px;
 
     border-radius: 8px;
+
+    overflow: visible;
   }
 
   .login-form {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
     gap: 16px;
+
+    overflow: visible;
+  }
+
+  .login-input-group {
+    width: 100%;
   }
 
   .login-input-group input {
+    width: 100%;
+
     height: 45px;
+    min-height: 45px;
 
     font-size: 14px;
   }
 
+  .password-wrapper {
+    width: 100%;
+  }
+
+  .show-password {
+    right: 12px;
+
+    font-size: 13px;
+  }
+
+  .remember-me {
+    min-height: 20px;
+  }
+
+  /* ==========================================
+     IMPORTANT MOBILE BUTTON FIX
+  ========================================== */
+
   .login-btn {
-    height: 45px;
+    display: flex !important;
+
+    align-items: center;
+    justify-content: center;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    width: 100% !important;
+    min-width: 100% !important;
+
+    height: 45px !important;
+    min-height: 45px !important;
+
+    max-height: none !important;
+
+    flex-shrink: 0 !important;
+
+    position: relative;
+
+    z-index: 10;
+  }
+
+  .login-btn:disabled {
+    opacity: 0.65 !important;
+  }
+
+  .login-divider {
+    width: 100%;
+
+    margin-top: 20px;
+    margin-bottom: 17px;
   }
 
   .google-btn {
+    display: flex;
+
+    width: 100%;
+
     height: 45px;
+    min-height: 45px;
   }
 
   .login-footer {
+    width: 100%;
+
     flex-direction: column;
 
     align-items: center;
 
     gap: 4px;
+
+    margin-top: 20px;
+
+    padding-top: 18px;
   }
 }
 
@@ -633,8 +891,9 @@ body {
 @media (max-width: 360px) {
 
   .login-page {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding: 20px 12px 30px;
+
+    overflow-y: auto;
   }
 
   .login-logo {
@@ -642,7 +901,11 @@ body {
   }
 
   .login-main {
-    margin-top: 52px;
+    margin-top: 50px;
+  }
+
+  .login-heading {
+    margin-bottom: 17px;
   }
 
   .login-heading h1 {
@@ -654,10 +917,115 @@ body {
   }
 
   .login-card {
+    width: 100%;
+
     padding: 20px 16px;
+
+    border-radius: 8px;
+  }
+
+  .login-form {
+    gap: 14px;
+  }
+
+  .login-input-group {
+    gap: 6px;
+  }
+
+  .login-input-group label,
+  .password-label label {
+    font-size: 12px;
   }
 
   .password-label a {
     font-size: 12px;
   }
+
+  .login-input-group input {
+    height: 43px;
+    min-height: 43px;
+
+    font-size: 13px;
+  }
+
+  .login-btn {
+    display: flex !important;
+
+    width: 100% !important;
+    min-width: 100% !important;
+
+    height: 44px !important;
+    min-height: 44px !important;
+
+    flex-shrink: 0 !important;
+  }
+
+  .google-btn {
+    height: 44px;
+    min-height: 44px;
+
+    font-size: 13px;
+  }
+
+  .login-footer {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREEN
+========================================================= */
+
+@media (max-width: 320px) {
+
+  .login-page {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .login-logo {
+    font-size: 21px;
+  }
+
+  .login-main {
+    margin-top: 45px;
+  }
+
+  .login-card {
+    padding: 18px 14px;
+  }
+
+  .login-heading h1 {
+    font-size: 22px;
+  }
+
+  .login-heading p {
+    font-size: 12px;
+  }
+
+  .login-form {
+    gap: 13px;
+  }
+
+  .login-btn {
+    height: 43px !important;
+    min-height: 43px !important;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.login-btn:focus-visible,
+.google-btn:focus-visible,
+.show-password:focus-visible,
+.login-logo:focus-visible,
+.password-label a:focus-visible,
+.login-footer a:focus-visible {
+  outline: 2px solid var(--blue);
+
+  outline-offset: 3px;
 }

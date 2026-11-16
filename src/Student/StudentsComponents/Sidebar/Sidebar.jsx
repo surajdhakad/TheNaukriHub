@@ -1,16 +1,13 @@
+
 import "./Sidebar.css";
 import { useNavigate } from "react-router-dom";
 
 const menuItems = [
   { id: "dashboard", icon: "🏠", label: "Dashboard" },
   { id: "jobs", icon: "💼", label: "Job Opportunities" },
-  { id: "placements", icon: "🎯", label: "My Placements" },
   { id: "applications", icon: "📄", label: "Applications" },
   { id: "resume", icon: "📑", label: "Resume Builder" },
   { id: "interviews", icon: "🎤", label: "Interview Preparation" },
-  
-  { id: "profile", icon: "👤", label: "Profile" },
-  { id: "settings", icon: "⚙️", label: "Settings" },
 ];
 
 function Sidebar({ scrollToSection, setActiveSection }) {
@@ -23,6 +20,7 @@ function Sidebar({ scrollToSection, setActiveSection }) {
         break;
 
       case "interviews":
+        setActiveSection("");
         navigate("/student/interview-preparation");
         break;
 
@@ -36,6 +34,7 @@ function Sidebar({ scrollToSection, setActiveSection }) {
   return (
     <aside className="sidebar">
 
+      {/* LOGO */}
       <div
         className="sidebar-logo"
         onClick={() => {
@@ -43,13 +42,17 @@ function Sidebar({ scrollToSection, setActiveSection }) {
           scrollToSection("dashboard");
         }}
       >
-        <h2>🎓 Placement Portal</h2>
+        <h2>🎓 The NaukriHub</h2>
       </div>
 
+      {/* SIDEBAR MENU */}
       <ul className="sidebar-menu">
         {menuItems.map((item) => (
           <li key={item.id}>
-            <button onClick={() => handleClick(item)}>
+            <button
+              type="button"
+              onClick={() => handleClick(item)}
+            >
               <span className="icon">{item.icon}</span>
               <span>{item.label}</span>
             </button>

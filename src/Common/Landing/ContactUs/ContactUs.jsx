@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import "./ContactUs.css";
+=======
+
+import "./Contactus.css";
+>>>>>>> 10dd43b (Complete responsive frontend and lead management)
 
 import {
   FaPhoneAlt,
@@ -8,9 +13,17 @@ import {
   FaPaperPlane,
   FaHeadset,
   FaCheckCircle,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 import { useState } from "react";
+
+// WhatsApp Support Number
+const WHATSAPP_NUMBER = "917354768277";
+
+const getWhatsAppLink = (message) => {
+  return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
+};
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -21,7 +34,8 @@ function Contact() {
     message: "",
   });
 
-  const handleChange = (e) => {ccc                 
+  // Handle Input Changes
+  const handleChange = (e) => {
     const { name, value } = e.target;
 
     setFormData((prev) => ({
@@ -30,35 +44,45 @@ function Contact() {
     }));
   };
 
+  // Submit Contact Form Through WhatsApp
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Contact Form:", formData);
+    const message = `
+Hello TheNaukriHub,
 
-    alert("Thank you! Your message has been submitted.");
+I want to contact your support team.
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Subject: ${formData.subject}
+
+Message:
+${formData.message}
+
+Thank you.
+    `.trim();
+
+    window.location.href = getWhatsAppLink(message);
+  };
+
+  // General WhatsApp Support
+  const openWhatsApp = () => {
+    const message =
+      "Hello TheNaukriHub, I need help regarding jobs, placements or applications.";
+
+    window.location.href = getWhatsAppLink(message);
   };
 
   return (
     <main className="contact-page">
 
-      {/* =====================================================
-          HERO
-      ===================================================== */}
-
+      {/* HERO */}
       <section className="contact-hero">
-
         <div className="contact-hero-overlay"></div>
 
         <div className="contact-hero-content">
-
           <span className="contact-badge">
             CONTACT THENAUKRIHUB
           </span>
@@ -73,53 +97,55 @@ function Contact() {
             connect with us? Our team is here to help you
             with your career journey.
           </p>
-
         </div>
-
       </section>
 
-
-      {/* =====================================================
-          CONTACT INFO
-      ===================================================== */}
-
+      {/* CONTACT INFO */}
       <section className="contact-info-section">
-
         <div className="contact-info-container">
 
-          {/* PHONE */}
-
+          {/* PHONE / WHATSAPP */}
           <div className="contact-info-card">
 
-            <div className="contact-info-icon">
-              <FaPhoneAlt />
-            </div>
+            <a
+              href={getWhatsAppLink("Hello TheNaukriHub, I need support.")}
+              className="contact-info-icon"
+              aria-label="Contact us on WhatsApp"
+            >
+              <FaWhatsapp />
+            </a>
 
             <div>
-              <span>CALL US</span>
+              <span>CALL / WHATSAPP US</span>
 
               <h3>
-                +91 7353768278
-               
-              </h3>
-              <h3>
-                +91 7353768277
-               
+                <a
+                  href="tel:+917353768278"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  +91 7353768278
+                </a>
               </h3>
 
+              <h3>
+                <a
+                  href={getWhatsAppLink("Hello TheNaukriHub, I need help.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  +91 7354768277
+                </a>
+              </h3>
 
               <p>
                 Available during working hours
               </p>
             </div>
-
           </div>
 
-
           {/* EMAIL */}
-
           <div className="contact-info-card">
-
             <div className="contact-info-icon">
               <FaEnvelope />
             </div>
@@ -135,14 +161,10 @@ function Contact() {
                 We usually reply within 24 hours
               </p>
             </div>
-
           </div>
 
-
           {/* LOCATION */}
-
           <div className="contact-info-card">
-
             <div className="contact-info-icon">
               <FaMapMarkerAlt />
             </div>
@@ -151,21 +173,17 @@ function Contact() {
               <span>OUR LOCATION</span>
 
               <h3>
-                Gwalior Phoolbag krishna tower first floor.
+                Gwalior Phoolbag Krishna Tower First Floor.
               </h3>
 
               <p>
                 Serving candidates across India
               </p>
             </div>
-
           </div>
 
-
           {/* HOURS */}
-
           <div className="contact-info-card">
-
             <div className="contact-info-icon">
               <FaClock />
             </div>
@@ -173,35 +191,20 @@ function Contact() {
             <div>
               <span>WORKING HOURS</span>
 
-              <h3>
-                Mon - Sat
-              </h3>
+              <h3>Mon - Sat</h3>
 
-              <p>
-                10:00 AM - 6:00 PM
-              </p>
+              <p>10:00 AM - 6:00 PM</p>
             </div>
-
           </div>
 
         </div>
-
       </section>
 
-
-      {/* =====================================================
-          CONTACT FORM + SUPPORT
-      ===================================================== */}
-
+      {/* CONTACT FORM + SUPPORT */}
       <section className="contact-main-section">
-
         <div className="contact-main-container">
 
-
-          {/* =================================================
-              LEFT SIDE
-          ================================================= */}
-
+          {/* LEFT SIDE */}
           <div className="contact-content">
 
             <span className="contact-section-tag">
@@ -220,9 +223,7 @@ function Contact() {
               to reach out to us.
             </p>
 
-
             {/* SUPPORT CARD */}
-
             <div className="contact-support-card">
 
               <div className="contact-support-icon">
@@ -230,7 +231,6 @@ function Contact() {
               </div>
 
               <div>
-
                 <h3>
                   Need Career Support?
                 </h3>
@@ -241,52 +241,54 @@ function Contact() {
                   you throughout your job search.
                 </p>
 
+                <a
+                  href={getWhatsAppLink(
+                    "Hello TheNaukriHub, I need career support."
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-block",
+                    marginTop: "12px",
+                    color: "#2563eb",
+                    fontWeight: "700",
+                    textDecoration: "none",
+                  }}
+                >
+                  <FaWhatsapp /> Chat on WhatsApp
+                </a>
               </div>
 
             </div>
 
-
             {/* CHECK LIST */}
-
             <div className="contact-check-list">
 
               <div>
                 <FaCheckCircle />
-                <span>
-                  Quick Response
-                </span>
+                <span>Quick Response</span>
               </div>
 
               <div>
                 <FaCheckCircle />
-                <span>
-                  Candidate Support
-                </span>
+                <span>Candidate Support</span>
               </div>
 
               <div>
                 <FaCheckCircle />
-                <span>
-                  Career Assistance
-                </span>
+                <span>Career Assistance</span>
               </div>
 
               <div>
                 <FaCheckCircle />
-                <span>
-                  Trusted Support
-                </span>
+                <span>Trusted Support</span>
               </div>
 
             </div>
 
           </div>
 
-
-          {/* =================================================
-              RIGHT FORM
-          ================================================= */}
-
+          {/* RIGHT FORM */}
           <div className="contact-form-card">
 
             <div className="contact-form-heading">
@@ -296,7 +298,6 @@ function Contact() {
               </div>
 
               <div>
-
                 <h3>
                   Send Us a Message
                 </h3>
@@ -305,23 +306,17 @@ function Contact() {
                   Fill out the form and our team will
                   get back to you.
                 </p>
-
               </div>
 
             </div>
 
-
             <form onSubmit={handleSubmit}>
 
               {/* NAME + EMAIL */}
-
               <div className="contact-form-row">
 
                 <div className="contact-field">
-
-                  <label>
-                    Your Name
-                  </label>
+                  <label>Your Name</label>
 
                   <input
                     type="text"
@@ -331,15 +326,10 @@ function Contact() {
                     onChange={handleChange}
                     required
                   />
-
                 </div>
 
-
                 <div className="contact-field">
-
-                  <label>
-                    Email Address
-                  </label>
+                  <label>Email Address</label>
 
                   <input
                     type="email"
@@ -349,21 +339,15 @@ function Contact() {
                     onChange={handleChange}
                     required
                   />
-
                 </div>
 
               </div>
 
-
               {/* PHONE + SUBJECT */}
-
               <div className="contact-form-row">
 
                 <div className="contact-field">
-
-                  <label>
-                    Phone Number
-                  </label>
+                  <label>Phone Number</label>
 
                   <input
                     type="tel"
@@ -372,15 +356,10 @@ function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                   />
-
                 </div>
 
-
                 <div className="contact-field">
-
-                  <label>
-                    Subject
-                  </label>
+                  <label>Subject</label>
 
                   <input
                     type="text"
@@ -390,19 +369,13 @@ function Contact() {
                     onChange={handleChange}
                     required
                   />
-
                 </div>
 
               </div>
 
-
               {/* MESSAGE */}
-
               <div className="contact-field">
-
-                <label>
-                  Your Message
-                </label>
+                <label>Your Message</label>
 
                 <textarea
                   name="message"
@@ -411,13 +384,10 @@ function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                ></textarea>
-
+                />
               </div>
 
-
-              {/* BUTTON */}
-
+              {/* SUBMIT BUTTON */}
               <button
                 type="submit"
                 className="contact-submit-btn"
@@ -431,16 +401,10 @@ function Contact() {
           </div>
 
         </div>
-
       </section>
 
-
-      {/* =====================================================
-          CTA
-      ===================================================== */}
-
+      {/* CTA */}
       <section className="contact-cta">
-
         <div className="contact-cta-content">
 
           <span>
@@ -465,7 +429,6 @@ function Contact() {
           </a>
 
         </div>
-
       </section>
 
     </main>

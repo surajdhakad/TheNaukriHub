@@ -858,3 +858,23 @@
   }
 
 }
+
+/* WhatsApp support link */
+.contact-support-card a {
+  color: #25d366 !important;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.contact-support-card a:hover {
+  color: #86efac !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .contact-info-icon[href*="api.whatsapp.com"] {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+}

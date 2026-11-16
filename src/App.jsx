@@ -1,3 +1,4 @@
+
 import "./App.css";
 
 import { Routes, Route, useLocation } from "react-router-dom";
@@ -31,12 +32,13 @@ import Disclaimer from "./Pages/Disclaimer/Disclaimer";
 
 // =====================================================
 // SUPPORT PAGES
+// =====================================================
+
 import FAQ from "./Pages/FAQ/FAQ";
 import HelpCenter from "./Pages/HelpCenter/HelpCenter";
 import Support from "./Pages/Support/Support";
 import ReportIssue from "./Pages/ReportIssue/ReportIssue";
 import CareerGuidance from "./Pages/CareerGuidance/CareerGuidance";
-// =====================================================
 
 // =====================================================
 // ABOUT PAGE
@@ -70,48 +72,41 @@ import RecentJobs from "./Common/Landing/RecentJobs/RecentJobs";
 import ProtectedRoute from "./assets/Components/ProtectedRoute";
 
 // =====================================================
+// PLACED STUDENTS
+// =====================================================
+
+import Student from "./Common/Landing/dummyplacedstudent/student";
+import StudentProfile from "./Common/Landing/dummyplacedstudent/StudentProfile";
+
+// =====================================================
 // STUDENT PAGES
 // =====================================================
 
 import StudentDashboard from "./Student/StudentsPages/DashBoard/DashBoard";
-
 import StudentJobs from "./Student/StudentsPages/Jobs/Jobs";
-
 import Application from "./Student/StudentsPages/Application/Application";
-
-import PlacementsStats from "./Student/StudentsPages/PlacementsStats/PlacementsStats";
-
-import Profile from "./Student/StudentsPages/Profile/Profile";
-
 import Resume from "./Student/StudentsPages/Resume/Resume";
-
-import Setting from "./Student/StudentsPages/Setting/Setting";
-
-import InterviewPreparationPage
-  from "./Student/StudentsPages/InterviewPreparation/InterviewPreparationPage";
+import InterviewPreparationPage from "./Student/StudentsPages/InterviewPreparation/InterviewPreparationPage";
 
 // =====================================================
 // ADMIN PAGES
 // =====================================================
 
 import Dashboard from "./Admin/Pages/Dashboard";
-
 import Students from "./Admin/Pages/Students";
-
 import Companies from "./Admin/Pages/Companies";
-
 import Jobs from "./Admin/Pages/Jobs";
-
 import Applications from "./Admin/Pages/Applications";
-
 import Placements from "./Admin/Pages/Placements";
-
 import Reports from "./Admin/Pages/Reports";
-
 import Settings from "./Admin/Pages/Settings";
+import InterviewMaterials from "./Admin/Pages/InterviewMaterials";
 
-import InterviewMaterials
-  from "./Admin/Pages/InterviewMaterials";
+// =====================================================
+// ADMIN LEADS
+// =====================================================
+
+import AdminLeads from "./Admin/Components/laeds/AdminLeads.jsx";
 
 // =====================================================
 // APP
@@ -121,19 +116,7 @@ function App() {
   const location = useLocation();
 
   // ===================================================
-  // PUBLIC PAGES JAHAN MAIN NAVBAR SHOW HOGA
-  // ===================================================
-  //
-  // Login
-  // Signup
-  // Forgot Password
-  // Verify OTP
-  // Reset Password
-  //
-  // in pages par Navbar nahi dikhega.
-  //
-  // Legal pages apna Navbar khud render karte hain.
-  // Isliye unko yahan add nahi kiya gaya.
+  // PUBLIC NAVBAR PATHS
   // ===================================================
 
   const publicNavbarPaths = [
@@ -142,12 +125,11 @@ function App() {
     "/banks",
     "/about",
     "/contact",
+    "/students",
   ];
 
   // ===================================================
   // JOB DETAILS PAGE
-  // Example:
-  // /jobs/123
   // ===================================================
 
   const isJobDetailsPage =
@@ -155,28 +137,33 @@ function App() {
     location.pathname !== "/jobs";
 
   // ===================================================
-  // SHOW MAIN NAVBAR
+  // STUDENT PROFILE PAGE (PUBLIC PLACED STUDENTS)
+  // ===================================================
+
+  const isStudentProfilePage =
+    location.pathname.startsWith("/students/") &&
+    location.pathname !== "/students";
+
+  // ===================================================
+  // SHOW NAVBAR
   // ===================================================
 
   const showNavbar =
     publicNavbarPaths.includes(location.pathname) ||
-    isJobDetailsPage;
+    isJobDetailsPage ||
+    isStudentProfilePage;
 
   // ===================================================
-  // RENDER
+  // RETURN
   // ===================================================
 
   return (
     <>
-      {/* =================================================
-          MAIN LANDING NAVBAR
-      ================================================= */}
+      {/* MAIN NAVBAR */}
 
       {showNavbar && <Navbar />}
 
-      {/* =================================================
-          ALL ROUTES
-      ================================================= */}
+      {/* ROUTES */}
 
       <Routes>
 
@@ -184,109 +171,94 @@ function App() {
             PUBLIC ROUTES
         ================================================= */}
 
-        {/* HOME */}
-
         <Route
           path="/"
           element={<Home />}
         />
-
-        {/* LOGIN */}
 
         <Route
           path="/login"
           element={<Login />}
         />
 
-        {/* SIGNUP */}
-
         <Route
           path="/signup"
           element={<Signup />}
         />
-
-        {/* FORGOT PASSWORD */}
 
         <Route
           path="/forgot-password"
           element={<ForgotPassword />}
         />
 
-        {/* VERIFY OTP */}
-
         <Route
           path="/verify-otp"
           element={<VerifyOTP />}
         />
-
-        {/* RESET PASSWORD */}
 
         <Route
           path="/reset-password"
           element={<ResetPassword />}
         />
 
-
         {/* =================================================
             LEGAL ROUTES
         ================================================= */}
-
-        {/* PRIVACY POLICY */}
 
         <Route
           path="/privacy-policy"
           element={<PrivacyPolicy />}
         />
 
-        {/* TERMS AND CONDITIONS */}
-
         <Route
           path="/terms-and-conditions"
           element={<TermsAndConditions />}
         />
-
-        {/* REFUND POLICY */}
 
         <Route
           path="/refund-policy"
           element={<RefundPolicy />}
         />
 
-        {/* COOKIE POLICY */}
-
         <Route
           path="/cookie-policy"
           element={<CookiePolicy />}
         />
 
-        {/* DISCLAIMER */}
-
         <Route
           path="/disclaimer"
           element={<Disclaimer />}
         />
-{/* SUPPORT PAGES*/}
 
-<Route
-  path="/faq"
-  element={<FAQ />}
-/>
-<Route
-  path="/help-center"
-  element={<HelpCenter />}
-/>
-<Route
-  path="/support"
-  element={<Support />}
-/>
-<Route
-  path="/report-issue"
-  element={<ReportIssue />}
-/>
-<Route
-  path="/career-guidance"
-  element={<CareerGuidance />}
-/>
+        {/* =================================================
+            SUPPORT ROUTES
+        ================================================= */}
+
+        <Route
+          path="/faq"
+          element={<FAQ />}
+        />
+
+        <Route
+          path="/help-center"
+          element={<HelpCenter />}
+        />
+
+        <Route
+          path="/support"
+          element={<Support />}
+        />
+
+        <Route
+          path="/report-issue"
+          element={<ReportIssue />}
+        />
+
+        <Route
+          path="/career-guidance"
+          element={<CareerGuidance />}
+        />
+
         {/* =================================================
             ABOUT
         ================================================= */}
@@ -295,7 +267,6 @@ function App() {
           path="/about"
           element={<AboutUs />}
         />
-
 
         {/* =================================================
             CONTACT
@@ -306,7 +277,6 @@ function App() {
           element={<ContactUs />}
         />
 
-
         {/* =================================================
             BANKS
         ================================================= */}
@@ -315,7 +285,6 @@ function App() {
           path="/banks"
           element={<RecentJobs />}
         />
-
 
         {/* =================================================
             PUBLIC JOBS
@@ -326,22 +295,30 @@ function App() {
           element={<AllJobs />}
         />
 
-
-        {/* =================================================
-            JOB DETAILS
-        ================================================= */}
-
         <Route
           path="/jobs/:jobId"
           element={<JobDetails />}
         />
 
-
         {/* =================================================
-            STUDENT ROUTES
+            PLACED STUDENTS
         ================================================= */}
 
-        {/* STUDENT DASHBOARD */}
+        <Route
+          path="/students"
+          element={<Student />}
+        />
+
+        <Route
+          path="/students/:id"
+          element={<StudentProfile />}
+        />
+
+        {/* =================================================
+            STUDENT DASHBOARD ROUTES
+        ================================================= */}
+
+        {/* DASHBOARD */}
 
         <Route
           path="/student/dashboard"
@@ -351,7 +328,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
 
         {/* STUDENT JOBS */}
 
@@ -364,8 +340,7 @@ function App() {
           }
         />
 
-
-        {/* STUDENT APPLICATION */}
+        {/* APPLICATION */}
 
         <Route
           path="/student/application"
@@ -376,32 +351,7 @@ function App() {
           }
         />
 
-
-        {/* STUDENT PLACEMENTS */}
-
-        <Route
-          path="/student/placements"
-          element={
-            <ProtectedRoute role="student">
-              <PlacementsStats />
-            </ProtectedRoute>
-          }
-        />
-
-
-        {/* STUDENT PROFILE */}
-
-        <Route
-          path="/student/profile"
-          element={
-            <ProtectedRoute role="student">
-              <Profile />
-            </ProtectedRoute>
-          }
-        />
-
-
-        {/* STUDENT RESUME */}
+        {/* RESUME */}
 
         <Route
           path="/student/resume"
@@ -412,8 +362,7 @@ function App() {
           }
         />
 
-
-        {/* STUDENT INTERVIEW PREPARATION */}
+        {/* INTERVIEW PREPARATION */}
 
         <Route
           path="/student/interview-preparation"
@@ -423,19 +372,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
-
-        {/* STUDENT SETTINGS */}
-
-        <Route
-          path="/student/settings"
-          element={
-            <ProtectedRoute role="student">
-              <Setting />
-            </ProtectedRoute>
-          }
-        />
-
 
         {/* =================================================
             ADMIN ROUTES
@@ -452,7 +388,6 @@ function App() {
           }
         />
 
-
         {/* ADMIN STUDENTS */}
 
         <Route
@@ -463,7 +398,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
 
         {/* ADMIN COMPANIES */}
 
@@ -476,7 +410,6 @@ function App() {
           }
         />
 
-
         {/* ADMIN JOBS */}
 
         <Route
@@ -487,7 +420,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
 
         {/* ADMIN APPLICATIONS */}
 
@@ -500,7 +432,6 @@ function App() {
           }
         />
 
-
         {/* ADMIN PLACEMENTS */}
 
         <Route
@@ -511,7 +442,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
 
         {/* ADMIN INTERVIEW MATERIALS */}
 
@@ -524,7 +454,6 @@ function App() {
           }
         />
 
-
         {/* ADMIN REPORTS */}
 
         <Route
@@ -535,7 +464,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
 
         {/* ADMIN SETTINGS */}
 
@@ -548,6 +476,18 @@ function App() {
           }
         />
 
+        {/* =================================================
+            ADMIN LEADS
+        ================================================= */}
+
+        <Route
+          path="/admin/leads"
+          element={
+            <ProtectedRoute role="admin">
+              <AdminLeads />
+            </ProtectedRoute>
+          }
+        />
 
         {/* =================================================
             404 PAGE

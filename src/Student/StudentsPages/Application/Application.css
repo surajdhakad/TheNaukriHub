@@ -1,260 +1,540 @@
-/* ==========================
-   Application Page
-========================== */
+
+/* ==========================================
+   APPLICATION LAYOUT
+========================================== */
+
+.application-layout {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f7fb;
+  overflow-x: hidden;
+}
+
+.application-layout,
+.application-layout * {
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   APPLICATION PAGE
+========================================== */
 
 .application-page {
   width: 100%;
   min-height: 100vh;
-  padding: 40px;
-  background: linear-gradient(135deg, #edf4ff, #eef2ff, #f8f5ff);
+
+  padding: 110px 24px 35px;
+
+  background: linear-gradient(
+    135deg,
+    #edf4ff,
+    #eef2ff,
+    #f8f5ff
+  );
+
   display: flex;
   justify-content: center;
   align-items: flex-start;
+
+  overflow-x: hidden;
 }
 
-/* ==========================
-   Main Card
-========================== */
+/* ==========================================
+   MAIN CARD
+========================================== */
 
 .application-card {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
+  min-width: 0;
+
   background: #ffffff;
+
   border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 20px 45px rgba(37, 99, 235, .15);
+
   border: 1px solid #dbeafe;
+
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.15);
 }
 
-/* ==========================
-   Header
-========================== */
+/* ==========================================
+   HEADER
+========================================== */
 
-.application-header{
-  padding:35px 45px;
-  background: linear-gradient(135deg,#2563eb,#4f46e5,#7c3aed);
-  color:#fff;
-  position:relative;
+.application-header {
+  position: relative;
+  isolation: isolate;
+
+  padding: 35px 45px;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5,
+    #7c3aed
+  );
+
+  overflow: hidden;
 }
 
-.application-header::after{
-  content:"";
-  position:absolute;
-  width:220px;
-  height:220px;
-  background:rgba(255,255,255,.12);
-  border-radius:50%;
-  right:-60px;
-  top:-70px;
+.application-header::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  border-radius: 50%;
+
+  right: -60px;
+  top: -70px;
+
+  z-index: -1;
 }
 
-.application-header h2{
-  margin:0;
-  font-size:34px;
-  font-weight:700;
+.application-header h2 {
+  margin: 0;
+
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
-.application-header p{
-  margin-top:10px;
-  font-size:16px;
-  opacity:.9;
+.application-header p {
+  margin-top: 12px;
+
+  font-size: 17px;
+  line-height: 1.6;
+
+  opacity: 0.95;
 }
 
-/* ==========================
-   Body
-========================== */
+/* ==========================================
+   FORM BODY
+========================================== */
 
-.application-body{
-  padding:40px;
+.application-body {
+  width: 100%;
+  padding: 40px;
 }
 
-/* ==========================
-   Section Card
-========================== */
+/* ==========================================
+   FORM SECTION
+========================================== */
 
-.form-section{
-  background:#ffffff;
-  border-radius:18px;
-  padding:30px;
-  margin-bottom:30px;
-  border-left:6px solid #2563eb;
-  border-top:1px solid #e5e7eb;
-  border-right:1px solid #e5e7eb;
-  border-bottom:1px solid #e5e7eb;
-  box-shadow:0 8px 20px rgba(0,0,0,.05);
-  transition:.35s;
+.application-card .form-section {
+  width: 100%;
+  min-width: 0;
+
+  padding: 30px;
+  margin-bottom: 30px;
+
+  background: #ffffff;
+
+  border-radius: 18px;
+
+  border-left: 6px solid #2563eb;
+  border-top: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+
+  transition: box-shadow 0.3s ease;
 }
 
-.form-section:hover{
-  transform:translateY(-5px);
-  box-shadow:0 15px 35px rgba(37,99,235,.15);
+.application-card .form-section:hover {
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.12);
 }
 
-.form-section h3{
-  margin-bottom:25px;
-  font-size:22px;
-  color:#1e40af;
+.application-card .form-section h3 {
+  margin: 0 0 25px;
+
+  font-size: 23px;
+  font-weight: 700;
+
+  color: #1e40af;
+
+  line-height: 1.4;
 }
 
-/* ==========================
-   Grid
-========================== */
+/* ==========================================
+   FORM GRID
+========================================== */
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:25px;
+.application-card .grid {
+  width: 100%;
+  min-width: 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 25px 28px;
 }
 
-.full{
-  grid-column:1/-1;
+.application-card .grid > div {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 0;
 }
 
-.grid div{
-  display:flex;
-  flex-direction:column;
+.application-card .grid .full {
+  grid-column: 1 / -1;
 }
 
-/* ==========================
-   Labels
-========================== */
+/* ==========================================
+   LABELS
+========================================== */
 
-label{
-  font-size:15px;
-  font-weight:600;
-  color:#334155;
-  margin-bottom:8px;
+.application-card label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #334155;
 }
 
-/* ==========================
-   Inputs
-========================== */
+/* ==========================================
+   INPUTS
+========================================== */
 
-input{
-  width:100%;
-  height:50px;
-  border-radius:12px;
-  border:2px solid #e2e8f0;
-  background:#f8fafc;
-  padding:0 15px;
-  font-size:15px;
-  transition:.3s;
+.application-card input,
+.application-card select,
+.application-card textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  min-height: 50px;
+
+  padding: 12px 15px;
+
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+
+  background: #f8fafc;
+
+  color: #1e293b;
+
+  font-size: 15px;
+  font-family: inherit;
+
+  transition: 0.3s ease;
 }
 
-input::placeholder{
-  color:#94a3b8;
+.application-card textarea {
+  min-height: 110px;
+  resize: vertical;
 }
 
-input:focus{
-  border-color:#2563eb;
-  background:#fff;
-  box-shadow:0 0 0 5px rgba(37,99,235,.12);
-  outline:none;
+.application-card input::placeholder,
+.application-card textarea::placeholder {
+  color: #94a3b8;
 }
 
-/* ==========================
-   File Upload
-========================== */
+.application-card input:focus,
+.application-card select:focus,
+.application-card textarea:focus {
+  border-color: #2563eb;
 
-input[type=file]{
-  height:auto;
-  padding:12px;
-  background:#f8fafc;
+  background: #ffffff;
+
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+
+  outline: none;
 }
 
-input[type=file]::-webkit-file-upload-button{
-  background:linear-gradient(135deg,#2563eb,#4f46e5);
-  color:#fff;
-  border:none;
-  padding:10px 18px;
-  border-radius:8px;
-  cursor:pointer;
-  margin-right:15px;
-  transition:.3s;
+/* ==========================================
+   FILE UPLOAD
+========================================== */
+
+.application-card input[type="file"] {
+  height: auto;
+  min-height: 50px;
+
+  padding: 9px;
+
+  background: #f8fafc;
+
+  cursor: pointer;
 }
 
-input[type=file]::-webkit-file-upload-button:hover{
-  transform:scale(1.04);
+.application-card input[type="file"]::file-selector-button {
+  padding: 10px 16px;
+  margin-right: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: #ffffff;
+
+  border: none;
+  border-radius: 8px;
+
+  font-weight: 600;
+
+  cursor: pointer;
 }
 
-/* ==========================
-   Submit Button
-========================== */
+/* ==========================================
+   SUBMIT BUTTON
+========================================== */
 
-.submit-btn{
-  width:100%;
-  height:58px;
-  border:none;
-  border-radius:14px;
-  margin-top:15px;
-  background:linear-gradient(135deg,#2563eb,#4f46e5,#7c3aed);
-  color:#fff;
-  font-size:19px;
-  font-weight:700;
-  letter-spacing:.5px;
-  cursor:pointer;
-  transition:.35s;
-  box-shadow:0 15px 30px rgba(79,70,229,.30);
+.application-card .submit-btn {
+  width: 100%;
+  min-height: 58px;
+
+  padding: 14px 20px;
+  margin-top: 15px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5,
+    #7c3aed
+  );
+
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  letter-spacing: 0.4px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  box-shadow: 0 12px 25px rgba(79, 70, 229, 0.25);
 }
 
-.submit-btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 20px 40px rgba(79,70,229,.45);
+.application-card .submit-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+
+  box-shadow: 0 17px 30px rgba(79, 70, 229, 0.35);
 }
 
-.submit-btn:active{
-  transform:scale(.98);
+.application-card .submit-btn:active {
+  transform: scale(0.98);
 }
 
-/* ==========================
-   Nice Scroll
-========================== */
-
-::-webkit-scrollbar{
-  width:8px;
+.application-card .submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
 }
 
-::-webkit-scrollbar-thumb{
-  background:#2563eb;
-  border-radius:10px;
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 992px) {
+
+  .application-page {
+    padding: 105px 18px 25px;
+  }
+
+  .application-header {
+    padding: 30px;
+  }
+
+  .application-header h2 {
+    font-size: 31px;
+  }
+
+  .application-body {
+    padding: 28px;
+  }
+
+  .application-card .form-section {
+    padding: 25px;
+  }
+
+  .application-card .grid {
+    gap: 20px;
+  }
 }
 
-/* ==========================
-   Responsive
-========================== */
+/* ==========================================
+   MOBILE
+========================================== */
 
-@media(max-width:992px){
+@media (max-width: 768px) {
 
-.grid{
-grid-template-columns:1fr;
+  .application-page {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 85px 12px 20px;
+  }
+
+  .application-card {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .application-header {
+    padding: 25px 20px;
+  }
+
+  .application-header h2 {
+    font-size: 27px;
+  }
+
+  .application-header p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .application-header::after {
+    width: 130px;
+    height: 130px;
+
+    right: -45px;
+    top: -45px;
+  }
+
+  .application-body {
+    padding: 20px 15px;
+  }
+
+  .application-card .form-section {
+    padding: 20px 16px;
+
+    margin-bottom: 20px;
+
+    border-left-width: 4px;
+    border-radius: 13px;
+  }
+
+  .application-card .form-section h3 {
+    font-size: 19px;
+    margin-bottom: 20px;
+  }
+
+  .application-card .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .application-card .grid .full {
+    grid-column: 1;
+  }
+
+  .application-card label {
+    font-size: 14px;
+  }
+
+  .application-card input,
+  .application-card select,
+  .application-card textarea {
+    min-height: 46px;
+    font-size: 14px;
+    padding: 11px 12px;
+  }
+
+  .application-card .submit-btn {
+    min-height: 52px;
+    font-size: 16px;
+  }
 }
 
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+  .application-page {
+    padding: 80px 8px 15px;
+  }
+
+  .application-header {
+    padding: 22px 16px;
+  }
+
+  .application-header h2 {
+    font-size: 23px;
+  }
+
+  .application-header p {
+    font-size: 13px;
+  }
+
+  .application-body {
+    padding: 15px 10px;
+  }
+
+  .application-card .form-section {
+    padding: 18px 13px;
+    margin-bottom: 16px;
+  }
+
+  .application-card .form-section h3 {
+    font-size: 18px;
+  }
+
+  .application-card .grid {
+    gap: 15px;
+  }
+
+  .application-card input,
+  .application-card select,
+  .application-card textarea {
+    font-size: 14px;
+    border-radius: 9px;
+  }
+
+  .application-card input[type="file"] {
+    font-size: 12px;
+  }
+
+  .application-card input[type="file"]::file-selector-button {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
 }
 
-@media(max-width:768px){
+/* ==========================================
+   EXTRA SMALL MOBILE
+========================================== */
 
-.application-page{
-padding:15px;
-}
+@media (max-width: 360px) {
 
-.application-card{
-border-radius:16px;
-}
+  .application-page {
+    padding: 75px 6px 12px;
+  }
 
-.application-header{
-padding:25px;
-}
+  .application-header h2 {
+    font-size: 21px;
+  }
 
-.application-header h2{
-font-size:27px;
-}
+  .application-body {
+    padding: 12px 8px;
+  }
 
-.application-body{
-padding:20px;
-}
+  .application-card .form-section {
+    padding: 15px 10px;
+  }
 
-.form-section{
-padding:20px;
-}
-
+  .application-card .form-section h3 {
+    font-size: 16px;
+  }
 }

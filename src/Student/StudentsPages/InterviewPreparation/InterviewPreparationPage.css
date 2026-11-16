@@ -1,22 +1,401 @@
-.interview-page {
-    display: flex;
-    min-height: 100vh;
-    background: #f5f7fb;
+
+/* ==========================================
+   INTERVIEW PREPARATION - GLOBAL
+========================================== */
+
+.interview-page,
+.interview-page * {
+    box-sizing: border-box;
 }
+
+.interview-page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    margin: 0;
+    padding: 0;
+
+    background: linear-gradient(
+        135deg,
+        #f8faff 0%,
+        #f1f5fb 50%,
+        #eef2ff 100%
+    );
+
+    color: #172033;
+
+    font-family: inherit;
+
+    overflow-x: clip;
+}
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
 
 .interview-content {
     flex: 1;
-    margin-left: 250px;
-    margin-top: 70px;
+
+    width: 100%;
+    max-width: 1600px;
+
+    min-width: 0;
+
+    margin: 0 auto;
+
+    padding: 115px 35px 50px;
+
+    animation: interviewFadeIn 0.6s ease;
+}
+
+/* ==========================================
+   PAGE ANIMATION
+========================================== */
+
+@keyframes interviewFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   PAGE HEADING
+========================================== */
+
+.interview-content h1 {
+    color: #14213d;
+
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 800;
+
+    line-height: 1.3;
+
+    margin-bottom: 8px;
+
+    overflow-wrap: anywhere;
+}
+
+.interview-content h2 {
+    color: #172554;
+
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    margin-bottom: 15px;
+}
+
+.interview-content p {
+    color: #64748b;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   SEARCH INPUT
+========================================== */
+
+.interview-content input:not([type="file"]),
+.interview-content select,
+.interview-content textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    min-height: 50px;
+
+    padding: 13px 16px;
+
+    background: #ffffff;
+
+    border: 1.5px solid #dbe4f0;
+    border-radius: 12px;
+
+    color: #1e293b;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: all 0.25s ease;
+}
+
+.interview-content input:focus,
+.interview-content select:focus,
+.interview-content textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.10);
+}
+
+.interview-content input::placeholder,
+.interview-content textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.interview-content .interview-card,
+.interview-content .material-card,
+.interview-content .company-card {
+    min-width: 0;
+
+    background: #ffffff;
+
+    border: 1px solid #e5eaf2;
+    border-radius: 18px;
+
     padding: 25px;
-    transition: .3s;
+
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+
+    transition: all 0.3s ease;
 }
 
-@media (max-width:768px){
+.interview-content .interview-card:hover,
+.interview-content .material-card:hover,
+.interview-content .company-card:hover {
+    transform: translateY(-4px);
 
-.interview-content{
-    margin-left:0;
-    padding:15px;
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.10);
+
+    border-color: #c7d9ff;
 }
+
+/* ==========================================
+   GRID LAYOUT
+========================================== */
+
+.interview-content .interview-grid,
+.interview-content .materials-grid {
+    width: 100%;
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 300px), 1fr)
+    );
+
+    gap: 22px;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.interview-content button,
+.interview-content .interview-btn {
+    transition: all 0.25s ease;
+}
+
+.interview-content button:hover,
+.interview-content .interview-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   IMAGES
+========================================== */
+
+.interview-content img {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+}
+
+/* ==========================================
+   TABLES
+========================================== */
+
+.interview-content table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.interview-content th,
+.interview-content td {
+    padding: 14px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #e5eaf2;
+}
+
+/* ==========================================
+   LAPTOP
+========================================== */
+
+@media (max-width: 1200px) {
+
+    .interview-content {
+        padding: 110px 25px 40px;
+    }
+
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 992px) {
+
+    .interview-content {
+        padding: 105px 22px 35px;
+    }
+
+    .interview-content .interview-card,
+    .interview-content .material-card,
+    .interview-content .company-card {
+        padding: 22px;
+    }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .interview-page {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    .interview-content {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 0;
+
+        padding: 90px 16px 30px;
+    }
+
+    .interview-content h1 {
+        font-size: 27px;
+    }
+
+    .interview-content h2 {
+        font-size: 22px;
+    }
+
+    .interview-content p {
+        font-size: 14px;
+    }
+
+    .interview-content .interview-grid,
+    .interview-content .materials-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .interview-content .interview-card,
+    .interview-content .material-card,
+    .interview-content .company-card {
+        padding: 19px;
+        border-radius: 15px;
+    }
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+    .interview-content {
+        padding: 82px 12px 25px;
+    }
+
+    .interview-content h1 {
+        font-size: 23px;
+    }
+
+    .interview-content h2 {
+        font-size: 20px;
+    }
+
+    .interview-content p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .interview-content input:not([type="file"]),
+    .interview-content select,
+    .interview-content textarea {
+        min-height: 46px;
+
+        padding: 11px 12px;
+
+        font-size: 14px;
+        border-radius: 10px;
+    }
+
+    .interview-content .interview-card,
+    .interview-content .material-card,
+    .interview-content .company-card {
+        padding: 16px;
+    }
+
+    .interview-content th,
+    .interview-content td {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+}
+
+/* ==========================================
+   EXTRA SMALL MOBILE
+========================================== */
+
+@media (max-width: 360px) {
+
+    .interview-content {
+        padding: 78px 9px 20px;
+    }
+
+    .interview-content h1 {
+        font-size: 21px;
+    }
+
+    .interview-content h2 {
+        font-size: 18px;
+    }
+
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .interview-page *,
+    .interview-page *::before,
+    .interview-page *::after {
+        animation: none !important;
+        transition: none !important;
+    }
 
 }

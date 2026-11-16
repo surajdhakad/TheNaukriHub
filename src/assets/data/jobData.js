@@ -69,7 +69,7 @@ const jobData = [
     role: "Sales Manager",
     experience: "Fresher",
     location: ["Delhi"],
-    salary: "4.40 LPA",
+    salary: "4.42 LPA",
     logo: "/src/assets/Images/banks-logo/asix.webp",
     description:
       "Axis Bank is hiring Sales Managers for its banking sales team.",
@@ -307,7 +307,7 @@ const jobData = [
     role: "Deputy Branch Manager (DBM)",
     experience: "Fresher",
     location: ["All India"],
-    salary: "5.0 LPA",
+    salary: "5.47 LPA",
     logo: "/src/assets/Images/banks-logo/kotak.webp",
     description:
       "Kotak Mahindra Bank is hiring Deputy Branch Managers.",
@@ -328,7 +328,7 @@ const jobData = [
     role: "Assistant Manager (Operation) - Female Only",
     experience: "Fresher",
     location: ["All India"],
-    salary: "4.40 LPA",
+    salary: "4.42 LPA",
     logo: "/src/assets/Images/banks-logo/asix.webp",
     description:
       "Axis Bank is hiring Assistant Managers for operations.",
@@ -369,8 +369,9 @@ const jobData = [
     title: "Relationship Manager at IDFC FIRST Bank",
     role: "Relationship Manager",
     experience: "Fresher",
+    program:"elevate",
     location: ["All India"],
-    salary: "5.5 LPA + PLP",
+    salary: "5.0 LPA + PLP",
     logo: "/src/assets/Images/banks-logo/idfc.webp",
     description:
       "IDFC FIRST Bank is looking for Relationship Managers.",

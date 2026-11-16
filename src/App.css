@@ -1,31 +1,31 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html,
 body,
-#root{
-  width:100%;
-  min-height:100%;
-  overflow-x:hidden;
-  background:#eef3fb;
+#root {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background: #eef3fb;
 }
 
-body{
-  font-family:"Poppins", sans-serif;
+body {
+  font-family: "Poppins", sans-serif;
 }
 
-a{
-  text-decoration:none;
+a {
+  text-decoration: none;
 }
 
-img{
-  max-width:100%;
-  display:block;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-button{
-  font-family:inherit;
+button {
+  font-family: inherit;
 }

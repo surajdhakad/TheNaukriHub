@@ -1,0 +1,538 @@
+/* =========================================================
+   ADMIN LEADS - COMPLETE STYLING
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.admin-leads {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 30px;
+
+  background: linear-gradient(
+    135deg,
+    #eef4ff 0%,
+    #f8faff 50%,
+    #edf4ff 100%
+  );
+
+  color: #172554;
+}
+
+
+/* =========================================================
+   HEADER CARD
+========================================================= */
+
+.lead-header {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 25px;
+  flex-wrap: wrap;
+
+  padding: 25px 30px;
+  margin-bottom: 25px;
+
+  background: #ffffff;
+
+  border: 1px solid #dbe5f4;
+  border-radius: 20px;
+
+  box-shadow:
+    0 12px 30px rgba(30, 64, 175, 0.08),
+    0 3px 8px rgba(15, 23, 42, 0.04);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.lead-header h2 {
+  margin: 0 0 6px;
+
+  color: #172554;
+
+  font-size: 27px;
+  font-weight: 750;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.5px;
+}
+
+.lead-header p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   SEARCH BOX
+========================================================= */
+
+.lead-header input {
+  width: 330px;
+  max-width: 100%;
+
+  height: 50px;
+
+  padding: 0 18px;
+
+  background: #f8faff;
+
+  color: #172554;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 13px;
+
+  outline: none;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: all 0.25s ease;
+}
+
+.lead-header input::placeholder {
+  color: #94a3b8;
+}
+
+.lead-header input:hover {
+  background: #ffffff;
+  border-color: #93c5fd;
+}
+
+.lead-header input:focus {
+  background: #ffffff;
+
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.12),
+    0 6px 18px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   TABLE CARD
+========================================================= */
+
+.lead-table-wrapper {
+  width: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid #dbe5f4;
+  border-radius: 20px;
+
+  overflow-x: auto;
+
+  box-shadow:
+    0 15px 35px rgba(30, 64, 175, 0.08),
+    0 4px 10px rgba(15, 23, 42, 0.04);
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.lead-table {
+  width: 100%;
+  min-width: 750px;
+
+  border-collapse: separate;
+  border-spacing: 0;
+
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   TABLE HEADER - IMPORTANT FIX
+========================================================= */
+
+.lead-table thead {
+  background: #172554 !important;
+}
+
+.lead-table thead tr {
+  background: #172554 !important;
+}
+
+.lead-table thead th {
+  height: 58px;
+
+  padding: 17px 20px;
+
+  background: #172554 !important;
+
+  color: #ffffff !important;
+
+  text-align: left;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
+
+  white-space: nowrap;
+
+  border: none !important;
+}
+
+
+/* =========================================================
+   HEADER GRADIENT
+========================================================= */
+
+.lead-table thead th {
+  background: linear-gradient(
+    135deg,
+    #172554 0%,
+    #1e40af 50%,
+    #2563eb 100%
+  ) !important;
+}
+
+
+/* =========================================================
+   HEADER CORNERS
+========================================================= */
+
+.lead-table thead th:first-child {
+  border-top-left-radius: 19px;
+}
+
+.lead-table thead th:last-child {
+  border-top-right-radius: 19px;
+}
+
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+.lead-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.lead-table tbody tr:nth-child(even) td {
+  background: #f8faff;
+}
+
+.lead-table tbody tr:nth-child(odd) td {
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   TABLE CELLS
+========================================================= */
+
+.lead-table td {
+  height: 62px;
+
+  padding: 16px 20px;
+
+  color: #475569;
+
+  font-size: 14px;
+  font-weight: 450;
+
+  border-bottom: 1px solid #e7edf6;
+
+  white-space: nowrap;
+
+  transition: all 0.2s ease;
+}
+
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+.lead-table tbody tr:hover td {
+  background: #eef5ff !important;
+
+  color: #172554;
+
+  border-bottom-color: #d5e5ff;
+}
+
+
+/* Blue indicator */
+
+.lead-table tbody tr:hover td:first-child {
+  box-shadow: inset 4px 0 0 #2563eb;
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+.lead-table td:first-child {
+  color: #172554;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+.lead-table td:nth-child(2) {
+  color: #2563eb;
+
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   COLLEGE
+========================================================= */
+
+.lead-table td:nth-child(3) {
+  color: #334155;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   DISTRICT
+========================================================= */
+
+.lead-table td:nth-child(4) {
+  color: #475569;
+
+  font-weight: 550;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.lead-table td:nth-child(5) {
+  color: #64748b;
+
+  font-size: 13px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   LAST ROW
+========================================================= */
+
+.lead-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   NO DATA
+========================================================= */
+
+.no-data {
+  height: 150px !important;
+
+  padding: 40px 20px !important;
+
+  background: #ffffff !important;
+
+  color: #94a3b8 !important;
+
+  text-align: center !important;
+
+  font-size: 15px !important;
+
+  font-weight: 600 !important;
+}
+
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+========================================================= */
+
+.lead-table-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.lead-table-wrapper::-webkit-scrollbar-track {
+  background: #eef2ff;
+}
+
+.lead-table-wrapper::-webkit-scrollbar-thumb {
+  background: #93c5fd;
+
+  border-radius: 20px;
+}
+
+.lead-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+
+/* =========================================================
+   PHONE LINK
+========================================================= */
+
+.phone-link {
+  color: #2563eb;
+
+  text-decoration: none;
+
+  font-weight: 650;
+
+  transition: all 0.2s ease;
+}
+
+.phone-link:hover {
+  color: #1d4ed8;
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   TABLE RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .admin-leads {
+    padding: 22px;
+  }
+
+  .lead-header {
+    padding: 22px;
+  }
+
+  .lead-header input {
+    width: 280px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .admin-leads {
+    padding: 18px;
+
+    background: #f5f8ff;
+  }
+
+  .lead-header {
+    padding: 20px;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 18px;
+
+    border-radius: 16px;
+  }
+
+  .lead-header h2 {
+    font-size: 22px;
+  }
+
+  .lead-header p {
+    font-size: 13px;
+  }
+
+  .lead-header input {
+    width: 100%;
+
+    height: 48px;
+  }
+
+  .lead-table-wrapper {
+    border-radius: 16px;
+  }
+
+  .lead-table {
+    min-width: 750px;
+  }
+
+  .lead-table th,
+  .lead-table td {
+    padding: 14px 16px;
+
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .admin-leads {
+    padding: 12px;
+  }
+
+  .lead-header {
+    padding: 18px;
+
+    margin-bottom: 18px;
+
+    border-radius: 14px;
+  }
+
+  .lead-header h2 {
+    font-size: 20px;
+  }
+
+  .lead-header input {
+    height: 46px;
+
+    padding: 0 14px;
+  }
+
+  .lead-table-wrapper {
+    border-radius: 14px;
+  }
+
+  .lead-table {
+    min-width: 700px;
+  }
+
+  .lead-table th,
+  .lead-table td {
+    padding: 13px 14px;
+
+    font-size: 13px;
+  }
+}

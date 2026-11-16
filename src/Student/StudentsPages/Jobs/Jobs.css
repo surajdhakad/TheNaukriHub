@@ -1,3 +1,286 @@
-.student-page{
-    padding:30px;
+/* =================================
+   STUDENT JOBS PAGE
+================================= */
+
+.student-jobs-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f4f7fc;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* =================================
+   MAIN CONTENT
+================================= */
+
+.student-jobs-content {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 125px 35px 50px;
+  box-sizing: border-box;
+}
+
+/* =================================
+   HEADING
+================================= */
+
+.jobs-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.jobs-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 30px;
+  background: #dbeafe;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.jobs-heading h1 {
+  margin: 18px 0 10px;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  color: #111827;
+}
+
+.jobs-heading p {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* =================================
+   SEARCH BOX
+================================= */
+
+.jobs-search-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 10px 12px 10px 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+  box-sizing: border-box;
+}
+
+.jobs-search-box > svg {
+  color: #64748b;
+  font-size: 19px;
+  flex-shrink: 0;
+}
+
+.jobs-search-box input {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #1e293b;
+  font-size: 15px;
+}
+
+.jobs-search-box input:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.jobs-search-box button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.jobs-search-box button:hover {
+  background: #1d4ed8;
+}
+
+/* =================================
+   JOB LIST HEADING
+================================= */
+
+.jobs-list-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin: 40px 0 20px;
+}
+
+.jobs-list-heading h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 23px;
+  font-weight: 750;
+}
+
+.jobs-list-heading span {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* =================================
+   EMPTY STATE
+================================= */
+
+.jobs-empty-state {
+  width: 100%;
+  min-height: 260px;
+  padding: 35px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e5eaf2;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  box-sizing: border-box;
+}
+
+.jobs-empty-icon {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: #dbeafe;
+  color: #2563eb;
+  font-size: 27px;
+  margin-bottom: 18px;
+}
+
+.jobs-empty-state h3 {
+  color: #172033;
+  font-size: 21px;
+  margin: 0 0 10px;
+}
+
+.jobs-empty-state p {
+  color: #64748b;
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 992px) {
+  .student-jobs-content {
+    padding: 115px 25px 40px;
+  }
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 768px) {
+  .student-jobs-content {
+    padding: 100px 16px 30px;
+  }
+
+  .jobs-heading {
+    margin-bottom: 22px;
+  }
+
+  .jobs-heading h1 {
+    font-size: 29px;
+  }
+
+  .jobs-heading p {
+    font-size: 14px;
+  }
+
+  .jobs-search-box {
+    padding: 8px 10px 8px 14px;
+    gap: 9px;
+  }
+
+  .jobs-search-box input {
+    font-size: 13px;
+  }
+
+  .jobs-search-box button {
+    padding: 12px 15px;
+    font-size: 13px;
+  }
+
+  .jobs-list-heading {
+    margin-top: 30px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .jobs-list-heading h2 {
+    font-size: 20px;
+  }
+
+  .jobs-empty-state {
+    min-height: 230px;
+  }
+}
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 480px) {
+  .student-jobs-content {
+    padding: 95px 12px 25px;
+  }
+
+  .jobs-heading h1 {
+    font-size: 25px;
+  }
+
+  .jobs-tag {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+
+  .jobs-search-box {
+    flex-wrap: wrap;
+  }
+
+  .jobs-search-box input {
+    width: 0;
+  }
+
+  .jobs-search-box button {
+    width: 100%;
+  }
+
+  .jobs-empty-state h3 {
+    font-size: 19px;
+  }
+
+  .jobs-empty-state p {
+    font-size: 13px;
+  }
 }

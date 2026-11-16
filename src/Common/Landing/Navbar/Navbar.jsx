@@ -1,13 +1,13 @@
+
 import "./Navbar.css";
 
 import {
   Link,
   useNavigate,
+  useLocation,
 } from "react-router-dom";
 
-import {
-  useState,
-} from "react";
+import { useState } from "react";
 
 import {
   FaBars,
@@ -17,105 +17,60 @@ import {
   FaBuilding,
   FaInfoCircle,
   FaPhoneAlt,
+  FaHome,
 } from "react-icons/fa";
 
-// =====================================================
-// LOGO
-// =====================================================
 import logo from "../../../assets/Images/logo.png";
 
-
 function Navbar() {
-
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-
-  // =====================================================
-  // LOGIN USER
-  // =====================================================
-
+  // Login user details
   const token = localStorage.getItem("token");
 
   let user = null;
 
   try {
-
-    user = JSON.parse(
-      localStorage.getItem("user")
-    );
-
+    user = JSON.parse(localStorage.getItem("user"));
   } catch (error) {
-
     user = null;
-
   }
 
-
-  // =====================================================
-  // CLOSE MOBILE MENU
-  // =====================================================
-
+  // Close mobile menu
   const closeMenu = () => {
-
     setMenuOpen(false);
-
   };
 
+  // Toggle mobile menu
+  const toggleMenu = () => {
+    setMenuOpen((previous) => !previous);
+  };
 
-  // =====================================================
-  // NAVIGATION
-  // =====================================================
+  // Active route check
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
-  const handleHome = () => {
+  // Navigate to page
+  const handleNavigation = (path) => {
     closeMenu();
-    navigate("/");
+    navigate(path);
   };
 
-  const handleJobs = () => {
-    closeMenu();
-    navigate("/jobs");
-  };
-
-  const handleBanks = () => {
-    closeMenu();
-    navigate("/banks");
-  };
-
-  const handleAbout = () => {
-    closeMenu();
-    navigate("/about");
-  };
-
-  const handleContact = () => {
-    closeMenu();
-    navigate("/contact");
-  };
-
-
-  // =====================================================
-  // LOGOUT
-  // =====================================================
-
+  // Logout
   const handleLogout = () => {
-
     localStorage.removeItem("token");
     localStorage.removeItem("user");
 
     closeMenu();
-
     navigate("/login");
-
   };
 
-
-  // =====================================================
-  // PROFILE
-  // =====================================================
-
+  // Profile
   const handleProfile = () => {
-
     closeMenu();
 
     if (!user) {
@@ -129,180 +84,113 @@ function Navbar() {
     }
 
     navigate("/student/profile");
-
   };
 
-
-  // =====================================================
-  // RENDER
-  // =====================================================
-
   return (
-
     <header className="landing-navbar">
 
-
-      {/* =================================================
-          LOGO
-      ================================================= */}
-
+      {/* LOGO */}
       <div className="navbar-logo">
-
-        <Link
-          to="/"
-          onClick={closeMenu}
-        >
-
+        <Link to="/" onClick={closeMenu}>
           <img
             src={logo}
             alt="THE NaukriHub"
             className="navbar-logo-img"
           />
-
         </Link>
-
       </div>
 
-
-      {/* =================================================
-          NAVIGATION
-      ================================================= */}
-
+      {/* NAVIGATION MENU */}
       <nav
-        className={`navbar-menu ${
-          menuOpen ? "active" : ""
-        }`}
+        className={`navbar-menu ${menuOpen ? "active" : ""}`}
+        aria-label="Main navigation"
       >
-
         <button
           type="button"
-          className="nav-link-btn"
-          onClick={handleHome}
+          className={`nav-link-btn ${isActive("/") ? "active" : ""}`}
+          onClick={() => handleNavigation("/")}
         >
-          <span className="nav-icon">
-            <FaInfoCircle />
-          </span>
-
+          <span className="nav-icon"><FaHome /></span>
           <span>Home</span>
         </button>
 
-
         <button
           type="button"
-          className="nav-link-btn"
-          onClick={handleJobs}
+          className={`nav-link-btn ${isActive("/jobs") ? "active" : ""}`}
+          onClick={() => handleNavigation("/jobs")}
         >
-          <span className="nav-icon">
-            <FaBriefcase />
-          </span>
-
+          <span className="nav-icon"><FaBriefcase /></span>
           <span>Jobs</span>
         </button>
 
-
         <button
           type="button"
-          className="nav-link-btn"
-          onClick={handleBanks}
+          className={`nav-link-btn ${isActive("/banks") ? "active" : ""}`}
+          onClick={() => handleNavigation("/banks")}
         >
-          <span className="nav-icon">
-            <FaBuilding />
-          </span>
-
+          <span className="nav-icon"><FaBuilding /></span>
           <span>Banks</span>
         </button>
 
-
         <button
           type="button"
-          className="nav-link-btn"
-          onClick={handleAbout}
+          className={`nav-link-btn ${isActive("/about") ? "active" : ""}`}
+          onClick={() => handleNavigation("/about")}
         >
-          <span className="nav-icon">
-            <FaInfoCircle />
-          </span>
-
+          <span className="nav-icon"><FaInfoCircle /></span>
           <span>About Us</span>
         </button>
 
-
         <button
           type="button"
-          className="nav-link-btn"
-          onClick={handleContact}
+          className={`nav-link-btn ${isActive("/contact") ? "active" : ""}`}
+          onClick={() => handleNavigation("/contact")}
         >
-          <span className="nav-icon">
-            <FaPhoneAlt />
-          </span>
-
+          <span className="nav-icon"><FaPhoneAlt /></span>
           <span>Contact</span>
         </button>
-
       </nav>
 
-
-      {/* =================================================
-          RIGHT SIDE
-      ================================================= */}
-
+      {/* RIGHT SIDE */}
       <div className="navbar-right">
 
         {token ? (
-
           <>
-
             {/* PROFILE */}
-
             <button
               type="button"
               className="profile"
               onClick={handleProfile}
               title="Profile"
+              aria-label="Open profile"
             >
-
               {user?.name
-                ? user.name
-                    .charAt(0)
-                    .toUpperCase()
+                ? user.name.charAt(0).toUpperCase()
                 : <FaUser />
               }
-
             </button>
 
-
             {/* USER NAME */}
-
             <button
               type="button"
               className="user-name-btn"
               onClick={handleProfile}
             >
-
               {user?.name || "Profile"}
-
             </button>
 
-
             {/* LOGOUT */}
-
             <button
               type="button"
               className="logout-btn"
               onClick={handleLogout}
             >
-
               Logout
-
             </button>
-
           </>
-
         ) : (
-
           <>
-
             {/* LOGIN */}
-
             <Link
               to="/login"
               className="login-btn"
@@ -311,9 +199,7 @@ function Navbar() {
               Login
             </Link>
 
-
             {/* SIGNUP */}
-
             <Link
               to="/signup"
               className="signup-btn"
@@ -321,39 +207,23 @@ function Navbar() {
             >
               Signup
             </Link>
-
           </>
-
         )}
 
-
-        {/* =================================================
-            MOBILE MENU
-        ================================================= */}
-
+        {/* MOBILE HAMBURGER */}
         <button
           type="button"
           className="menu-icon"
-          onClick={() => {
-            setMenuOpen((prev) => !prev);
-          }}
-          aria-label="Toggle navigation"
+          onClick={toggleMenu}
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={menuOpen}
         >
-
-          {menuOpen
-            ? <FaTimes />
-            : <FaBars />
-          }
-
+          {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
       </div>
-
     </header>
-
   );
-
 }
 
 export default Navbar;

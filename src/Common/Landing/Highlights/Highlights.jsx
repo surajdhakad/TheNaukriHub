@@ -1,4 +1,7 @@
+import { useState } from "react";
 import "./Highlights.css";
+
+import { FaWhatsapp, FaRobot, FaTimes } from "react-icons/fa";
 
 // =====================================================
 // HIGHLIGHTS DATA
@@ -7,7 +10,7 @@ import "./Highlights.css";
 const highlightsData = [
   {
     icon: "♙",
-    title: "5000+ Candidates Placed Successfully",
+    title: "500+ Candidates Placed Successfully",
     description:
       "We have successfully placed 5000+ candidates across leading banks and financial institutions, building trust through real results.",
   },
@@ -43,93 +46,118 @@ const highlightsData = [
   },
 ];
 
-
-// =====================================================
-// HIGHLIGHTS COMPONENT
-// =====================================================
-
 function Highlights() {
+  const [chatOpen, setChatOpen] = useState(false);
+
+  // WhatsApp
+  const openWhatsApp = () => {
+    const message = encodeURIComponent(
+      "Hello TheNaukriHub, I need assistance regarding jobs and placements.",
+    );
+
+    window.open(
+      `https://api.whatsapp.com/send?phone=917354768277&text=${message}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
+
   return (
-    <section className="highlights-section">
+    <>
+      <section className="highlights-section">
+        {/* HEADER */}
+        <div className="highlights-header">
+          <h2>
+            TheNaukriHub.com <span>Highlights</span>
+          </h2>
 
-      {/* =================================================
-          HEADER
-      ================================================= */}
+          <p>
+            India's Trusted BFSI Career Platform for Freshers &amp; Experienced
+            Candidates
+          </p>
+        </div>
 
-      <div className="highlights-header">
+        {/* CARDS */}
+        <div className="highlights-grid">
+          {highlightsData.map((item, index) => (
+            <div className="highlight-card" key={index}>
+              <div className="highlight-icon">{item.icon}</div>
 
-        <h2>
-          TheNaukriHub.com <span>Highlights</span>
-        </h2>
+              <div className="highlight-content">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        <p>
-          India's Trusted BFSI Career Platform for Freshers &amp; Experienced
-          Candidates
-        </p>
+      {/* =====================================================
+          FLOATING WHATSAPP & AI ASSISTANT
+      ===================================================== */}
 
-      </div>
+      <div className="floating-assistant">
+        {/* WHATSAPP BUTTON */}
+        <button
+          type="button"
+          className="floating-whatsapp"
+          onClick={openWhatsApp}
+          aria-label="Contact on WhatsApp"
+          title="WhatsApp"
+        >
+          <FaWhatsapp />
+        </button>
 
+        {/* AI CHAT BUTTON */}
+        <button
+          type="button"
+          className="floating-ai"
+          onClick={() => setChatOpen(!chatOpen)}
+          aria-label="AI Assistant"
+          title="AI Assistant"
+        >
+          {chatOpen ? <FaTimes /> : <FaRobot />}
+        </button>
 
-      {/* =================================================
-          CARDS
-      ================================================= */}
+        {/* AI CHAT WINDOW */}
+        {chatOpen && (
+          <div className="ai-chat-window">
+            <div className="ai-chat-header">
+              <div>
+                <strong>TheNaukriHub Assistant</strong>
+                <p>Career Support</p>
+              </div>
 
-      <div className="highlights-grid">
-
-        {highlightsData.map((item, index) => (
-
-          <div
-            className="highlight-card"
-            key={index}
-          >
-
-            {/* Icon */}
-
-            <div className="highlight-icon">
-              {item.icon}
+              <button
+                type="button"
+                onClick={() => setChatOpen(false)}
+                aria-label="Close chat"
+              >
+                <FaTimes />
+              </button>
             </div>
 
+            <div className="ai-chat-body">
+              <p>Hello! Welcome to TheNaukriHub. How can we help you today?</p>
 
-            {/* Content */}
+              <button type="button" onClick={openWhatsApp}>
+                Job Enquiry
+              </button>
 
-            <div className="highlight-content">
+              <button type="button" onClick={openWhatsApp}>
+                Registration Help
+              </button>
 
-              <h3>
-                {item.title}
-              </h3>
+              <button type="button" onClick={openWhatsApp}>
+                Interview Preparation
+              </button>
 
-              <p>
-                {item.description}
-              </p>
-
+              <small>Connect with our support team on WhatsApp.</small>
             </div>
-
           </div>
-
-        ))}
-
+        )}
       </div>
-
-
-      {/* =================================================
-          FREE ASSISTANCE
-      ================================================= */}
-
-
-      {/* =================================================
-          WHATSAPP
-      ================================================= */}
-
-      
-      
-
-
-      {/* =================================================
-          CHAT
-      ================================================= */}
-
-      
-    </section>
+    </>
   );
 }
 

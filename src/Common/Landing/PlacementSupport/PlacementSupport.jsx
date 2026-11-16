@@ -182,45 +182,16 @@ function PlacementSupport() {
           FREE ASSISTANCE
       ================================================= */}
 
-      <div className="placement-free-assistance">
-
-        <span className="assistance-icon">
-          ▣
-        </span>
-
-        <span>
-          Free Assistance
-        </span>
-
-      </div>
 
 
-      {/* =================================================
-          WHATSAPP
-      ================================================= */}
 
-      <a
-        href="https://wa.me/"
-        className="placement-whatsapp"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="WhatsApp"
-      >
-        ☎
-      </a>
+
 
 
       {/* =================================================
           CHAT
       ================================================= */}
 
-      <button
-        className="placement-chat"
-        type="button"
-        aria-label="Chat"
-      >
-        ●●●
-      </button>
 
     </section>
   );

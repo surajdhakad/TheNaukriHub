@@ -6,19 +6,12 @@ import "./Home.css";
 
 import Navbar from "../Common/Landing/Navbar/Navbar";
 import Hero from "../Common/Landing/Hero/Hero";
-
 import CompanySlider from "../Common/Landing/CompanySlider/CompanySlider";
-
 import StatsCard from "../Common/Landing/StatsCard/StatsCard";
-
 import RecentJobs from "../Common/Landing/RecentJobs/RecentJobs";
-
 import PlacementDrive from "../Common/Landing/PlacementDrive/PlacementDrive";
-
 import PlacedStudents from "../Common/Landing/PlacedStudents/PlacedStudents";
-
 import Footer from "../Common/Landing/Footer/Footer";
-
 import WhyBanking from "../Common/Landing/WhyBanking/WhyBanking";
 import PlacementSupport from "../Common/Landing/PlacementSupport/PlacementSupport";
 import CareerJourney from "../Common/Landing/CareerJourney/CareerJourney";
@@ -26,17 +19,21 @@ import TrainingWorks from "../Common/Landing/TrainingWorks/TrainingWorks";
 import HowItWorks from "../Common/Landing/HowItWorks/HowItWorks";
 import Featured from "../Common/Landing/Featured/Featured";
 import CareerBanner from "../Common/Landing/CareerBanner/CareerBanner";
-// =====================================================
-// ⭐ HIGHLIGHTS
-// =====================================================
-
 import Highlights from "../Common/Landing/Highlights/Highlights";
-
-// =====================================================
-// PUBLIC JOB PAGE
-// =====================================================
-
 import AllJobs from "../Common/Landing/jobs/jobs";
+
+// =====================================================
+// NEW PLACED STUDENTS
+// =====================================================
+
+// New student carousel
+import Student from "../Common/Landing/dummyplacedstudent/student";
+
+// =====================================================
+// POPUP
+// =====================================================
+
+import LeadPopup from "../Common/Landing/LeadPopup/LeadPopup";
 
 // =====================================================
 // BACKGROUND IMAGE
@@ -50,10 +47,6 @@ import statsBg from "../assets/Images/background-image.png";
 
 function Home() {
 
-  // ===================================================
-  // STATS
-  // ===================================================
-
   const stats = {
     totalJobs: 120,
     totalBanks: 55,
@@ -61,8 +54,16 @@ function Home() {
     highestPackage: 6,
   };
 
+
   return (
     <div className="home-page">
+
+      {/* =================================================
+          POPUP
+      ================================================= */}
+
+      <LeadPopup />
+
 
       {/* =================================================
           NAVBAR
@@ -79,15 +80,16 @@ function Home() {
         <Hero />
       </section>
 
-{/* =================================================
-    CAREER JOURNEY
-================================================= */}
 
-<section id="career-journey">
+      {/* =================================================
+          CAREER JOURNEY
+      ================================================= */}
 
-  <CareerJourney />
+      <section id="career-journey">
+        <CareerJourney />
+      </section>
 
-</section>
+
       {/* =================================================
           STATS
       ================================================= */}
@@ -137,13 +139,11 @@ function Home() {
 
 
       {/* =================================================
-          ⭐ NAUKARIFY HIGHLIGHTS
+          HIGHLIGHTS
       ================================================= */}
 
       <section id="highlights">
-
         <Highlights />
-
       </section>
 
 
@@ -155,102 +155,100 @@ function Home() {
         id="jobs"
         className="home-jobs-section"
       >
-
         <RecentJobs />
-
       </section>
 
 
       {/* =================================================
           ALL JOBS
-          
-          Ye /jobs ka complete jobs listing section hai.
-          Isse Home page par bhi jobs render hongi.
       ================================================= */}
 
       <section
         id="all-jobs"
         className="home-all-jobs-section"
       >
-
         <AllJobs />
-
       </section>
 
 
       {/* =================================================
-          WHY CHOOSE BANKING SECTOR
+          WHY BANKING
       ================================================= */}
 
       <section id="why-banking">
-
         <WhyBanking />
-
       </section>
-{/* =================================================
-    PLACEMENT SUPPORT PROGRAM
-================================================= */}
 
-<section id="placement-support">
 
-  <PlacementSupport />
-
-</section>
-{/* =================================================
-    HOW OUR TRAINING WORKS
-================================================= */}
-
-<section id="training-works">
-
-  <TrainingWorks />
-
-</section>
-{/* =================================================
-    HOW IT WORKS
-================================================= */}
-
-<section id="how-it-works">
-
-  <HowItWorks />
-
-</section>
-{/* =================================================
-    FEATURED IN + FREE JOB ASSISTANCE
-================================================= */}
-
-<section id="featured">
-
-  <Featured />
-
-</section>
-{/* =================================================
-    CAREER BANNER
-================================================= */}
-
-<section id="career-banner">
-
-  <CareerBanner />
-
-</section>
       {/* =================================================
-          UPCOMING PLACEMENT DRIVES
+          PLACEMENT SUPPORT
+      ================================================= */}
+
+      <section id="placement-support">
+        <PlacementSupport />
+      </section>
+
+
+      {/* =================================================
+          TRAINING WORKS
+      ================================================= */}
+
+      <section id="training-works">
+        <TrainingWorks />
+      </section>
+
+
+      {/* =================================================
+          HOW IT WORKS
+      ================================================= */}
+
+      <section id="how-it-works">
+        <HowItWorks />
+      </section>
+
+
+      {/* =================================================
+          FEATURED
+      ================================================= */}
+
+      <section id="featured">
+        <Featured />
+      </section>
+
+
+      {/* =================================================
+          CAREER BANNER
+      ================================================= */}
+
+      <section id="career-banner">
+        <CareerBanner />
+      </section>
+
+
+      {/* =================================================
+          PLACEMENT DRIVE
       ================================================= */}
 
       <section id="placement-drive">
-
         <PlacementDrive />
-
       </section>
 
 
       {/* =================================================
-          OUR PLACED STUDENTS
+          EXISTING PLACED STUDENTS
       ================================================= */}
 
-      <section id="placed-students">
-
+      {/* <section id="placed-students">
         <PlacedStudents />
+      </section> */}
 
+
+      {/* =================================================
+          NEW STUDENT CAROUSEL
+      ================================================= */}
+
+      <section id="student-profiles">
+        <Student />
       </section>
 
 
@@ -259,9 +257,7 @@ function Home() {
       ================================================= */}
 
       <section id="companies">
-
         <CompanySlider />
-
       </section>
 
 

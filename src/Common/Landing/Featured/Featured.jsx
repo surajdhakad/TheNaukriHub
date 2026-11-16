@@ -1,22 +1,25 @@
 import "./Featured.css";
-import { Rocket } from "lucide-react";
 
 function Featured() {
+  const whatsappNumber = "917354768277";
+  const message = encodeURIComponent("Hi, I would like free job assistance.");
+
+  const openWhatsApp = () => {
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${message}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
+
   return (
     <section className="featured-section">
-
-      {/* =========================================
-          FEATURED IN
-      ========================================= */}
-
       <div className="featured-media">
-
         <h2>
           Featured <span>In</span>
         </h2>
 
         <div className="featured-logos">
-
           <div className="featured-logo medium-logo">
             <span className="medium-icon">●◐</span>
             <span>Medium</span>
@@ -44,46 +47,25 @@ function Featured() {
               <small>News India</small>
             </span>
           </div>
-
         </div>
-
       </div>
-
-
-      {/* =========================================
-          FREE JOB ASSISTANCE
-      ========================================= */}
 
       <div className="job-assistance">
-
         <div className="assistance-content">
-
-          <h2>
-            Get Free Job Assistance
-          </h2>
+          <h2>Get Free Job Assistance</h2>
 
           <p>
-            Navigate your career path with confidence and clarity.
-            Our team of seasoned professionals at{" "}
-            <strong>TheNaukriHub.com</strong> offers FREE expert advice
-            and tailored solutions to propel you toward your goals.
-            Let's discuss this journey together.
+            Navigate your career path with confidence and clarity. Our team of
+            seasoned professionals at <strong>TheNaukriHub.com</strong> offers
+            FREE expert advice and tailored solutions to propel you toward your
+            goals. Let&apos;s discuss this journey together.
           </p>
 
-          <button
-            className="assistance-btn"
-            onClick={() => {
-              window.location.href = "/register";
-            }}
-          >
+          <button className="assistance-btn" onClick={openWhatsApp}>
             Get Now
-            
           </button>
-
         </div>
-
       </div>
-
     </section>
   );
 }

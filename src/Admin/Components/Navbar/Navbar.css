@@ -1,65 +1,195 @@
-.admin-navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 25px;
-    background:#fff;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
+.admin-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(280px, 1.2fr) auto;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  min-height: 96px;
+  padding: 18px 28px;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.07);
 }
 
-.admin-navbar-left h2{
-    font-size:34px;
-    font-weight:700;
+.admin-navbar-left h2 {
+  margin: 0;
+  color: #1e293b;
+  font-size: clamp(22px, 2vw, 34px);
+  font-weight: 750;
+  line-height: 1.15;
 }
 
-.admin-navbar-center{
-    width:40%;
+.admin-search {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  min-width: 0;
+  height: 56px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  border: 1px solid #d9e0eb;
+  border-radius: 14px;
+  background: #f8fafc;
+  color: #718096;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.admin-search-input{
-    width:100%;
-    padding:12px 18px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    outline:none;
-    font-size:15px;
+.admin-search:focus-within {
+  border-color: #3474f5;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(52, 116, 245, 0.12);
 }
 
-.admin-navbar-right{
-    display:flex;
-    align-items:center;
-    gap:25px;
+.admin-search > svg {
+  flex: 0 0 auto;
+  font-size: 16px;
 }
 
-.admin-notification{
-    font-size:26px;
-    cursor:pointer;
+.admin-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #1e293b;
+  font: inherit;
+  font-size: 15px;
 }
 
-.admin-profile{
-    display:flex;
-    align-items:center;
-    gap:12px;
+.admin-search input::placeholder {
+  color: #8793a5;
 }
 
-.admin-profile img{
-    width:50px;
-    height:50px;
-    border-radius:50%;
-    object-fit:cover;
-    border:3px solid #2563eb;
+.admin-search-clear {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: #e8edf5;
+  color: #475569;
+  font-size: 21px;
+  line-height: 1;
+  cursor: pointer;
 }
 
-.admin-info{
-    display:flex;
-    flex-direction:column;
+.admin-navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
 }
 
-.admin-name{
-    font-size:17px;
-    font-weight:600;
+.admin-notification-btn {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fff;
+  color: #475569;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-.admin-role{
-    color:#777;
+.admin-notification-btn:hover {
+  background: #f1f5f9;
+}
+
+.admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.admin-profile img {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 auto;
+  border: 3px solid #3474f5;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.admin-info h4,
+.admin-info p {
+  overflow: hidden;
+  max-width: 150px;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-info h4 {
+  color: #1e293b;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.admin-info p {
+  margin-top: 3px;
+  color: #64748b;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+@media (max-width: 1050px) {
+  .admin-navbar {
+    grid-template-columns: 1fr auto;
+    gap: 14px 20px;
+  }
+
+  .admin-search {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .admin-navbar-right {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-navbar {
+    min-height: auto;
+    padding: 15px;
+  }
+
+  .admin-navbar-left h2 {
+    font-size: 21px;
+  }
+
+  .admin-navbar-right {
+    gap: 10px;
+  }
+
+  .admin-profile {
+    gap: 8px;
+  }
+
+  .admin-profile img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .admin-info h4 {
+    max-width: 95px;
+    font-size: 14px;
+  }
+
+  .admin-info p {
+    font-size: 12px;
+  }
+
+  .admin-search {
+    height: 48px;
+  }
 }

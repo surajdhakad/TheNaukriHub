@@ -6,15 +6,12 @@ import careerGirl from "../../../assets/Images/career-girl.png";
 function CareerBanner() {
   return (
     <section className="career-banner-section">
-
       <div className="career-banner">
-
         {/* =========================================
             LEFT CONTENT
         ========================================= */}
 
         <div className="career-banner-content">
-
           <h2 className="career-banner-quote">
             “ Naukri ki Surubat,
             <br />
@@ -34,25 +31,16 @@ function CareerBanner() {
             <br />
             dream jobs.
           </p>
-
         </div>
-
 
         {/* =========================================
             RIGHT IMAGE
         ========================================= */}
 
         <div className="career-banner-image">
-
-          <img
-            src={careerGirl}
-            alt="Naukarify Career Support"
-          />
-
+          <img src={careerGirl} alt="Naukarify Career Support" />
         </div>
-
       </div>
-
     </section>
   );
 }
